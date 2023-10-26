@@ -5,6 +5,7 @@ import { AiOutlineHome, AiOutlineClose } from 'react-icons/ai'
 import { GoMail } from 'react-icons/go'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { BiLogoFacebook, BiLogoTwitter, BiLogoInstagram, BiLogoYoutube } from 'react-icons/bi'
+import { SiViber } from 'react-icons/si'
 import { useState } from 'react';
 import Contact from './pages/Contact';
 import WhatIsESCOM from './pages/WhatIsESCOM';
@@ -82,15 +83,7 @@ const IMAGES = {
         <Component />
 
         <div className='footer'>
-        
-        <div className='footerLogoContainer'>
-             <img  className='logoClass' alt='guru' src={require('../src/images/logo.png')}/>
-             <img  className='prospiLogoClass' alt='prosperitati' src={require('../src/images/image.png')}/>
-             <img  className='logoClass' alt='sp' src={require('../src/images/cover-photo.png')}/>
-
-        </div>
-
-        <div className='footertextContainer'>
+          
           <div className='footerText' >Powered by:   <div style={{textDecoration: 'underline', paddingLeft: 10 }} className='hoverPink' onClick={()=>{window.location.href = 'https://www.gamesguru.rs/';}} >GamesGuru</div></div>
             
             <div className='socialMediaContainer'>
@@ -102,7 +95,6 @@ const IMAGES = {
             </div>
 
           <div className='footerText' >Code and design by:   <div style={{textDecoration: 'underline', paddingLeft: 10  }} className='hoverPink' onClick={()=>{window.location.href = 'https://www.studiopresent.rs/';}} >StudioPresent</div></div>
-         </div>
         </div>
 
 
