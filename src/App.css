@@ -48,6 +48,7 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .hamburgerMenu:hover {
     transition: all 0.4s ease;
@@ -86,6 +87,7 @@ body, html {
   flex-wrap: nowrap;
   padding-right: 5px;
   transition: all 0.4s ease;
+  cursor: pointer;
 }
 .menuItem.active  {
   background-color: grey;
@@ -158,6 +160,7 @@ body, html {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 
 }
 .signUpButton:hover {
@@ -222,6 +225,7 @@ body, html {
 .hoverPink:hover {
   transition: all 0.4s ease;
   color: #ed0978;
+  cursor: pointer;
 }
 .footer {
   display: flex;

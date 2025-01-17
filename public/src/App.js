@@ -5,7 +5,6 @@ import { AiOutlineHome, AiOutlineClose } from 'react-icons/ai'
 import { GoMail } from 'react-icons/go'
 import { BsQuestionCircle } from 'react-icons/bs'
 import { BiLogoFacebook, BiLogoTwitter, BiLogoInstagram, BiLogoYoutube } from 'react-icons/bi'
-import { SiViber } from 'react-icons/si'
 import { useState } from 'react';
 import Contact from './pages/Contact';
 import WhatIsESCOM from './pages/WhatIsESCOM';
@@ -20,7 +19,7 @@ function App() {
 const IMAGES = {
     titan1 : new URL('../src/images/escom-titan-hatter.webp', import.meta.url).href,
     logo1 : new URL('../src/images/escom_logo-SEC-COMMAND2-veryion.png', import.meta.url).href,
-    qrCode: new URL('../src/images/IMG-92db9de47148bf62f0465910cab62e8b-V.png', import.meta.url).href,
+    qrCode: new URL('../src/images/frame.png', import.meta.url).href,
     guruLogo: new URL('../src/images/Guru-logo-escom-menupoint.png', import.meta.url).href,
 
     
@@ -57,7 +56,7 @@ const IMAGES = {
               <img className='logo1' src={IMAGES.logo1} alt='logo1' />
           </a>
 
-           <button className='signUpButton' onClick={()=>{window.location.href = 'https://escom-beta.web.app/';}} >
+           <button className='signUpButton' onClick={()=>{window.location.href = 'https://esport-escom.web.app/';}} >
               <h1 className='signUpText' >Sign Up!</h1>
           </button>
         </div>

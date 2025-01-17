@@ -9,7 +9,7 @@ const Home = () => {
 const IMAGES = {
     titan1 : new URL('../images/escom-titan-hatter.webp', import.meta.url).href,
     logo1 : new URL('../images/escom_logo-SEC-COMMAND2-veryion.png', import.meta.url).href,
-    qrCode: new URL('../images/IMG-92db9de47148bf62f0465910cab62e8b-V.png', import.meta.url).href,
+    qrCode: new URL('../images/frame.png', import.meta.url).href,
     guruLogo: new URL('../images/Guru-logo-escom-menupoint.png', import.meta.url).href,
 
 }
@@ -29,7 +29,7 @@ const IMAGES = {
               <div className='WelcomeText' >Become a Contractor by scanning this QR Code: </div>
             <img className='qrCode' src={IMAGES.qrCode} alt='qrKod' />
               <div className='WelcomeText' >Or by visiting this link:</div>
-              <div className='WelcomeText hoverUnderLine hoverPink' onClick={()=>{window.location.href = 'https://escom-beta.web.app/';}} >https://escom-beta.web.app/</div>
+              <div className='WelcomeText hoverUnderLine hoverPink' onClick={()=>{window.location.href = 'https://esport-escom.web.app/';}} >https://esport-escom.web.app//</div>
 
 
           </div>
