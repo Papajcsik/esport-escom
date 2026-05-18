@@ -28,6 +28,7 @@ body, html {
 }
 
 .navbar {
+  position: relative;
   background: linear-gradient(to bottom, #ef0c75, #fe620b);
   width: 100%;
   display: flex;
@@ -49,9 +50,9 @@ body, html {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  transition: all 0.4s ease;
 }
 .hamburgerMenu:hover {
-    transition: all 0.4s ease;
       background-color: #220f18;
 }
 .menuContent {
@@ -150,22 +151,27 @@ body, html {
 .signUpButton {
   position: absolute;
   right: 10px;
-  width: 7%;
-  aspect-ratio: 2;
-  border-width: 3px;
-  border-color: #ed0978;
-  background-color: #8b0546;
-  border-radius: 55px; 
+  height: 50%;
+  aspect-ratio: calc(627/183);
+  border-width: 0px;
+  /* border-color: #ed0978;
+  background-color: #8b0546; */
+  /* border-radius: 55px;  */
   margin-right: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-
+  transition: all 0.4s ease-in-out;
+  background-color: transparent;
+  background-image: url('./images/getItOnPlay.webp');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .signUpButton:hover {
-    transition: all 0.4s ease;
-    background-color: #220f18;
+    scale: 1.1;
+    /* background-color: #220f18; */
 }
 .signUpText {
   font-size: 20px;
@@ -184,9 +190,123 @@ body, html {
 }
 
 .titanImage {
-  width: 50%;
+  width: 100%;
+  height: max-content;
+  background-image: url('./images/escombot-escomweb.webp');
+  background-size: contain;
+  background-attachment: fixed;
+    /* Parallax effect */
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
+
+.section1 {
+  width: 100%;
   height: auto;
-  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5vw 0;
+}
+.textSection {
+  width: 50%;
+  aspect-ratio: 1.77;
+  background-image: url('./images/textContainer.webp');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.textSection text{
+  width: 80%;
+  font-size: 1.8vw;
+  color: white;
+  font-weight: 600;
+  text-wrap: wrap;
+  text-align: center;
+}
+.image1 {
+  width: 50%;
+  aspect-ratio: 1.62;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.section2 {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5vw 0;
+}
+.textSection2{
+  width: 50%;
+  aspect-ratio: 1.77;
+  background-image: url('./images/textContainer2.webp');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.textSection2 text {
+  width: 80%;
+  font-size: 1.8vw;
+  color: white;
+  font-weight: 600;
+  text-align: center;
+  margin-right: 4vw;
+  text-wrap: wrap;
+}
+.textSection2 .betaText {
+  height: 35%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  text-wrap: wrap;
+}
+.textSection2 .betaText .beta {
+  height: 100%;
+  aspect-ratio: 1.09;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.getItOnPlayContainer {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5vw;
+  background-color: transparent;
+}
+.getItOnPlayContainer button{
+  border: none;
+  background-color: transparent;
+  height: 10vw;
+  aspect-ratio: 3.15;
+  transition: all 0.3s ease-in-out;
+}
+.getItOnPlayContainer button img {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+.getItOnPlayContainer button:hover {
+  cursor: pointer;
+  scale: 1.05;
 }
 .welcomeTextContainer {
   height: 100%;
@@ -196,18 +316,39 @@ body, html {
   align-items: center;
   justify-content: space-evenly;
 }
+.whatIsEscomContainer {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
 .WelcomeHeader {
-  font-size: 4.5vh;
+  font-size: 2vw;
   color: white;
   font-weight: 700;
-  margin-bottom: 55px;
+  margin-bottom: 3vw;
 }
 .WelcomeText {
-  font-size: 3vh;
+  font-size: 1.8vw;
   color: white;
   font-weight: 400;
-  margin-bottom: 35px;
+  margin-bottom: 1vw;
   max-width: 50%;
+}
+.JoinUsText {
+  font-size: 2vw;
+  color: white;
+  font-weight: 700;
+  margin: 3vw 0;
+}
+.whatIsText {
+  font-size: 1.6vw;
+  color: white;
+  font-weight: 400;
+  margin-bottom: 1vw;
+  max-width: 60%;
 }
 .qrCode {
   height: 25vw;
@@ -215,15 +356,17 @@ body, html {
   border-radius: 15px;
     margin-bottom: 35px;
 }
-.hoverUnderLine:hover {
+.hoverUnderLine {
   transition: all 0.4s ease;
+}
+.hoverUnderLine:hover {
   text-decoration: underline;
 }
 .hoverPink {
   color: white;
+  transition: all 0.4s ease;
 }
 .hoverPink:hover {
-  transition: all 0.4s ease;
   color: #ed0978;
   cursor: pointer;
 }
@@ -246,14 +389,19 @@ body, html {
 .logoClass{
 
   width: 20%;
-  aspect-ratio: 1.4;
+  aspect-ratio: 1;
   margin-top: 5%;
   margin-bottom: 5%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.guru {
 
 }
 .prospiLogoClass{
-  width: 19%;
-    aspect-ratio: 1.5;
+  width: 20%;
+    aspect-ratio: 1;
     margin-top: 5%;
     margin-bottom: 5%;
 }
@@ -292,10 +440,9 @@ body, html {
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-
+  transition: all 0.6s ease;
 }
 .socialMediaItem:hover {
-  transition: all 0.6s ease;
   background-color: #ed0978 ;
 }
 .whatIsEscom {
@@ -306,10 +453,10 @@ body, html {
 }
 .battleImage {
 
-    width: 50vw;
+    width: 60vw;
     height: auto;
     border-radius: 15px;
-    margin-bottom: 35px;
+    margin: 2vw 0;
     
 }
 .gamersImage {
@@ -324,13 +471,13 @@ body, html {
   padding: 0px;
 }
 .widen {
-  width: 50%;
+  width: 80%;
 }
 .ContactText {
-    font-size: 3vh;
+    font-size: 1.8vw;
     color: white;
     font-weight: 400;
-    margin-bottom: 35px;
+    margin-bottom: 1vw;
     max-width: 60%;
 
 }
@@ -362,7 +509,7 @@ body, html {
 
 @media (max-width: 1200px) {
 .signUpButton {
-    width: 10%;
+    height: 50%;
   }
 .menuItem {
       width: 35vw;
@@ -376,8 +523,7 @@ body, html {
 }
 @media (max-width: 1000px) {
   .WelcomeHeader {
-      font-size: 3.5vh;
-      margin-top: 50px;
+      font-size: 2.5vw;
     }
   .WelcomeText {
     font-size: 2.5vh;
@@ -407,13 +553,23 @@ body, html {
   .welcomeTextContainer {
     width: 90%;
   }
+.JoinUsText {
+  font-size: 4vw;
+  text-wrap: wrap;
+  margin: 5vw 0 0 0;
+  text-align: center;
+  max-width: 80%;
+}
+  .whatIsEscomContainer {
+    width: 90%;
+  }
   .qrCode {
     height: 50vw;
   }
 
   .signUpButton {
 
-    width: 12%;
+    height: 50%;
   }
   .logoContainer {
       width: 25%;
@@ -433,14 +589,15 @@ body, html {
   .menuItem {
       width: 45vw;
   }
-  .titanImage {
-    width: 90vw;
+  .whatIsText {
+    font-size: 1.2vw;
+    max-width: 80%;
   }
   .battleImage {
     width: 80vw;
   }
   .widen {
-    font-size: 4vh;
+    font-size: 2.8vw;
   }
   .gamersImageContainer {
     width: 60vw;
@@ -455,12 +612,12 @@ body, html {
 
 @media (max-width: 700px) {
 
-  .signUpButton {
+  /* .signUpButton {
 
     width: 15%;
     aspect-ratio: 3.5;
     max-height: 95%;
-  }
+  } */
   .menuItem {
       width: 55vw;
   }
@@ -477,14 +634,7 @@ body, html {
   .navbar {
       height: 10vh;
     }
-  .signUpButton {
 
-    width: 20%;
-    aspect-ratio: 3;
-    max-height: 95%;
-
-
-  }
 
   .qrCode {
       height: 70vw;
@@ -506,7 +656,7 @@ body, html {
       width: 65vw;
     }
   .widen {
-    font-size: 3vh;
+    font-size: 3vw;
   }
   .footerLogoContainer{
     margin-top: 3%;
@@ -525,12 +675,30 @@ body, html {
 }
 
 @media (max-width: 500px) {
+  .WelcomeHeader {
+    font-size: 3.5vh;
+    margin-top: 1vw;
+  }
+.JoinUsText {
+  font-size: 5vw;
+  text-wrap: wrap;
+  margin: 5vw 0 0 0;
+}
   .WelcomeText {
-    font-size: 2.5vh;
+    font-size: 3vw;
+    max-width: 90%;
   }
   .gamersImageContainer {
      width: 80vw;
    }
+   .ContactText {
+    font-size: 2.8vw;
+    margin-bottom: 2vw;
+   }
+    .signUpButton {
+  
+      height: 40%;  
+    }
 }
 
 @media (max-width: 500px) {
@@ -553,11 +721,7 @@ body, html {
 
   .signUpButton {
 
-    width: 22%;
-    aspect-ratio: 3;
-    max-height: 95%;
-
-
+    height: 35%;  
   }
 .signUpText {
   font-size: 12px;
@@ -590,7 +754,60 @@ body, html {
 
 
 }
+@media (max-width: 430px) {
+.section1 {
+  flex-direction: column;
+}
+.section1 .textSection {
+  width: 100%;
+}
+.section1 .textSection text {
+  font-size: 3vw;
+}
+.section1 .image1 {
+  width: 100%;
+}
+.section2 {
+  flex-direction: column-reverse;
+}
 
+.section2 .textSection2 {
+  width: 100%;
+  justify-content: center;
+}
+.textSection2 .betaText {
+  height: 25%;
+  margin-top: 5vw;
+}
+.section2 .textSection2 text {
+  font-size: 3vw;
+}
+
+.section2 .image1 {
+  width: 100%;
+}
+.getItOnPlayContainer button {
+  margin: 10vw 0;
+  height: 25vw;
+}
+    .WelcomeHeader {
+      font-size: 4vh;
+      margin-top: 1vw;
+    }
+  
+    .WelcomeText {
+      font-size: 3.5vh;
+    }
+  
+    .gamersImageContainer {
+      width: 80vw;
+    }
+  
+    .ContactText {
+      font-size: 3.5vw;
+      margin-bottom: 3vw;
+    }
+}
 @media (max-width: 400px) {
 
 
@@ -618,7 +835,10 @@ body, html {
     font-size: 1.5vh;
   }
 
+  .signUpButton {
 
+    height: 28%;  
+  }
 
 }
 
