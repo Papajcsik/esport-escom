@@ -1,874 +1,808 @@
-body, html {
-  background-color: black;
+body,
+html {
+	background-color: black;
 }
 .main {
-  display: flex;
-  flex-direction: column;
-  background-repeat: no-repeat;
-  background-color: black;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-
-
+	display: flex;
+	flex-direction: column;
+	background-repeat: no-repeat;
+	background-color: black;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
 }
 ::-webkit-scrollbar {
-  background-color: #220f18;
-  opacity: 0.5;
-  width: 1vw;
-
+	background-color: #220f18;
+	opacity: 0.5;
+	width: 1vw;
 }
 ::-webkit-scrollbar-thumb {
-
-  background: #00000095;
-  border-radius: 10px;
-  
-
+	background: #00000095;
+	border-radius: 10px;
 }
 
 .navbar {
-  position: relative;
-  background: linear-gradient(to bottom, #ef0c75, #fe620b);
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+	position: relative;
+	background: linear-gradient(to bottom, #ef0c75, #fe620b);
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 }
 .hamburgerMenu {
-  position: absolute;
-  left: 10px;
-  border-radius: 15px;
-  background-color: transparent;
-  border-width: 0px !important;
-  border-color: transparent;
-  width: 5%;
-  aspect-ratio: 1;
-  margin-left: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: all 0.4s ease;
+	position: absolute;
+	left: 10px;
+	border-radius: 15px;
+	background-color: transparent;
+	border-width: 0px !important;
+	border-color: transparent;
+	width: 5%;
+	aspect-ratio: 1;
+	margin-left: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	transition: all 0.4s ease;
 }
 .hamburgerMenu:hover {
-      background-color: #220f18;
+	background-color: #220f18;
 }
 .menuContent {
-  position: absolute;
-    top: 0;
-    left: 0;
-  z-index: 20;
-  width:max-content;
-  height: auto;
-  background-color: black;
-  transition: transform 0.3s ease-in-out;
-    /* Adding transition */
-  transform: translateX(-100%);
-    /* Start the menu off-screen */
-  
-  
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 20;
+	width: max-content;
+	height: auto;
+	background-color: black;
+	transition: transform 0.3s ease-in-out;
+	/* Adding transition */
+	transform: translateX(-100%);
+	/* Start the menu off-screen */
 }
 .menuContent.menuShown {
-  transform: translateX(0);
-  /* Slide the menu in */
+	transform: translateX(0);
+	/* Slide the menu in */
 }
 .menuContent.menuHidden {
-  transform: translateX(-100%);
-  /* Slide the menu out */
+	transform: translateX(-100%);
+	/* Slide the menu out */
 }
 .menuItem {
-  height: 15vh;
-  text-decoration: none;
-  width: 25vw;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-wrap: nowrap;
-  padding-right: 5px;
-  transition: all 0.4s ease;
-  cursor: pointer;
+	height: 15vh;
+	text-decoration: none;
+	width: 25vw;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	flex-wrap: nowrap;
+	padding-right: 5px;
+	transition: all 0.4s ease;
+	cursor: pointer;
 }
-.menuItem.active  {
-  background-color: grey;
+.menuItem.active {
+	background-color: grey;
 }
 .menuItem.active .activeVertical {
-  background-color: #ed0978;
+	background-color: #ed0978;
 }
 
 .menuItem:hover .verticalLine {
-  background-color: #ed0978;
+	background-color: #ed0978;
 }
 
 .menuItem:hover {
-  background-color: grey;
+	background-color: grey;
 }
 .menuItemText {
-  font-size: 4vh;
-  color: white;
-  font-weight: 500;
-  text-align: left;
-  padding-left: 20px;
-
+	font-size: 4vh;
+	color: white;
+	font-weight: 500;
+	text-align: left;
+	padding-left: 20px;
 }
 .verticalLine {
-  height: 100%;
-  width: 3%;
-  background-color: transparent;
-  margin-right: 25px;
+	height: 100%;
+	width: 3%;
+	background-color: transparent;
+	margin-right: 25px;
 }
 .guruLogo {
-  height: auto;
-  width: 40px;
-  aspect-ratio: 1.6;
-  margin-right: 15px;
-  
-  
+	height: auto;
+	width: 40px;
+	aspect-ratio: 1.6;
+	margin-right: 15px;
 }
 
 .logoContainer {
-  width: 18%;
-  aspect-ratio: 3;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2px;
-  margin-bottom: 2px;
+	width: 18%;
+	aspect-ratio: 3;
+	justify-content: center;
+	align-items: center;
+	margin-top: 2px;
+	margin-bottom: 2px;
 }
 .logo1 {
-  height: 100%;
-  width: auto;
+	height: 100%;
+	width: auto;
 }
 .signUp {
-  width: 5%;
-  aspect-ratio: 1;
-  border-width: 2px;
-  border-color: white;
-  display: flex;
-  flex-wrap: nowrap;
-  text-align: center;
+	width: 5%;
+	aspect-ratio: 1;
+	border-width: 2px;
+	border-color: white;
+	display: flex;
+	flex-wrap: nowrap;
+	text-align: center;
 }
 .signUpButton {
-  position: absolute;
-  right: 10px;
-  height: 50%;
-  aspect-ratio: calc(627/183);
-  border-width: 0px;
-  /* border-color: #ed0978;
+	position: absolute;
+	right: 10px;
+	height: 50%;
+	aspect-ratio: calc(627 / 183);
+	border-width: 0px;
+	/* border-color: #ed0978;
   background-color: #8b0546; */
-  /* border-radius: 55px;  */
-  margin-right: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.4s ease-in-out;
-  background-color: transparent;
-  background-image: url('./images/getItOnPlay.webp');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+	/* border-radius: 55px;  */
+	margin-right: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: all 0.4s ease-in-out;
+	background-color: transparent;
+	background-image: url("./images/getItOnPlay.webp");
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 .signUpButton:hover {
-    scale: 1.1;
-    /* background-color: #220f18; */
+	scale: 1.1;
+	/* background-color: #220f18; */
 }
 .signUpText {
-  font-size: 20px;
-  color: white;
-  display: flex;
-  text-align: center;
+	font-size: 20px;
+	color: white;
+	display: flex;
+	text-align: center;
 }
 .mainContent {
-  background-color: #220f18;
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-
+	background-color: #220f18;
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
 }
 
 .titanImage {
-  width: 100%;
-  height: max-content;
-  background-image: url('./images/escombot-escomweb.webp');
-  background-size: contain;
-  background-attachment: fixed;
-    /* Parallax effect */
-  background-position: center;
-  background-repeat: no-repeat;
-
+	width: 100%;
+	height: max-content;
+	background-image: url("./images/escombot-escomweb.webp");
+	background-size: contain;
+	background-attachment: fixed;
+	/* Parallax effect */
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 .section1 {
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin: 5vw 0;
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin: 5vw 0;
 }
 .textSection {
-  width: 50%;
-  aspect-ratio: 1.77;
-  background-image: url('./images/textContainer.webp');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	width: 50%;
+	aspect-ratio: 1.77;
+	background-image: url("./images/textContainer.webp");
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-.textSection text{
-  width: 80%;
-  font-size: 1.8vw;
-  color: white;
-  font-weight: 600;
-  text-wrap: wrap;
-  text-align: center;
+.textSection text {
+	width: 80%;
+	font-size: 1.8vw;
+	color: white;
+	font-weight: 600;
+	text-wrap: wrap;
+	text-align: center;
 }
 .image1 {
-  width: 50%;
-  aspect-ratio: 1.62;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+	width: 50%;
+	aspect-ratio: 1.62;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 .section2 {
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin: 5vw 0;
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin: 5vw 0;
 }
-.textSection2{
-  width: 50%;
-  aspect-ratio: 1.77;
-  background-image: url('./images/textContainer2.webp');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
+.textSection2 {
+	width: 50%;
+	aspect-ratio: 1.77;
+	background-image: url("./images/textContainer2.webp");
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
 }
 .textSection2 text {
-  width: 80%;
-  font-size: 1.8vw;
-  color: white;
-  font-weight: 600;
-  text-align: center;
-  margin-right: 4vw;
-  text-wrap: wrap;
+	width: 80%;
+	font-size: 1.8vw;
+	color: white;
+	font-weight: 600;
+	text-align: center;
+	margin-right: 4vw;
+	text-wrap: wrap;
 }
 .textSection2 .betaText {
-  height: 35%;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  text-wrap: wrap;
+	height: 35%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+	text-wrap: wrap;
 }
 .textSection2 .betaText .beta {
-  height: 100%;
-  aspect-ratio: 1.09;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+	height: 100%;
+	aspect-ratio: 1.09;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 .getItOnPlayContainer {
-  width: 100%;
-  height: max-content;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 5vw;
-  background-color: transparent;
+	width: 100%;
+	height: max-content;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 5vw;
+	background-color: transparent;
 }
-.getItOnPlayContainer button{
-  border: none;
-  background-color: transparent;
-  height: 10vw;
-  aspect-ratio: 3.15;
-  transition: all 0.3s ease-in-out;
+.getItOnPlayContainer button {
+	border: none;
+	background-color: transparent;
+	height: 10vw;
+	aspect-ratio: 3.15;
+	transition: all 0.3s ease-in-out;
 }
 .getItOnPlayContainer button img {
-  background-color: transparent;
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
+	background-color: transparent;
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
 }
 .getItOnPlayContainer button:hover {
-  cursor: pointer;
-  scale: 1.05;
+	cursor: pointer;
+	scale: 1.05;
 }
 .welcomeTextContainer {
-  height: 100%;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
+	height: 100%;
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
 }
 .whatIsEscomContainer {
-  height: 100%;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
+	height: 100%;
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
 }
 .WelcomeHeader {
-  font-size: 2vw;
-  color: white;
-  font-weight: 700;
-  margin-bottom: 3vw;
+	font-size: 2vw;
+	color: white;
+	font-weight: 700;
+	margin-bottom: 3vw;
 }
 .WelcomeText {
-  font-size: 1.8vw;
-  color: white;
-  font-weight: 400;
-  margin-bottom: 1vw;
-  max-width: 50%;
+	font-size: 1.8vw;
+	color: white;
+	font-weight: 400;
+	margin-bottom: 1vw;
+	max-width: 50%;
 }
 .JoinUsText {
-  font-size: 2vw;
-  color: white;
-  font-weight: 700;
-  margin: 3vw 0;
+	font-size: 2vw;
+	color: white;
+	font-weight: 700;
+	margin: 3vw 0;
 }
 .whatIsText {
-  font-size: 1.6vw;
-  color: white;
-  font-weight: 400;
-  margin-bottom: 1vw;
-  max-width: 60%;
+	font-size: 1.6vw;
+	color: white;
+	font-weight: 400;
+	margin-bottom: 1vw;
+	max-width: 60%;
 }
 .qrCode {
-  height: 25vw;
-  aspect-ratio: 1;
-  border-radius: 15px;
-    margin-bottom: 35px;
+	height: 25vw;
+	aspect-ratio: 1;
+	border-radius: 15px;
+	margin-bottom: 35px;
 }
 .hoverUnderLine {
-  transition: all 0.4s ease;
+	transition: all 0.4s ease;
 }
 .hoverUnderLine:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 .hoverPink {
-  color: white;
-  transition: all 0.4s ease;
+	color: white;
+	transition: all 0.4s ease;
 }
 .hoverPink:hover {
-  color: #ed0978;
-  cursor: pointer;
+	color: #ed0978;
+	cursor: pointer;
 }
 .footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  height: auto;
-  width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	height: auto;
+	width: 100%;
 }
-.footerLogoContainer{
-  width: 80%;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  align-items: center ;
-  justify-content: space-evenly;
+.footerLogoContainer {
+	width: 80%;
+	height: auto;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
 }
-.logoClass{
-
-  width: 20%;
-  aspect-ratio: 1;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+.logoClass {
+	width: 20%;
+	aspect-ratio: 1;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
 }
 .guru {
-
 }
-.prospiLogoClass{
-  width: 20%;
-    aspect-ratio: 1;
-    margin-top: 5%;
-    margin-bottom: 5%;
+.prospiLogoClass {
+	width: 20%;
+	aspect-ratio: 1;
+	margin-top: 5%;
+	margin-bottom: 5%;
 }
 .footertextContainer {
-    margin: 1%;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    text-align: center;
-    text-wrap: nowrap;
+	margin: 1%;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	text-align: center;
+	text-wrap: nowrap;
 }
 .footerText {
-  font-size: 2vh;
-  color: grey;
-  font-weight: 500;
-  margin: 0px;
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-
+	font-size: 2vh;
+	color: grey;
+	font-weight: 500;
+	margin: 0px;
+	display: flex;
+	flex-direction: row;
+	text-align: center;
 }
-.socialMediaContainer{
-  height: 15vh;
-  width: auto;
-  aspect-ratio: 6;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
+.socialMediaContainer {
+	height: 15vh;
+	width: auto;
+	aspect-ratio: 6;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
 }
 .socialMediaItem {
-  height: 70%;
-  width: auto;
-  aspect-ratio: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  transition: all 0.6s ease;
+	height: 70%;
+	width: auto;
+	aspect-ratio: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	transition: all 0.6s ease;
 }
 .socialMediaItem:hover {
-  background-color: #ed0978 ;
+	background-color: #ed0978;
 }
 .whatIsEscom {
-  display: flex;
-  flex-direction: column;
-  padding-top: 50px;
-  padding-bottom: 50px;
+	display: flex;
+	flex-direction: column;
+	padding-top: 50px;
+	padding-bottom: 50px;
 }
 .battleImage {
-
-    width: 60vw;
-    height: auto;
-    border-radius: 15px;
-    margin: 2vw 0;
-    
+	width: 60vw;
+	height: auto;
+	border-radius: 15px;
+	margin: 2vw 0;
 }
 .gamersImage {
-  width: 38vw;
-  height: auto;
-  border-radius: 15px;
-  padding-right: 10px;
-  margin-bottom: 40px;
+	width: 38vw;
+	height: auto;
+	border-radius: 15px;
+	padding-right: 10px;
+	margin-bottom: 40px;
 }
 .gamersImageContainer {
-  width: 40vw;
-  padding: 0px;
+	width: 40vw;
+	padding: 0px;
 }
 .widen {
-  width: 80%;
+	width: 80%;
 }
 .ContactText {
-    font-size: 1.8vw;
-    color: white;
-    font-weight: 400;
-    margin-bottom: 1vw;
-    max-width: 60%;
-
+	font-size: 1.8vw;
+	color: white;
+	font-weight: 400;
+	margin-bottom: 1vw;
+	max-width: 60%;
 }
 .bold {
-  font-weight: 700;
+	font-weight: 700;
 }
 .left {
-  display: flex;
-  align-items: flex-start;
-  padding-left: 10%;
+	display: flex;
+	align-items: flex-start;
+	padding-left: 10%;
 }
-
 
 /*//////////////////////////////////////////////////////////////////////////////*/
 
-@media ( max-width: 1450px ) {
-
-.signUpText {
-  font-size: 16px;
-  color: white;
-  display: flex;
-  text-align: center;
-}
-.footer {
-  flex-direction: column;
-}
-
+@media (max-width: 1450px) {
+	.signUpText {
+		font-size: 16px;
+		color: white;
+		display: flex;
+		text-align: center;
+	}
+	.footer {
+		flex-direction: column;
+	}
 }
 
 @media (max-width: 1200px) {
-.signUpButton {
-    height: 50%;
-  }
-.menuItem {
-      width: 35vw;
-}
-.footer {
-  flex-direction: column;
-}
-
-
-
+	.signUpButton {
+		height: 50%;
+	}
+	.menuItem {
+		width: 35vw;
+	}
+	.footer {
+		flex-direction: column;
+	}
 }
 @media (max-width: 1000px) {
-  .WelcomeHeader {
-      font-size: 2.5vw;
-    }
-  .WelcomeText {
-    font-size: 2.5vh;
-  }
+	.WelcomeHeader {
+		font-size: 2.5vw;
+	}
+	.WelcomeText {
+		font-size: 2.5vh;
+	}
 }
 @media (max-width: 900px) {
-
-  .footertextContainer {
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 2%;
-    }
+	.footertextContainer {
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 2%;
+	}
 }
 
 @media (max-width: 850px) {
+	.navbar {
+		padding-top: 2%;
+		padding-bottom: 2%;
+	}
 
-  .navbar {
+	.mainContent {
+		flex-direction: column;
+	}
+	.welcomeTextContainer {
+		width: 90%;
+	}
+	.JoinUsText {
+		font-size: 4vw;
+		text-wrap: wrap;
+		margin: 5vw 0 0 0;
+		text-align: center;
+		max-width: 80%;
+	}
+	.whatIsEscomContainer {
+		width: 90%;
+	}
+	.qrCode {
+		height: 50vw;
+	}
 
-      padding-top: 2%;
-      padding-bottom: 2%;
-
-    }
-
-  .mainContent {
-    flex-direction: column;
-  }
-  .welcomeTextContainer {
-    width: 90%;
-  }
-.JoinUsText {
-  font-size: 4vw;
-  text-wrap: wrap;
-  margin: 5vw 0 0 0;
-  text-align: center;
-  max-width: 80%;
-}
-  .whatIsEscomContainer {
-    width: 90%;
-  }
-  .qrCode {
-    height: 50vw;
-  }
-
-  .signUpButton {
-
-    height: 50%;
-  }
-  .logoContainer {
-      width: 25%;
-
-    }
-  .hamburgerMenu {
-    left: 5px;
-    width: 10%;
-
-  }
-  .WelcomeHeader {
-    margin-top: 50px;
-  }
-  .WelcomeText {
-      font-size: 3vh;
-  }
-  .menuItem {
-      width: 45vw;
-  }
-  .whatIsText {
-    font-size: 1.2vw;
-    max-width: 80%;
-  }
-  .battleImage {
-    width: 80vw;
-  }
-  .widen {
-    font-size: 2.8vw;
-  }
-  .gamersImageContainer {
-    width: 60vw;
-  }
-  .gamersImage {
-    width: 100%;
-  }
-
-
-
+	.signUpButton {
+		height: 50%;
+	}
+	.logoContainer {
+		width: 25%;
+	}
+	.hamburgerMenu {
+		left: 5px;
+		width: 10%;
+	}
+	.WelcomeHeader {
+		margin-top: 50px;
+	}
+	.WelcomeText {
+		font-size: 3vh;
+	}
+	.menuItem {
+		width: 45vw;
+	}
+	.whatIsText {
+		font-size: 1.2vw;
+		max-width: 80%;
+	}
+	.battleImage {
+		width: 80vw;
+	}
+	.widen {
+		font-size: 2.8vw;
+	}
+	.gamersImageContainer {
+		width: 60vw;
+	}
+	.gamersImage {
+		width: 100%;
+	}
 }
 
 @media (max-width: 700px) {
-
-  /* .signUpButton {
+	/* .signUpButton {
 
     width: 15%;
     aspect-ratio: 3.5;
     max-height: 95%;
   } */
-  .menuItem {
-      width: 55vw;
-  }
-  .socialMediaContainer {
-    max-width: 80vw;
-  }
-
-
-
+	.menuItem {
+		width: 55vw;
+	}
+	.socialMediaContainer {
+		max-width: 80vw;
+	}
 }
 
 @media (max-width: 600px) {
+	.navbar {
+		height: 10vh;
+	}
 
-  .navbar {
-      height: 10vh;
-    }
-
-
-  .qrCode {
-      height: 70vw;
-  }
-  .logoContainer {
-      width: 30%;
-
-    }
-  .logo1 {
-    height: 100% !important;
-    width: auto;
-  }
-  .hamburgerMenu {
-      left: 5px;
-      width: 12%;
-
-    }
-    .menuItem {
-      width: 65vw;
-    }
-  .widen {
-    font-size: 3vw;
-  }
-  .footerLogoContainer{
-    margin-top: 3%;
-    flex-direction: column;
-  }
-  .logoClass {
-    width: 50%;
-    
-  }
-  .prospiLogoClass{
-    width: 60%;
-  }
-
-
-
+	.qrCode {
+		height: 70vw;
+	}
+	.logoContainer {
+		width: 30%;
+	}
+	.logo1 {
+		height: 100% !important;
+		width: auto;
+	}
+	.hamburgerMenu {
+		left: 5px;
+		width: 12%;
+	}
+	.menuItem {
+		width: 65vw;
+	}
+	.widen {
+		font-size: 3vw;
+	}
+	.footerLogoContainer {
+		margin-top: 3%;
+		flex-direction: column;
+	}
+	.logoClass {
+		width: 50%;
+	}
+	.prospiLogoClass {
+		width: 60%;
+	}
 }
 
 @media (max-width: 500px) {
-  .WelcomeHeader {
-    font-size: 3.5vh;
-    margin-top: 1vw;
-  }
-.JoinUsText {
-  font-size: 5vw;
-  text-wrap: wrap;
-  margin: 5vw 0 0 0;
-}
-  .WelcomeText {
-    font-size: 3vw;
-    max-width: 90%;
-  }
-  .gamersImageContainer {
-     width: 80vw;
-   }
-   .ContactText {
-    font-size: 2.8vw;
-    margin-bottom: 2vw;
-   }
-    .signUpButton {
-  
-      height: 40%;  
-    }
+	.WelcomeHeader {
+		font-size: 3.5vh;
+		margin-top: 1vw;
+	}
+	.JoinUsText {
+		font-size: 5vw;
+		text-wrap: wrap;
+		margin: 5vw 0 0 0;
+	}
+	.WelcomeText {
+		font-size: 3vw;
+		max-width: 90%;
+	}
+	.gamersImageContainer {
+		width: 80vw;
+	}
+	.ContactText {
+		font-size: 2.8vw;
+		margin-bottom: 2vw;
+	}
+	.signUpButton {
+		height: 40%;
+	}
 }
 
 @media (max-width: 500px) {
-    .footerText {
-      font-size: 1.5vh;
-    }
+	.footerText {
+		font-size: 1.5vh;
+	}
 }
-
 
 @media (max-width: 450px) {
+	.navbar {
+		height: 12vh;
+	}
+	.WelcomeHeader {
+		font-size: 2.5vh;
+	}
 
-  .navbar {
+	.signUpButton {
+		height: 35%;
+	}
+	.signUpText {
+		font-size: 12px;
+	}
+	.logoContainer {
+		width: 35%;
+	}
+	.hamburgerMenu {
+		left: 2px;
+		width: 18%;
+	}
+	.WelcomeText {
+		font-size: 2.5vh;
+	}
+	.menuItem {
+		width: 100vw;
+	}
 
-    height: 12vh;
+	.logoClass {
+		width: 70%;
+	}
 
-  }
-  .WelcomeHeader {
-    font-size: 2.5vh;
-  }
-
-  .signUpButton {
-
-    height: 35%;  
-  }
-.signUpText {
-  font-size: 12px;
-
-}
-.logoContainer {
-  width: 35%;
-
-}
-.hamburgerMenu {
-  left: 2px;
-  width: 18%;
-
-}
-.WelcomeText {
-  font-size: 2.5vh;
-}
-.menuItem {
-      width: 100vw;
-}
-
-    .logoClass {
-      width: 70%;
-  
-    }
-  
-    .prospiLogoClass {
-      width: 80%;
-    }
-
-
+	.prospiLogoClass {
+		width: 80%;
+	}
 }
 @media (max-width: 430px) {
-.section1 {
-  flex-direction: column;
-}
-.section1 .textSection {
-  width: 100%;
-}
-.section1 .textSection text {
-  font-size: 3vw;
-}
-.section1 .image1 {
-  width: 100%;
-}
-.section2 {
-  flex-direction: column-reverse;
-}
+	.section1 {
+		flex-direction: column;
+	}
+	.section1 .textSection {
+		width: 100%;
+	}
+	.section1 .textSection text {
+		font-size: 3vw;
+	}
+	.section1 .image1 {
+		width: 100%;
+	}
+	.section2 {
+		flex-direction: column-reverse;
+	}
 
-.section2 .textSection2 {
-  width: 100%;
-  justify-content: center;
-}
-.textSection2 .betaText {
-  height: 25%;
-  margin-top: 5vw;
-}
-.section2 .textSection2 text {
-  font-size: 3vw;
-}
+	.section2 .textSection2 {
+		width: 100%;
+		justify-content: center;
+	}
+	.textSection2 .betaText {
+		height: 25%;
+		margin-top: 5vw;
+	}
+	.section2 .textSection2 text {
+		font-size: 3vw;
+	}
 
-.section2 .image1 {
-  width: 100%;
-}
-.getItOnPlayContainer button {
-  margin: 10vw 0;
-  height: 25vw;
-}
-    .WelcomeHeader {
-      font-size: 4vh;
-      margin-top: 1vw;
-    }
-  
-    .WelcomeText {
-      font-size: 3.5vh;
-    }
-  
-    .gamersImageContainer {
-      width: 80vw;
-    }
-  
-    .ContactText {
-      font-size: 3.5vw;
-      margin-bottom: 3vw;
-    }
+	.section2 .image1 {
+		width: 100%;
+	}
+	.getItOnPlayContainer button {
+		margin: 10vw 0;
+		height: 25vw;
+	}
+	.WelcomeHeader {
+		font-size: 4vh;
+		margin-top: 1vw;
+	}
+
+	.WelcomeText {
+		font-size: 3.5vh;
+	}
+
+	.gamersImageContainer {
+		width: 80vw;
+	}
+
+	.ContactText {
+		font-size: 3.5vw;
+		margin-bottom: 3vw;
+	}
 }
 @media (max-width: 400px) {
+	.logoContainer {
+		width: 40%;
+	}
+	.hamburgerMenu {
+		left: 5px;
+		width: 20%;
+	}
+	.footerText {
+		font-size: 1vh;
+	}
+	.WelcomeText {
+		font-size: 3.5vw;
+	}
+	.footer {
+		display: flex;
+		flex-direction: column;
+	}
+	.footerText {
+		font-size: 1.5vh;
+	}
 
-
-
-  .logoContainer {
-    width: 40%;
-
-  }
-  .hamburgerMenu {
-      left: 5px;
-      width: 20%;
-
-    }
-  .footerText {
-    font-size: 1vh;
-  }
-  .WelcomeText {
-    font-size: 3.5vw;
-  }
-  .footer {
-    display: flex;
-    flex-direction: column;
-  }
-  .footerText {
-    font-size: 1.5vh;
-  }
-
-  .signUpButton {
-
-    height: 28%;  
-  }
-
+	.signUpButton {
+		height: 28%;
+	}
 }
 
-
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+	.App-logo {
+		animation: App-logo-spin infinite 20s linear;
+	}
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+	background-color: #282c34;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
 }
 
 .App-link {
-  color: #61dafb;
+	color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
