@@ -1,14 +1,15 @@
-import { NavLink } from "react-router-dom";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/all";
+import Hero from "./components/sections/hero";
 
 type Props = {};
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function LandingPage({}: Props) {
 	return (
-		<div>
-			<span>Landing Page</span>
-			<NavLink to={"/test"} end>
-				go to test
-			</NavLink>
-		</div>
+		<main>
+			<Hero />
+		</main>
 	);
 }
