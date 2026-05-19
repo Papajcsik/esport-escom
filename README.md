@@ -1,75 +1,80 @@
-# React + TypeScript + Vite
+# ESCOM Official Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based official website for ESCOM - a logic and code-breaking mobile game with community-based role-playing elements.
 
-Currently, two official plugins are available:
+## About ESCOM
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+ESCOM is a mobile game where players become "Contractors" - 22nd century freelance businessmen registered with the Earth Security Command (ESCOM). Players contribute to building the Titan, a giant robot defense system protecting Earth from biowar monsters traveling in asteroids from the Centauri solar system.
 
-## React Compiler
+### Game Features
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- Logic and code-breaking puzzles (under 1 minute each)
+- Community-based role-playing elements
+- Four department categories: Armor, Weaponry, Energy, and Cybercore
+- Live Draft list showing top contributors
+- Green program - contributions help plant real trees
+- Completely free with no in-game advertising
 
-Note: This will impact Vite dev & build performances.
+### Status
 
-## Expanding the ESLint configuration
+Currently in **Open Beta** phase, available on Google Play Store.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **React** (v18.2.0)
+- **React Scripts** (5.0.1)
+- **AOS** - Animate On Scroll library (v2.3.4)
+- **React Icons** (v4.11.0)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
+
+- Node.js (LTS version recommended)
+- npm
+
+### Installation
+
+```bash
+# Install dependencies
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# Start development server
+npm start
 ```
+
+Opens at [http://localhost:3000](http://localhost:3000).
+
+### Production Build
+
+```bash
+# Create production build
+npm run build
+```
+
+Builds the app to the `build` folder, optimized for production.
+
+## Pages
+
+- **/** - Home: Game features, download links, and community info
+- **/WhatIsESCOM** - Detailed game description and storyline
+- **/Contact** - Contact information for GamesGuru
+
+## Links
+
+- **Google Play Store**: https://play.google.com/store/apps/details?id=com.escom
+- **GamesGuru**: https://www.gamesguru.rs/
+- **StudioPresent** (design): https://www.studiopresent.rs/
+
+## Social Media
+
+- Facebook: https://www.facebook.com/esportEscom
+- Twitter: https://twitter.com/esport_escom
+- Instagram: https://www.instagram.com/Esport_Escom/
+- YouTube: https://www.youtube.com/channel/UC9lAnxCQy5BZ1lB-cNSlO4Q
+
+
