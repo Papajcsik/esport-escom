@@ -1,8 +1,41 @@
 @import "tailwindcss";
 
-body {
-	margin: 0;
+/* MERGE ATTILA */
+
+@theme {
+	--color-yellow: #e7d393;
+	--color-white-100: #efefef;
+	--font-sans: "Ubuntu", sans-serif;
 }
+
+html,
+body {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: #0c0006;
+	color: white;
+	scroll-behavior: smooth;
+	overflow-x: hidden;
+}
+
+@utility flex-center {
+	@apply flex items-center justify-center;
+}
+
+@utility col-center {
+	@apply flex flex-col items-center justify-center;
+}
+
+@utility abs-center {
+	@apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+}
+
+main {
+	@apply flex h-svh w-full flex-col overflow-hidden;
+}
+
+/* END OF MERGE ATTILA */
 
 h1,
 h2 {
