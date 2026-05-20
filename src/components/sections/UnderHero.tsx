@@ -1,8 +1,8 @@
-import Arch from "../arch";
+import Arch from "../Arch";
 
 export function UnderHero() {
 	return (
-		<section className="relative flex-1 overflow-hidden">
+		<section className="relative flex-1 overflow-hidden min-h-screen">
 			<img
 				src="/images/sky.webp"
 				alt="sky"
@@ -17,7 +17,7 @@ export function UnderHero() {
 			<img
 				src="/images/contractor.webp"
 				alt="contractor"
-				className="absolute bottom-0 left-0 h-86 w-96"
+				className="absolute bottom-0 left-0 size-100"
 			/>
 		</section>
 	);

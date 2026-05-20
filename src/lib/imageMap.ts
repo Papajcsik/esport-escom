@@ -1,5 +1,6 @@
 export const images = {
 	arch: "/images/arch.webp",
+	escomLogo: "/images/escom-logo.png",
 	buttonOff: "/images/button-off.webp",
 	buttonOn: "/images/button-on.webp",
 	city: "/images/city.webp",
@@ -11,4 +12,6 @@ export const images = {
 	logo: "/images/logo.webp",
 	robot: "/images/robot.webp",
 	sky: "/images/sky.webp",
+	polygon: "/images/Polygon.png",
+	escomHeroBattle: "/images/escom-hero-battle.png",
 } as const;
