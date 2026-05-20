@@ -5,8 +5,8 @@ export default function Header() {
 
   const btnState = isButtonOn ? "on" : "off";
   const btnStyle = isButtonOn
-    ? "absolute top-7 left-4 w-18 h-16"
-    : "absolute top-8 left-4 w-18 h-14";
+    ? "absolute top-10 left-5 w-19 h-17"
+    : "absolute top-11 left-5 w-19 h-15";
 
   function toggleBUtton() {
     setIsButtonOn((prev) => !prev);
@@ -14,19 +14,19 @@ export default function Header() {
 
   return (
     <header>
-      <div className="relative h-screen w-full">
-        <img src="/images/header-background.png" alt="background" className="object-cover" />
+      <div className="relative z-0 h-[25vh] w-full">
+        <img src="/images/header-background.webp" alt="background" className="object-cover" />
         <button onClick={toggleBUtton}>
           <img
-            src={`/images/button-${btnState}.png`}
+            src={`/images/button-${btnState}.webp`}
             alt={`button ${btnState}`}
             className={btnStyle}
           />
         </button>
         <img
-          src="/images/google-play.png"
+          src="/images/google-play.webp"
           alt="google play"
-          className="absolute top-8 right-1 h-20 w-34"
+          className="absolute top-10 right-1 h-20 w-44"
         />
       </div>
     </header>
