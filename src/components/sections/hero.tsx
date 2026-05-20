@@ -89,7 +89,7 @@ export function Hero() {
 				src={images.polygon}
 				className="mt-6"
 				initial={{ opacity: 0, y: 16 }}
-				animate={{ opacity: [0, 1, 0.5], y: [16, 0, 8, 0] }}
+				animate={{ opacity: [0, 1, 0.5], y: [16, 0, 8, 0, 16] }}
 				transition={{
 					opacity: { duration: 0.4, delay: D + 1.0, ease: "easeOut" },
 					y: { duration: 2.5, delay: D + 1.0, repeat: Infinity, ease: "easeInOut" },
