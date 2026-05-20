@@ -21,6 +21,7 @@ export default defineConfig([
 		rules: {
 			"@typescript-eslint/no-empty-object-type": "off",
 			"no-empty-pattern": "off",
+			"@typescript-eslint/no-unused-vars": "warn",
 		},
 	},
 ]);
