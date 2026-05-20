@@ -1,8 +1,9 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useEffect, useState } from "react";
-import Hero from "./components/sections/hero";
-import SplashScreen from "./components/splash/SplashScreen";
+import { Hero } from "./components/sections/Hero";
+import { UnderHero } from "./components/sections/UnderHero";
+import { SplashScreen } from "./components/SplashScreen";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,6 +20,7 @@ export default function LandingPage() {
 	return (
 		<main>
 			<Hero />
+			<UnderHero />
 			<div
 				className="fixed inset-0 z-50 transition-opacity duration-800"
 				style={{ opacity: isFadingOut ? 0 : 1 }}

@@ -8,7 +8,7 @@ const LOADING_MESSAGES = [
 	"Securing Earth Defense Protocols...",
 ];
 
-export default function SplashScreen() {
+export function SplashScreen() {
 	const [progress, setProgress] = useState(0);
 	const [messageIndex, setMessageIndex] = useState(0);
 	const [_, setTickCount] = useState(0);
@@ -31,6 +31,7 @@ export default function SplashScreen() {
 				return newT;
 			});
 		}, 400);
+
 		return () => clearInterval(interval);
 	}, []);
 
