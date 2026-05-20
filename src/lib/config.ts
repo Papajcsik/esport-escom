@@ -1,3 +1,3 @@
 export const siteConfig = {
-	splashScreenDurationInSeconds: 2,
+	splashScreenDurationInSeconds: 3,
 };
