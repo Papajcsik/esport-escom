@@ -3,7 +3,7 @@ import { ScrollTrigger } from "gsap/all";
 import { useEffect, useState } from "react";
 import { Header } from "./components/Header";
 import { HeroSection } from "./components/sections/HeroSection";
-import { ParallaxSection } from "./components/ParallaxSection";
+import { ParallaxSection } from "./components/sections/ParallaxSection";
 import { SplashScreen } from "./components/SplashScreen";
 import { siteConfig } from "./lib/config";
 import { cn } from "./lib/utils";

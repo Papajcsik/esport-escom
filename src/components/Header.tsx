@@ -1,4 +1,5 @@
 import { images } from "@/lib/imageMap";
+import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
 type Props = {};
@@ -26,14 +27,12 @@ export function Header({}: Props) {
 
 	return (
 		<header
-			className={`
-        flex items-center justify-between px-6 py-4
-        ${
-					isHeaderSticky
-						? "fixed top-0 left-0 right-0 z-50 backdrop-blur-sm"
-						: "relative"
-				}
-      `}
+			className={cn(
+				"flex items-center justify-between transition-all",
+				isHeaderSticky
+					? "fixed top-0 left-0 right-0 z-50 backdrop-blur-sm translate-0"
+					: "relative  -translate-y-15",
+			)}
 		>
 			<img src={images.headerBackground} />
 		</header>
