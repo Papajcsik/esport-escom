@@ -2,8 +2,8 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useEffect, useState } from "react";
 import { Header } from "./components/Header";
-import { Hero } from "./components/Hero";
-import { UnderHero } from "./components/Parallax";
+import { HeroSection } from "./components/sections/HeroSection";
+import { ParallaxSection } from "./components/ParallaxSection";
 import { SplashScreen } from "./components/SplashScreen";
 import { siteConfig } from "./lib/config";
 import { cn } from "./lib/utils";
@@ -22,8 +22,8 @@ export default function LandingPage() {
 
 	return (
 		<main>
-			<Hero />
-			<UnderHero />
+			<HeroSection />
+			<ParallaxSection />
 			<Header />
 			<div className="min-h-screen border">test</div>
 			<div

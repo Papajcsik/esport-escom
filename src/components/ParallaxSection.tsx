@@ -1,8 +1,8 @@
 import Arch from "./Arch";
 
-export function UnderHero() {
+export function ParallaxSection() {
 	return (
-		<section className="relative flex-1 overflow-hidden min-h-screen">
+		<section className="relative flex-1 overflow-hidden min-h-screen bg-linear-to-b from-black to-transparent">
 			<img
 				src="/images/sky.webp"
 				alt="sky"
