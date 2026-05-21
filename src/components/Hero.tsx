@@ -21,9 +21,9 @@ export function Hero() {
 				initial={{ opacity: 0, y: 24 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.8, delay: BASE_DELAY + 0.2, ease }}
-				className="border border-[#e7d393]/30 px-6 py-1.5"
+				className="border border-yellow/30 px-6 py-1.5"
 			>
-				<span className="text-xs tracking-[0.4em] text-[#e7d393]/60">
+				<span className="text-xs tracking-[0.4em] text-yellow/60">
 					WELCOME TO
 				</span>
 			</motion.div>
@@ -57,13 +57,13 @@ export function Hero() {
 							delay: BASE_DELAY + 0.5,
 							ease: "easeOut",
 						}}
-						className="h-px w-12 bg-[#e7d393]/40 origin-left"
+						className="h-px w-12 bg-yellow/40 origin-left"
 					/>
 					<motion.span
 						initial={{ opacity: 0, y: 16 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.4, delay: BASE_DELAY + 0.55, ease }}
-						className="text-xs tracking-[0.35em] text-[#e7d393]/50"
+						className="text-xs tracking-[0.35em] text-yellow/50"
 					>
 						SCROLL DOWN TO
 					</motion.span>
@@ -75,11 +75,11 @@ export function Hero() {
 							delay: BASE_DELAY + 0.5,
 							ease: "easeOut",
 						}}
-						className="h-px w-12 bg-[#e7d393]/40 origin-right"
+						className="h-px w-12 bg-yellow/40 origin-right"
 					/>
 				</div>
 
-				<span className="text-white/90 text-7xl font-bold my-4 flex tracking-[0.05em]">
+				<span className="text-white/90 text-5xl lg:text-7xl font-bold my-4 flex tracking-[0.05em]">
 					{"INITIALIZE".split("").map((char, i) => (
 						<motion.span
 							key={i}
@@ -118,7 +118,7 @@ export function Hero() {
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
 				transition={{ duration: 1.5, delay: BASE_DELAY + 0.5 }}
-				className="absolute inset-0 bg-[linear-gradient(0deg,transparent_50%,rgba(231,211,147,0.02)_50%)] bg-[length:100%_4px] pointer-events-none"
+				className="absolute inset-0 bg-[linear-gradient(0deg,transparent_50%,rgba(231,211,147,0.02)_50%)] bg-size-[100%_4px] pointer-events-none"
 			/>
 		</div>
 	);

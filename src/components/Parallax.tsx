@@ -1,4 +1,4 @@
-import Arch from "../Arch";
+import Arch from "./Arch";
 
 export function UnderHero() {
 	return (
