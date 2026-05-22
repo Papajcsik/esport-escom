@@ -17,4 +17,7 @@ export const images = {
 	headerLeft: "/images/header/header-left.png",
 	headerMiddle: "/images/header/header-middle.png",
 	headerRight: "/images/header/header-right.png",
+	hamburgerMenuBackground: "/images/header/hamburger-menu-background.png",
+	hamburgerMenuElementBackground: "/images/header/hamburger-menu-element-background.png",
+	hamburgerMenuOutside: "/images/header/hamburger-menu-outside.png",
 } as const;
