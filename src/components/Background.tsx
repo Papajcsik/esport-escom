@@ -7,7 +7,7 @@ export default function Background() {
     const timeline = gsap.timeline({
       repeat: -1,
       repeatDelay: 10,
-      defaults: { ease: "power1.inOut" },
+      defaults: { ease: "sine.inOut" },
     });
 
     timeline.fromTo(
