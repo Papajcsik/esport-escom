@@ -1,0 +1,37 @@
+import { images } from "@/lib/imageMap";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
+export default function Background() {
+  useGSAP(() => {
+    const timeline = gsap.timeline({
+      repeat: -1,
+      repeatDelay: 10,
+      defaults: { ease: "power1.inOut" },
+    });
+
+    timeline.fromTo(
+      "#background-lights",
+      { opacity: 0 },
+      { opacity: 1, duration: 3 },
+    );
+
+    timeline.to("#background-lights", { opacity: 0, duration: 7 });
+  }, []);
+
+  return (
+    <div className="relative w-full">
+      <img
+        src={images.backgroundTitan}
+        alt="background titan"
+        className="w-full h-auto block"
+      />
+      <img
+        id="background-lights"
+        src={images.backgroundLights}
+        alt="background lights"
+        className="absolute inset-0 w-full h-full"
+      />
+    </div>
+  );
+}
