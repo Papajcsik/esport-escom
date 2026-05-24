@@ -64,7 +64,7 @@ export function ParallaxSection() {
 								ref={robotRef}
 								src={images.robot}
 								alt="robot"
-								className="abs-center h-[34rem] w-[40rem] opacity-0"
+								className="abs-center -translate-y-1/3  h-[25rem] opacity-0"
 							/>
 
 							<div className="abs-center h-[28rem] w-[25.5rem] translate-y-[calc(-50%+4rem)]!">
