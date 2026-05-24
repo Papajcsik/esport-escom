@@ -1,6 +1,5 @@
 import { images } from "@/lib/imageMap";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 
 export function ParallaxSection() {
@@ -85,7 +84,7 @@ export function ParallaxSection() {
 						<img
 							src={images.arch}
 							alt="arch"
-							className="abs-center h-[40rem] w-[48rem]"
+							className="abs-center border h-[40rem] w-[48rem]"
 						/>
 					</div>
 				</div>
