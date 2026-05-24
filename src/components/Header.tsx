@@ -48,7 +48,10 @@ export function Header({ }: Props) {
 				<img
 					src={isMenuOpen ? images.buttonOn : images.buttonOff}
 					alt="Menu"
-					className="w-16 h-14 transition-transform duration-300 hover:scale-110"
+					className={cn(
+						"object-contain transition-transform duration-300",
+						isMenuOpen ? "w-20 h-20 hover:scale-110" : "w-20 h-16 hover:scale-110"
+					)}
 				/>
 			</button>
 
@@ -69,7 +72,7 @@ export function Header({ }: Props) {
 
 			<nav
 				className={cn(
-					"absolute top-full -mt-7 left-0 z-10 w-[280px] overflow-hidden transition-all duration-400 ease-in-out",
+					"absolute top-full -mt-9 left-0 z-10 w-[400px] overflow-hidden transition-all duration-400 ease-in-out",
 					isMenuOpen
 						? "max-h-[600px] opacity-100"
 						: "max-h-0 opacity-0 pointer-events-none",
@@ -88,7 +91,7 @@ export function Header({ }: Props) {
 						className="absolute top-0 left-0 w-full h-full pointer-events-none object-fill"
 					/>
 
-					<ul className="relative z-10 flex flex-col items-start gap-2 pt-10 pb-6 pl-8 pr-6 list-none m-0">
+					<ul className="relative z-10 flex flex-col items-start gap-4 pt-24 pb-8 pl-10 pr-8 list-none m-0">
 						{[
 							"WHAT IS ESCOM ?",
 							"MAIN NEWS",
@@ -97,8 +100,15 @@ export function Header({ }: Props) {
 							"MERCHANDISE",
 							"SUPPORT",
 							"GAMING STORE",
-						].map((item) => (
-							<li key={item} className="w-full">
+						].map((item, index) => (
+							<li 
+								key={item} 
+								className={cn(
+									"w-full transition-all duration-500 ease-out",
+									isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"
+								)}
+								style={{ transitionDelay: isMenuOpen ? `${index * 100}ms` : "0ms" }}
+							>
 								<a
 									href={`#${item.toLowerCase().replace(/[\s\/\?]/g, "-")}`}
 									onClick={toggleMenu}
@@ -109,7 +119,7 @@ export function Header({ }: Props) {
 										alt=""
 										className="w-full h-full object-fill"
 									/>
-									<span className="absolute inset-0 flex items-center pl-4 text-white-100 text-sm font-bold uppercase tracking-wider">
+									<span className="absolute inset-0 flex items-center pl-6 text-white-100 text-lg font-bold uppercase tracking-wider">
 										{item}
 									</span>
 								</a>
