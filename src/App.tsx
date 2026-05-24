@@ -25,18 +25,18 @@ export default function LandingPage() {
 		<main>
 			<HeroSection />
 			<ParallaxSection />
-			<div className="min-h-[3000px] border w-full"></div>
+			<div className="min-h-[3400px] border w-full"></div>
 			{/* <Header />
-      <Background />
-      <div
-        className={cn(
-          "fixed inset-0 z-50 transition-opacity duration-800",
-          isFadingOut && "pointer-events-none",
-        )}
-        style={{ opacity: isFadingOut ? 0 : 1 }}
-      >
-        <SplashScreen />
-      </div>*/}
+			<Background />
+			<div
+				className={cn(
+					"fixed inset-0 z-50 transition-opacity duration-800",
+					isFadingOut && "pointer-events-none",
+				)}
+				style={{ opacity: isFadingOut ? 0 : 1 }}
+			>
+				<SplashScreen />
+			</div> */}
 		</main>
 	);
 }
