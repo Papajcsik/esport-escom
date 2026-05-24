@@ -25,7 +25,7 @@ export default function LandingPage() {
 		<main>
 			<HeroSection />
 			<ParallaxSection />
-			{/* <Header />
+			<Header />
 			<Background />
 			<div
 				className={cn(
@@ -35,7 +35,7 @@ export default function LandingPage() {
 				style={{ opacity: isFadingOut ? 0 : 1 }}
 			>
 				<SplashScreen />
-			</div> */}
+			</div>
 		</main>
 	);
 }
