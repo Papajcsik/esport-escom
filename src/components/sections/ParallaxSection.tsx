@@ -33,7 +33,7 @@ export function ParallaxSection() {
 				.to(doorLeftRef.current, { xPercent: -100, ease: "power2.inOut" }, 0.55)
 				.to(doorRightRef.current, { xPercent: 100, ease: "power2.inOut" }, 0.55)
 				.to(robotRef.current, { opacity: 1, ease: "power2.out" }, 0.65);
-		}, sectionRef.current);
+		}, sectionRef.current!);
 
 		return () => ctx.revert();
 	}, []);
