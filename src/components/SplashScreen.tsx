@@ -1,6 +1,7 @@
+import { images } from "@/lib/imageMap";
+import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { images } from "@/lib/imageMap";
 
 const LOADING_MESSAGES = [
 	"Initializing Titan Systems...",
@@ -9,21 +10,30 @@ const LOADING_MESSAGES = [
 	"Securing Earth Defense Protocols...",
 ];
 
-export function SplashScreen() {
+export function SplashScreen({
+	duration,
+	onComplete,
+}: {
+	duration: number;
+	onComplete?: () => void;
+}) {
 	const [progress, setProgress] = useState(0);
 	const [messageIndex, setMessageIndex] = useState(0);
 	const [_, setTickCount] = useState(0);
+	const [isFadingOut, setIsFadingOut] = useState(false);
 
 	useEffect(() => {
-		const interval = setInterval(() => {
+		const progressInterval = setInterval(() => {
 			setProgress((p) => {
 				const next = p + Math.random() * 15 + 5;
 				if (next >= 100) {
-					clearInterval(interval);
+					clearInterval(progressInterval);
+					setIsFadingOut(true);
 					return 100;
 				}
 				return next;
 			});
+
 			setTickCount((t) => {
 				const newT = t + 1;
 				if (newT % 3 === 0) {
@@ -33,13 +43,37 @@ export function SplashScreen() {
 			});
 		}, 400);
 
-		return () => clearInterval(interval);
-	}, []);
+		const completionTimer = setTimeout(() => {
+			setProgress(100);
+			setIsFadingOut(true);
+		}, duration * 1000);
+
+		return () => {
+			clearInterval(progressInterval);
+			clearTimeout(completionTimer);
+		};
+	}, [duration, onComplete]);
+
+	useEffect(() => {
+		if (isFadingOut) {
+			const fadeOutTimer = setTimeout(() => {
+				onComplete?.();
+			}, 800);
+
+			return () => clearTimeout(fadeOutTimer);
+		}
+	}, [isFadingOut, onComplete]);
 
 	return (
-		<div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0c0006]">
+		<div
+			className={cn(
+				"fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0c0006]",
+				isFadingOut && "pointer-events-none transition-opacity duration-800",
+			)}
+			style={{ opacity: isFadingOut ? 0 : 1 }}
+		>
 			<div className="absolute inset-0 overflow-hidden">
-				<div className="absolute inset-0 bg-[linear-gradient(0deg,transparent_50%,rgba(231,211,147,0.02)_50%)] bg-[length:100%_4px]" />
+				<div className="absolute inset-0 bg-[linear-gradient(0deg,transparent_50%,rgba(231,211,147,0.02)_50%)] bg-size-[100%_4px]" />
 				<div className="absolute left-12 top-0 h-px w-32 bg-gradient-to-r from-transparent via-[#e7d393]/30 to-transparent" />
 				<div className="absolute right-12 top-0 h-px w-32 bg-gradient-to-r from-transparent via-[#e7d393]/30 to-transparent" />
 			</div>
@@ -72,7 +106,12 @@ export function SplashScreen() {
 					alt="ESCOM"
 					className="h-48 w-auto"
 					animate={{ opacity: [0.7, 1, 0.7] }}
-					transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+					transition={{
+						duration: 3,
+						repeat: Infinity,
+						ease: "easeInOut",
+						delay: 0.5,
+					}}
 				/>
 
 				<div className="mt-16 w-80">
