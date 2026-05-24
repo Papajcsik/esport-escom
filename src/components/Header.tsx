@@ -13,6 +13,7 @@ export function Header() {
 
 		window.addEventListener("scroll", handleScroll);
 		handleScroll();
+
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
@@ -20,9 +21,7 @@ export function Header() {
 		<header
 			className={cn(
 				"fixed top-0 left-0 right-0 z-50 flex items-center justify-between transition-all duration-700",
-				isVisible
-					? "translate-y-0 opacity-100 backdrop-blur-sm"
-					: "translate-y-full opacity-0",
+				isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0",
 			)}
 		>
 			<img src={images.headerBackground} />

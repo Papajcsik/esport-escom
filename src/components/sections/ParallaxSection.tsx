@@ -30,8 +30,8 @@ export function ParallaxSection() {
 			tl.to(skyRef.current, { scale: 1.08, ease: "none" }, 0)
 				.to(groundRef.current, { y: "0%", ease: "power2.out" }, 0.05)
 				.to(contractorRef.current, { xPercent: 0, ease: "power2.out" }, 0.3)
-				.to(doorLeftRef.current, { xPercent: -100, ease: "power2.inOut" }, 0.55)
-				.to(doorRightRef.current, { xPercent: 100, ease: "power2.inOut" }, 0.55)
+				.to(doorLeftRef.current, { xPercent: -75, ease: "power2.inOut" }, 0.55)
+				.to(doorRightRef.current, { xPercent: 75, ease: "power2.inOut" }, 0.55)
 				.to(robotRef.current, { opacity: 1, ease: "power2.out" }, 0.65);
 		}, sectionRef.current!);
 
@@ -58,8 +58,8 @@ export function ParallaxSection() {
 						className="absolute bottom-0 left-0 h-[clamp(280px,28vw,360px)] w-full object-cover object-bottom"
 					/>
 
-					<div className="absolute left-1/2 -translate-x-1/2 bottom-[230px]">
-						<div className="relative h-[40rem] w-[48rem]">
+					<div className="absolute left-1/2 -translate-x-1/2 bottom-[245px]">
+						<div className="relative h-[38rem] w-[46rem]">
 							<img
 								ref={robotRef}
 								src={images.robot}
@@ -98,7 +98,7 @@ export function ParallaxSection() {
 					className="absolute bottom-0 left-0 w-100"
 				/>
 			</section>
-			<div className="min-h-[3400px] border w-full"></div>
+			<div className="min-h-1183.75 w-full z-100"></div>
 		</>
 	);
 }
