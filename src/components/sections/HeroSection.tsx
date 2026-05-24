@@ -115,12 +115,12 @@ export function HeroSection() {
 					}}
 				/>
 
-				{/* <motion.div
+				<motion.div
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					transition={{ duration: 1.5, delay: BASE_DELAY + 0.5 }}
 					className="absolute inset-0 bg-[linear-gradient(0deg,transparent_50%,rgba(231,211,147,0.02)_50%)] bg-size-[100%_4px] pointer-events-none"
-				/> */}
+				/>
 			</div>
 		</>
 	);
