@@ -2,36 +2,27 @@ import { images } from "@/lib/imageMap";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
-type Props = {};
-
-export function Header({}: Props) {
-	const [isHeaderSticky, setIsHeaderSticky] = useState(false);
+export function Header() {
+	const [isVisible, setIsVisible] = useState(false);
 
 	useEffect(() => {
 		const handleScroll = () => {
-			const underHeroElement = document.querySelector(
-				".relative.flex-1.overflow-hidden.min-h-screen",
-			);
-			if (underHeroElement) {
-				const underHeroBottom = underHeroElement.getBoundingClientRect().bottom;
-				setIsHeaderSticky(underHeroBottom <= 0);
-			}
+			const threshold = window.innerHeight * 4.5;
+			setIsVisible(window.scrollY > threshold);
 		};
 
 		window.addEventListener("scroll", handleScroll);
-
 		handleScroll();
-
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
 	return (
 		<header
 			className={cn(
-				"flex items-center justify-between transition-all",
-				isHeaderSticky
-					? "fixed top-0 left-0 right-0 z-50 backdrop-blur-sm translate-0"
-					: "relative  -translate-y-15",
+				"fixed top-0 left-0 right-0 z-50 flex items-center justify-between transition-all duration-700",
+				isVisible
+					? "translate-y-0 opacity-100 backdrop-blur-sm"
+					: "translate-y-full opacity-0",
 			)}
 		>
 			<img src={images.headerBackground} />

@@ -27,7 +27,7 @@ export default function LandingPage() {
 			<ParallaxSection />
 			<Header />
 			<Background />
-			<div
+			{/* <div
 				className={cn(
 					"fixed inset-0 z-50 transition-opacity duration-800",
 					isFadingOut && "pointer-events-none",
@@ -35,7 +35,7 @@ export default function LandingPage() {
 				style={{ opacity: isFadingOut ? 0 : 1 }}
 			>
 				<SplashScreen />
-			</div>
+			</div> */}
 		</main>
 	);
 }
