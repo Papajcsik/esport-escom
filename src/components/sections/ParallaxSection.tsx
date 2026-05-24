@@ -30,8 +30,8 @@ export function ParallaxSection() {
 			tl.to(skyRef.current, { scale: 1.08, ease: "none" }, 0)
 				.to(groundRef.current, { y: "0%", ease: "power2.out" }, 0.05)
 				.to(contractorRef.current, { xPercent: 0, ease: "power2.out" }, 0.3)
-				.to(doorLeftRef.current, { xPercent: -75, ease: "power2.inOut" }, 0.55)
-				.to(doorRightRef.current, { xPercent: 75, ease: "power2.inOut" }, 0.55)
+				.to(doorLeftRef.current, { xPercent: -60, ease: "power2.inOut" }, 0.55)
+				.to(doorRightRef.current, { xPercent: 60, ease: "power2.inOut" }, 0.55)
 				.to(robotRef.current, { opacity: 1, ease: "power2.out" }, 0.65);
 		}, sectionRef.current!);
 
