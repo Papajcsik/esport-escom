@@ -95,7 +95,7 @@ export function ParallaxSection() {
 					ref={contractorRef}
 					src={images.contractor}
 					alt="contractor"
-					className="absolute bottom-0 left-0 size-100"
+					className="absolute bottom-0 left-0 w-100"
 				/>
 			</section>
 			<div className="min-h-[3400px] border w-full"></div>
