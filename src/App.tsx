@@ -25,7 +25,6 @@ export default function LandingPage() {
 		<main>
 			<HeroSection />
 			<ParallaxSection />
-			<div className="min-h-[3400px] border w-full"></div>
 			{/* <Header />
 			<Background />
 			<div

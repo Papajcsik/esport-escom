@@ -39,63 +39,66 @@ export function ParallaxSection() {
 	}, []);
 
 	return (
-		<section
-			ref={sectionRef}
-			className="relative flex-1 overflow-hidden min-h-screen bg-linear-to-b from-black to-transparent"
-		>
-			<img
-				ref={skyRef}
-				src={images.sky}
-				alt="sky"
-				className="absolute inset-0 h-full w-full object-cover"
-			/>
-
-			<div ref={groundRef} className="absolute inset-0">
+		<>
+			<section
+				ref={sectionRef}
+				className="relative flex-1 overflow-hidden min-h-screen bg-linear-to-b from-black to-transparent"
+			>
 				<img
-					src={images.city}
-					alt="city"
-					className="absolute bottom-0 left-0 h-[clamp(280px,28vw,360px)] w-full object-cover object-bottom"
+					ref={skyRef}
+					src={images.sky}
+					alt="sky"
+					className="absolute inset-0 h-full w-full object-cover"
 				/>
 
-				<div className="absolute left-1/2 -translate-x-1/2 bottom-[230px]">
-					<div className="relative h-[40rem] w-[48rem]">
-						<img
-							ref={robotRef}
-							src={images.robot}
-							alt="robot"
-							className="abs-center h-[34rem] w-[40rem] opacity-0"
-						/>
+				<div ref={groundRef} className="absolute inset-0">
+					<img
+						src={images.city}
+						alt="city"
+						className="absolute bottom-0 left-0 h-[clamp(280px,28vw,360px)] w-full object-cover object-bottom"
+					/>
 
-						<div className="abs-center h-[28rem] w-[25.5rem] translate-y-[calc(-50%+4rem)]!">
+					<div className="absolute left-1/2 -translate-x-1/2 bottom-[230px]">
+						<div className="relative h-[40rem] w-[48rem]">
 							<img
-								ref={doorLeftRef}
-								src={images.doorLeft}
-								alt="arch left"
-								className="absolute left-0 h-full w-1/2 object-contain"
+								ref={robotRef}
+								src={images.robot}
+								alt="robot"
+								className="abs-center h-[34rem] w-[40rem] opacity-0"
 							/>
+
+							<div className="abs-center h-[28rem] w-[25.5rem] translate-y-[calc(-50%+4rem)]!">
+								<img
+									ref={doorLeftRef}
+									src={images.doorLeft}
+									alt="arch left"
+									className="absolute left-0 h-full w-1/2 object-contain"
+								/>
+								<img
+									ref={doorRightRef}
+									src={images.doorRight}
+									alt="arch right"
+									className="absolute right-0 h-full w-1/2 object-contain"
+								/>
+							</div>
+
 							<img
-								ref={doorRightRef}
-								src={images.doorRight}
-								alt="arch right"
-								className="absolute right-0 h-full w-1/2 object-contain"
+								src={images.arch}
+								alt="arch"
+								className="abs-center h-[40rem] w-[48rem]"
 							/>
 						</div>
-
-						<img
-							src={images.arch}
-							alt="arch"
-							className="abs-center border h-[40rem] w-[48rem]"
-						/>
 					</div>
 				</div>
-			</div>
 
-			<img
-				ref={contractorRef}
-				src={images.contractor}
-				alt="contractor"
-				className="absolute bottom-0 left-0 size-100"
-			/>
-		</section>
+				<img
+					ref={contractorRef}
+					src={images.contractor}
+					alt="contractor"
+					className="absolute bottom-0 left-0 size-100"
+				/>
+			</section>
+			<div className="min-h-[3400px] border w-full"></div>
+		</>
 	);
 }
