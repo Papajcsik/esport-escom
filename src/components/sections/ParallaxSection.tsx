@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 export function ParallaxSection() {
 	const sectionRef = useRef<HTMLDivElement>(null);
 	const skyRef = useRef<HTMLImageElement>(null);
+	const middleLayerRef = useRef<HTMLImageElement>(null);
 	const groundRef = useRef<HTMLDivElement>(null);
 	const contractorRef = useRef<HTMLImageElement>(null);
 	const doorLeftRef = useRef<HTMLImageElement>(null);
@@ -13,7 +14,9 @@ export function ParallaxSection() {
 
 	useEffect(() => {
 		const ctx = gsap.context(() => {
-			gsap.set(groundRef.current, { y: "100%" });
+			gsap.set(skyRef.current, { scale: 1.12 });
+			gsap.set(middleLayerRef.current, { y: "100%", scale: 1.12 });
+			gsap.set(groundRef.current, { y: "100%", scale: 1.03 });
 			gsap.set(contractorRef.current, { xPercent: -120 });
 			gsap.set(robotRef.current, { opacity: 0 });
 
@@ -27,9 +30,11 @@ export function ParallaxSection() {
 				},
 			});
 
-			tl.to(skyRef.current, { scale: 1.08, ease: "none" }, 0)
-				.to(groundRef.current, { y: "0%", ease: "power2.out" }, 0.05)
-				.to(contractorRef.current, { xPercent: 0, ease: "power2.out" }, 0.3)
+			tl.to(skyRef.current, { scale: 1, ease: "none" }, 0)
+				.to(middleLayerRef.current, { scale: 1, ease: "none" }, 0)
+				.to(middleLayerRef.current, { y: "0%", ease: "power2.out" }, 0.08)
+				.to(groundRef.current, { y: "0%", scale: 1, ease: "power2.out" }, 0.18)
+				.to(contractorRef.current, { xPercent: 0, ease: "power2.out" }, 0.35)
 				.to(doorLeftRef.current, { xPercent: -60, ease: "power2.inOut" }, 0.55)
 				.to(doorRightRef.current, { xPercent: 60, ease: "power2.inOut" }, 0.55)
 				.to(robotRef.current, { opacity: 1, ease: "power2.out" }, 0.65);
@@ -51,6 +56,13 @@ export function ParallaxSection() {
 					className="absolute inset-0 h-full w-full object-cover"
 				/>
 
+				<img
+					ref={middleLayerRef}
+					src={images.middleLayer}
+					alt="middle layer"
+					className="absolute inset-0 h-full w-full object-cover"
+				/>
+
 				<div ref={groundRef} className="absolute inset-0">
 					<img
 						src={images.city}
@@ -64,7 +76,7 @@ export function ParallaxSection() {
 								ref={robotRef}
 								src={images.robot}
 								alt="robot"
-								className="abs-center -translate-y-1/3  h-[25rem] opacity-0"
+								className="abs-center translate-y-[-35%] h-[26rem] opacity-0"
 							/>
 
 							<div className="abs-center h-[28rem] w-[25.5rem] translate-y-[calc(-50%+4rem)]!">
@@ -98,7 +110,6 @@ export function ParallaxSection() {
 					className="absolute bottom-0 left-0 w-100"
 				/>
 			</section>
-			<div className="min-h-1183.75 w-full z-100"></div>
 		</>
 	);
 }
