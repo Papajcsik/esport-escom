@@ -15,7 +15,7 @@ export function ParallaxSection() {
 	useEffect(() => {
 		const ctx = gsap.context(() => {
 			gsap.set(skyRef.current, { scale: 1.12 });
-			gsap.set(middleLayerRef.current, { y: "100%", scale: 1.06 });
+			gsap.set(middleLayerRef.current, { y: "100%", scale: 1.12 });
 			gsap.set(groundRef.current, { y: "100%", scale: 1.03 });
 			gsap.set(contractorRef.current, { xPercent: -120 });
 			gsap.set(robotRef.current, { opacity: 0 });
@@ -31,7 +31,8 @@ export function ParallaxSection() {
 			});
 
 			tl.to(skyRef.current, { scale: 1, ease: "none" }, 0)
-				.to(middleLayerRef.current, { y: "0%", scale: 1, ease: "power2.out" }, 0.08)
+				.to(middleLayerRef.current, { scale: 1, ease: "none" }, 0)
+				.to(middleLayerRef.current, { y: "0%", ease: "power2.out" }, 0.08)
 				.to(groundRef.current, { y: "0%", scale: 1, ease: "power2.out" }, 0.18)
 				.to(contractorRef.current, { xPercent: 0, ease: "power2.out" }, 0.35)
 				.to(doorLeftRef.current, { xPercent: -60, ease: "power2.inOut" }, 0.55)
