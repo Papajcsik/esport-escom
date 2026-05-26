@@ -19,5 +19,5 @@ export const images = {
 	sky: "/images/parallax/sky.webp",
 	middleLayer: "/images/parallax/middle-layer.png",
 	logo: "/images/logo.webp",
-	robot: "/images/robot.webp",
+	robot: "/images/robot.png",
 } as const;
