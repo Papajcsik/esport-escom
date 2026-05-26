@@ -17,6 +17,7 @@ export const images = {
 	doorLeft: "/images/parallax/door-left.webp",
 	doorRight: "/images/parallax/door-right.webp",
 	sky: "/images/parallax/sky.webp",
+	middleLayer: "/images/parallax/middle-layer.png",
 	logo: "/images/logo.webp",
 	robot: "/images/robot.webp",
 } as const;

@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 export function ParallaxSection() {
 	const sectionRef = useRef<HTMLDivElement>(null);
 	const skyRef = useRef<HTMLImageElement>(null);
+	const middleLayerRef = useRef<HTMLImageElement>(null);
 	const groundRef = useRef<HTMLDivElement>(null);
 	const contractorRef = useRef<HTMLImageElement>(null);
 	const doorLeftRef = useRef<HTMLImageElement>(null);
@@ -13,6 +14,7 @@ export function ParallaxSection() {
 
 	useEffect(() => {
 		const ctx = gsap.context(() => {
+			gsap.set(middleLayerRef.current, { y: "100%" });
 			gsap.set(groundRef.current, { y: "100%" });
 			gsap.set(contractorRef.current, { xPercent: -120 });
 			gsap.set(robotRef.current, { opacity: 0 });
@@ -28,6 +30,7 @@ export function ParallaxSection() {
 			});
 
 			tl.to(skyRef.current, { scale: 1.08, ease: "none" }, 0)
+				.to(middleLayerRef.current, { y: "0%", ease: "power2.out" }, 0.025)
 				.to(groundRef.current, { y: "0%", ease: "power2.out" }, 0.05)
 				.to(contractorRef.current, { xPercent: 0, ease: "power2.out" }, 0.3)
 				.to(doorLeftRef.current, { xPercent: -60, ease: "power2.inOut" }, 0.55)
@@ -48,6 +51,13 @@ export function ParallaxSection() {
 					ref={skyRef}
 					src={images.sky}
 					alt="sky"
+					className="absolute inset-0 h-full w-full object-cover"
+				/>
+
+				<img
+					ref={middleLayerRef}
+					src={images.middleLayer}
+					alt="middle layer"
 					className="absolute inset-0 h-full w-full object-cover"
 				/>
 
