@@ -12,7 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function LandingPage() {
 	return (
 		<main>
-			<SplashScreen duration={siteConfig.splashScreenDurationInSeconds} />
+			{/* <SplashScreen duration={siteConfig.splashScreenDurationInSeconds} /> */}
 			<HeroSection />
 			<ParallaxSection />
 			<Header />

@@ -76,7 +76,7 @@ export function ParallaxSection() {
 								ref={robotRef}
 								src={images.robot}
 								alt="robot"
-								className="abs-center -translate-y-1/3  h-[25rem] opacity-0"
+								className="abs-center translate-y-[-35%] h-[26rem] opacity-0"
 							/>
 
 							<div className="abs-center h-[28rem] w-[25.5rem] translate-y-[calc(-50%+4rem)]!">
@@ -110,7 +110,6 @@ export function ParallaxSection() {
 					className="absolute bottom-0 left-0 w-100"
 				/>
 			</section>
-			<div className="min-h-1183.75 w-full z-100"></div>
 		</>
 	);
 }
