@@ -15,7 +15,7 @@ export function ParallaxSection() {
 	useEffect(() => {
 		const ctx = gsap.context(() => {
 			gsap.set(skyRef.current, { scale: 1.12 });
-			gsap.set(middleLayerRef.current, { y: "100%", scale: 1.12 });
+			gsap.set(middleLayerRef.current, { y: "70%", scale: 1.12 });
 			gsap.set(groundRef.current, { y: "100%", scale: 1.03 });
 			gsap.set(contractorRef.current, { xPercent: -120 });
 			gsap.set(robotRef.current, { opacity: 0 });
@@ -24,7 +24,7 @@ export function ParallaxSection() {
 				scrollTrigger: {
 					trigger: sectionRef.current,
 					start: "top top",
-					end: "+=500%",
+					end: "+=200%",
 					pin: true,
 					scrub: 1,
 				},
