@@ -11,16 +11,17 @@ export function ParallaxSection() {
 	const doorLeftRef = useRef<HTMLImageElement>(null);
 	const doorRightRef = useRef<HTMLImageElement>(null);
 	const robotRef = useRef<HTMLImageElement>(null);
+	const overlayRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		const ctx = gsap.context(() => {
+		const context = gsap.context(() => {
 			gsap.set(skyRef.current, { scale: 1.12 });
 			gsap.set(middleLayerRef.current, { y: "70%", scale: 1.12 });
 			gsap.set(groundRef.current, { y: "100%", scale: 1.03 });
 			gsap.set(contractorRef.current, { xPercent: -120 });
 			gsap.set(robotRef.current, { opacity: 0 });
 
-			const tl = gsap.timeline({
+			const timeline = gsap.timeline({
 				scrollTrigger: {
 					trigger: sectionRef.current,
 					start: "top top",
@@ -30,7 +31,9 @@ export function ParallaxSection() {
 				},
 			});
 
-			tl.to(skyRef.current, { scale: 1, ease: "none" }, 0)
+			timeline
+				.to(skyRef.current, { scale: 1, ease: "none" }, 0)
+				.to(overlayRef.current, { height: 0, opacity: 0, ease: "none" }, 0)
 				.to(middleLayerRef.current, { scale: 1, ease: "none" }, 0)
 				.to(middleLayerRef.current, { y: "0%", ease: "power2.out" }, 0.08)
 				.to(groundRef.current, { y: "0%", scale: 1, ease: "power2.out" }, 0.18)
@@ -40,7 +43,7 @@ export function ParallaxSection() {
 				.to(robotRef.current, { opacity: 1, ease: "power2.out" }, 0.65);
 		}, sectionRef.current!);
 
-		return () => ctx.revert();
+		return () => context.revert();
 	}, []);
 
 	return (
@@ -54,6 +57,11 @@ export function ParallaxSection() {
 					src={images.sky}
 					alt="sky"
 					className="absolute inset-0 h-full w-full object-cover"
+				/>
+
+				<div
+					ref={overlayRef}
+					className="absolute inset-x-0 top-0 h-60 -translate-y-2.5 bg-linear-to-b from-black via-black/50 to-transparent pointer-events-none z-10"
 				/>
 
 				<img
