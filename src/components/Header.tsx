@@ -93,16 +93,16 @@ export function Header({ }: Props) {
 
 					<ul className="relative z-10 flex flex-col items-start gap-4 pt-24 pb-8 pl-10 pr-8 list-none m-0">
 						{[
-							"WHAT IS ESCOM ?",
-							"MAIN NEWS",
-							"FAQ / EULA",
-							"ESCOM COMIC BOOK",
-							"MERCHANDISE",
-							"SUPPORT",
-							"GAMING STORE",
+							{ label: "WHAT IS ESCOM ?", href: "/what-is-escom" },
+							{ label: "MAIN NEWS", href: "/main-news" },
+							{ label: "FAQ / EULA", href: "/faq" },
+							{ label: "ESCOM COMIC BOOK", href: "/comic-book" },
+							{ label: "MERCHANDISE", href: "/merchandise" },
+							{ label: "SUPPORT", href: "/support" },
+							{ label: "GAMING STORE", href: "/gaming-store" },
 						].map((item, index) => (
-							<li 
-								key={item} 
+							<li
+								key={item.label}
 								className={cn(
 									"w-full transition-all duration-500 ease-out",
 									isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"
@@ -110,17 +110,21 @@ export function Header({ }: Props) {
 								style={{ transitionDelay: isMenuOpen ? `${index * 100}ms` : "0ms" }}
 							>
 								<a
-									href={`#${item.toLowerCase().replace(/[\s\/\?]/g, "-")}`}
-									onClick={toggleMenu}
-									className="relative block no-underline"
+									href={item.href}
+									className="group relative block no-underline"
 								>
 									<img
 										src={images.hamburgerMenuElementBackground}
 										alt=""
-										className="w-full h-full object-fill"
+										className="w-full h-full object-fill group-hover:opacity-0 transition-opacity duration-200"
+									/>
+									<img
+										src={images.hamburgerMenuElementHighlighted}
+										alt=""
+										className="absolute inset-0 w-full h-full object-fill opacity-0 group-hover:opacity-100 transition-opacity duration-200"
 									/>
 									<span className="absolute inset-0 flex items-center pl-6 text-white-100 text-lg font-bold uppercase tracking-wider">
-										{item}
+										{item.label}
 									</span>
 								</a>
 							</li>

@@ -20,4 +20,5 @@ export const images = {
 	hamburgerMenuBackground: "/images/header/hamburger-menu-background.png",
 	hamburgerMenuElementBackground: "/images/header/hamburger-menu-element-background.png",
 	hamburgerMenuOutside: "/images/header/hamburger-menu-outside.png",
+	hamburgerMenuElementHighlighted: "/images/header/hamburger_menu_pointer_highlighted.png",
 } as const;
