@@ -2,9 +2,31 @@ import { images } from "@/lib/imageMap";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
-type Props = {};
+export type PageId =
+	| "what-is-escom"
+	| "main-news"
+	| "faq"
+	| "comic-book"
+	| "merchandise"
+	| "support"
+	| "gaming-store";
 
-export function Header({ }: Props) {
+export const menuItems: { label: string; id: PageId }[] = [
+	{ label: "WHAT IS ESCOM ?", id: "what-is-escom" },
+	{ label: "MAIN NEWS", id: "main-news" },
+	{ label: "FAQ / EULA", id: "faq" },
+	{ label: "ESCOM COMIC BOOK", id: "comic-book" },
+	{ label: "MERCHANDISE", id: "merchandise" },
+	{ label: "SUPPORT", id: "support" },
+	{ label: "GAMING STORE", id: "gaming-store" },
+];
+
+type Props = {
+	onNavigate?: (pageId: PageId) => void;
+	activePage?: PageId | null;
+};
+
+export function Header({ onNavigate, activePage }: Props) {
 	const [isHeaderSticky, setIsHeaderSticky] = useState(false);
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -27,6 +49,13 @@ export function Header({ }: Props) {
 	}, []);
 
 	const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+
+	const handleItemClick = (item: { label: string; id: PageId }) => {
+		if (onNavigate) {
+			onNavigate(item.id);
+			setIsMenuOpen(false);
+		}
+	};
 
 	return (
 		<header
@@ -92,15 +121,7 @@ export function Header({ }: Props) {
 					/>
 
 					<ul className="relative z-10 flex flex-col items-start gap-4 pt-24 pb-8 pl-10 pr-8 list-none m-0">
-						{[
-							{ label: "WHAT IS ESCOM ?", href: "/what-is-escom" },
-							{ label: "MAIN NEWS", href: "/main-news" },
-							{ label: "FAQ / EULA", href: "/faq" },
-							{ label: "ESCOM COMIC BOOK", href: "/comic-book" },
-							{ label: "MERCHANDISE", href: "/merchandise" },
-							{ label: "SUPPORT", href: "/support" },
-							{ label: "GAMING STORE", href: "/gaming-store" },
-						].map((item, index) => (
+						{menuItems.map((item, index) => (
 							<li
 								key={item.label}
 								className={cn(
@@ -109,24 +130,33 @@ export function Header({ }: Props) {
 								)}
 								style={{ transitionDelay: isMenuOpen ? `${index * 100}ms` : "0ms" }}
 							>
-								<a
-									href={item.href}
-									className="group relative block no-underline"
+								<button
+									onClick={() => handleItemClick(item)}
+									className={cn(
+										"group relative block no-underline w-full text-left bg-transparent border-none p-0 cursor-pointer",
+										activePage === item.id && "scale-105"
+									)}
 								>
 									<img
 										src={images.hamburgerMenuElementBackground}
 										alt=""
-										className="w-full h-full object-fill group-hover:opacity-0 transition-opacity duration-200"
+										className={cn(
+											"w-full h-full object-fill transition-opacity duration-200",
+											activePage === item.id ? "opacity-0" : "group-hover:opacity-0"
+										)}
 									/>
 									<img
 										src={images.hamburgerMenuElementHighlighted}
 										alt=""
-										className="absolute inset-0 w-full h-full object-fill opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+										className={cn(
+											"absolute inset-0 w-full h-full object-fill transition-opacity duration-200",
+											activePage === item.id ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+										)}
 									/>
 									<span className="absolute inset-0 flex items-center pl-6 text-white-100 text-lg font-bold uppercase tracking-wider">
 										{item.label}
 									</span>
-								</a>
+								</button>
 							</li>
 						))}
 					</ul>
