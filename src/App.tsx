@@ -15,6 +15,7 @@ import MainNewsPage from "./pages/main-news/index";
 import MerchandisePage from "./pages/merchandise/index";
 import SupportPage from "./pages/support/index";
 import WhatIsEscomPage from "./pages/what-is-escom/index";
+import { useEffect, useState } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -56,22 +57,25 @@ export default function LandingPage() {
 			<HeroSection />
 			<ParallaxSection />
 			<Header onNavigate={handleNavigate} activePage={activePage} />
+			<Background />
 
 			{ActivePageComponent ? (
 				<ActivePageComponent />
 			) : (
-				<div className="min-h-screen border">test</div>
-			)}
+				<>
+					<div className="min-h-screen border">test</div>
 
-			<div
-				className={cn(
-					"fixed inset-0 z-50 transition-opacity duration-800",
-					isFadingOut && "pointer-events-none",
-				)}
-				style={{ opacity: isFadingOut ? 0 : 1 }}
-			>
-				<SplashScreen />
-			</div>
-		</main >
+					<div
+						className={cn(
+							"fixed inset-0 z-50 transition-opacity duration-800",
+							isFadingOut && "pointer-events-none",
+						)}
+						style={{ opacity: isFadingOut ? 0 : 1 }}
+					>
+						<SplashScreen />
+					</div>
+				</>
+			)}
+		</>
 	);
 }

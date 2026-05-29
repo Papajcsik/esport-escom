@@ -1,28 +1,4 @@
 export const images = {
-<<<<<<< HEAD
-	arch: "/images/parallax/arch.webp",
-	escomLogo: "/images/hero/escom-logo.png",
-	buttonOff: "/images/header/button-off.webp",
-	buttonOn: "/images/header/button-on.webp",
-	city: "/images/parallax/city.webp",
-	contractor: "/images/parallax/contractor.webp",
-	doorLeft: "/images/parallax/door-left.webp",
-	doorRight: "/images/parallax/door-right.webp",
-	googlePlay: "/images/header/google-play.webp",
-	headerBackground: "/images/header/header-background.webp",
-	logo: "/images/logo.webp",
-	robot: "/images/robot.webp",
-	sky: "/images/parallax/sky.webp",
-	polygon: "/images/hero/polygon.png",
-	escomHeroBattle: "/images/hero/escom-hero-battle.png",
-	headerLeft: "/images/header/header-left.png",
-	headerMiddle: "/images/header/header-middle.png",
-	headerRight: "/images/header/header-right.png",
-	hamburgerMenuBackground: "/images/header/hamburger-menu-background.png",
-	hamburgerMenuElementBackground: "/images/header/hamburger-menu-element-background.png",
-	hamburgerMenuOutside: "/images/header/hamburger-menu-outside.png",
-	hamburgerMenuElementHighlighted: "/images/header/hamburger_menu_pointer_highlighted.png",
-=======
   backgroundLights: "/images/background/backgroundtitan-lights.webp",
   backgroundTitan: "/images/background/backgroundtitan.webp",
   buttonOff: "/images/header/button-off.webp",
@@ -43,14 +19,17 @@ export const images = {
   sky: "/images/parallax/sky.webp",
   middleLayer: "/images/parallax/middle-layer.png",
   logo: "/images/logo.webp",
-  robot: "/images/robot.png",
+  robot: "/images/robot.webp",
   bannerLeft: "/images/footer/banner-left.webp",
   bannerRight: "/images/footer/banner-right.webp",
   banner: "/images/footer/banner.webp",
   googlePlayFooter: "/images/footer/google-play-footer.webp",
   joinCause: "/images/footer/join-the-common-cause.webp",
   lifeIsGame: "/images/footer/life-is-a-game.webp",
->>>>>>> main
+  hamburgerMenuBackground: "/images/header/hamburger-menu-background.png",
+  hamburgerMenuElementBackground: "/images/header/hamburger-menu-element-background.png",
+  hamburgerMenuElementHighlighted: "/images/header/hamburger_menu_pointer_highlighted.png",
+  hamburgerMenuOutside: "/images/header/hamburger-menu-outside.png",
 } as const;
 
 export const ICONS = [
