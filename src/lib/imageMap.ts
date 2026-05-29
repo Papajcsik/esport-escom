@@ -33,20 +33,26 @@ export const ICONS = [
     id: "Facebook",
     icon: "/images/icons/facebook-icon.webp",
     route: "https://www.facebook.com/esportEscom",
+    pos: "left-[35%]",
   },
   {
     id: "Instagram",
     icon: "/images/icons/instagram-icon.webp",
     route: "https://www.instagram.com/Esport_Escom/",
+    pos: "left-[70%]",
   },
   {
     id: "TikTok",
     icon: "/images/icons/tiktok-icon.webp",
     route: "https://www.tiktok.com/@earthsecuritycomma",
+    pos: "right-[70%]",
   },
   {
     id: "YouTube",
     icon: "/images/icons/youtube-icon.webp",
     route: "https://www.youtube.com/channel/UC9lAnxCQy5BZ1lB-cNSlO4Q",
+    pos: "right-[35%]",
   },
 ] as const;
+
+export type Icon = (typeof ICONS)[number];
