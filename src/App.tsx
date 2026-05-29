@@ -39,9 +39,9 @@ export default function LandingPage() {
 		return () => clearTimeout(timer);
 	}, []);
 
-	const handleNavigate = (pageId: PageId) => {
-		// If clicking the same page, toggle it off (go back to landing)
-		if (activePage === pageId) {
+	const handleNavigate = (pageId: PageId | null) => {
+		// null = home, same page = toggle off, different page = switch
+		if (pageId === null || activePage === pageId) {
 			setActivePage(null);
 		} else {
 			setActivePage(pageId);
