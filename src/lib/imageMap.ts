@@ -27,3 +27,26 @@ export const images = {
   joinCause: "/images/footer/join-the-common-cause.webp",
   lifeIsGame: "/images/footer/life-is-a-game.webp",
 } as const;
+
+export const ICONS = [
+  {
+    id: "Facebook",
+    icon: "/images/icons/facebook-icon.webp",
+    route: "https://www.facebook.com/esportEscom",
+  },
+  {
+    id: "Instagram",
+    icon: "/images/icons/instagram-icon.webp",
+    route: "https://www.instagram.com/Esport_Escom/",
+  },
+  {
+    id: "TikTok",
+    icon: "/images/icons/tiktok-icon.webp",
+    route: "https://www.tiktok.com/@earthsecuritycomma",
+  },
+  {
+    id: "YouTube",
+    icon: "/images/icons/youtube-icon.webp",
+    route: "https://www.youtube.com/channel/UC9lAnxCQy5BZ1lB-cNSlO4Q",
+  },
+] as const;

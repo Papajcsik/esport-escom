@@ -1,4 +1,4 @@
-import { images } from "@/lib/imageMap";
+import { images, ICONS } from "@/lib/imageMap";
 
 export default function Footer() {
   return (
@@ -42,6 +42,24 @@ export default function Footer() {
           alt="GamesGuru Logo"
           className="h-[clamp(128px,8.58vw,192px)] w-auto mb-[clamp(24px,1.61vw,36px)]"
         />
+      </div>
+
+      <div className="flex flex-row items-center justify-center mb-[clamp(32px,2.15vw,48px)]">
+        {ICONS.map(({ id, icon, route }) => (
+          <a
+            key={id}
+            href={route}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={id}
+          >
+            <img
+              src={icon}
+              alt={`${id} Icon`}
+              className="h-[clamp(32px,2.15vw,48px)] w-auto mx-[clamp(8px,0.54vw,12px)]"
+            />
+          </a>
+        ))}
       </div>
     </div>
   );
