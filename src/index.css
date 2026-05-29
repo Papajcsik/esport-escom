@@ -1,82 +1,77 @@
 @import "tailwindcss";
 
-/* MERGE ATTILA */
-
 @theme {
-	--color-yellow: #e7d393;
-	--color-white-100: #efefef;
-	--font-sans: "Ubuntu", sans-serif;
+  --color-yellow: #e7d393;
+  --font-sans: "Ubuntu", sans-serif;
 }
 
 html,
 body {
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	background-color: #0c0006 !important;
-	color: white;
-	scroll-behavior: smooth;
-	overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #0c0006 !important;
+  color: white;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 @utility flex-center {
-	@apply flex items-center justify-center;
+  @apply flex items-center justify-center;
 }
 
 @utility col-center {
-	@apply flex flex-col items-center justify-center;
+  @apply flex flex-col items-center justify-center;
 }
 
 @utility abs-center {
-	@apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
 }
 
 main {
-  @apply flex w-full flex-col;
+  @apply w-full;
 }
-
-/* END OF MERGE ATTILA */
 
 h1,
 h2 {
-	font-family: var(--heading);
-	font-weight: 500;
-	color: var(--text-h);
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
 }
 
 h1 {
-	font-size: 56px;
-	letter-spacing: -1.68px;
-	margin: 32px 0;
-	@media (max-width: 1024px) {
-		font-size: 36px;
-		margin: 20px 0;
-	}
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
 }
 h2 {
-	font-size: 24px;
-	line-height: 118%;
-	letter-spacing: -0.24px;
-	margin: 0 0 8px;
-	@media (max-width: 1024px) {
-		font-size: 20px;
-	}
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
 }
 p {
-	margin: 0;
+  margin: 0;
 }
 
 code,
 .counter {
-	font-family: var(--mono);
-	display: inline-flex;
-	border-radius: 4px;
-	color: var(--text-h);
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
 }
 
 code {
-	font-size: 15px;
-	line-height: 135%;
-	padding: 4px 8px;
-	background: var(--code-bg);
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
 }

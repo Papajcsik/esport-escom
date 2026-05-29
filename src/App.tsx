@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import { useEffect, useState } from "react";
+import Background from "./components/Background";
 import { Header } from "./components/Header";
 import type { PageId } from "./components/Header";
 import { HeroSection } from "./components/sections/HeroSection";
@@ -51,7 +51,8 @@ export default function LandingPage() {
 	const ActivePageComponent = activePage ? pageComponents[activePage] : null;
 
 	return (
-		<main>
+		<>
+			<SplashScreen />
 			<HeroSection />
 			<ParallaxSection />
 			<Header onNavigate={handleNavigate} activePage={activePage} />
@@ -71,6 +72,6 @@ export default function LandingPage() {
 			>
 				<SplashScreen />
 			</div>
-		</main>
+		</main >
 	);
 }

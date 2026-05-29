@@ -1,6 +1,8 @@
+import { siteConfig } from "@/lib/config";
+import { images } from "@/lib/imageMap";
+import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { images } from "@/lib/imageMap";
 
 const LOADING_MESSAGES = [
 	"Initializing Titan Systems...",
@@ -9,21 +11,30 @@ const LOADING_MESSAGES = [
 	"Securing Earth Defense Protocols...",
 ];
 
-export function SplashScreen() {
+export function SplashScreen({
+	duration = siteConfig.splashScreenDurationInSeconds,
+	onComplete,
+}: {
+	duration?: number;
+	onComplete?: () => void;
+}) {
 	const [progress, setProgress] = useState(0);
 	const [messageIndex, setMessageIndex] = useState(0);
 	const [_, setTickCount] = useState(0);
+	const [isFadingOut, setIsFadingOut] = useState(false);
 
 	useEffect(() => {
-		const interval = setInterval(() => {
+		const progressInterval = setInterval(() => {
 			setProgress((p) => {
 				const next = p + Math.random() * 15 + 5;
 				if (next >= 100) {
-					clearInterval(interval);
+					clearInterval(progressInterval);
+					setIsFadingOut(true);
 					return 100;
 				}
 				return next;
 			});
+
 			setTickCount((t) => {
 				const newT = t + 1;
 				if (newT % 3 === 0) {
@@ -33,22 +44,46 @@ export function SplashScreen() {
 			});
 		}, 400);
 
-		return () => clearInterval(interval);
-	}, []);
+		const completionTimer = setTimeout(() => {
+			setProgress(100);
+			setIsFadingOut(true);
+		}, duration * 1000);
+
+		return () => {
+			clearInterval(progressInterval);
+			clearTimeout(completionTimer);
+		};
+	}, [duration, onComplete]);
+
+	useEffect(() => {
+		if (isFadingOut) {
+			const fadeOutTimer = setTimeout(() => {
+				onComplete?.();
+			}, 800);
+
+			return () => clearTimeout(fadeOutTimer);
+		}
+	}, [isFadingOut, onComplete]);
 
 	return (
-		<div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0c0006]">
+		<div
+			className={cn(
+				"fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0c0006]",
+				isFadingOut && "pointer-events-none transition-opacity duration-800",
+			)}
+			style={{ opacity: isFadingOut ? 0 : 1 }}
+		>
 			<div className="absolute inset-0 overflow-hidden">
-				<div className="absolute inset-0 bg-[linear-gradient(0deg,transparent_50%,rgba(231,211,147,0.02)_50%)] bg-[length:100%_4px]" />
-				<div className="absolute left-12 top-0 h-px w-32 bg-gradient-to-r from-transparent via-[#e7d393]/30 to-transparent" />
-				<div className="absolute right-12 top-0 h-px w-32 bg-gradient-to-r from-transparent via-[#e7d393]/30 to-transparent" />
+				<div className="absolute inset-0 bg-[linear-gradient(0deg,transparent_50%,rgba(231,211,147,0.02)_50%)] bg-size-[100%_4px]" />
+				<div className="absolute left-12 top-0 h-px w-32 bg-gradient-to-r from-transparent via-yellow/30 to-transparent" />
+				<div className="absolute right-12 top-0 h-px w-32 bg-gradient-to-r from-transparent via-yellow/30 to-transparent" />
 			</div>
 
 			{/* Corner brackets */}
-			<div className="absolute top-16 left-16 w-12 h-12 border-t-2 border-l-2 border-[#e7d393]/30" />
-			<div className="absolute top-16 right-16 w-12 h-12 border-t-2 border-r-2 border-[#e7d393]/30" />
-			<div className="absolute bottom-16 left-16 w-12 h-12 border-b-2 border-l-2 border-[#e7d393]/30" />
-			<div className="absolute bottom-16 right-16 w-12 h-12 border-b-2 border-r-2 border-[#e7d393]/30" />
+			<div className="absolute top-16 left-16 w-12 h-12 border-t-2 border-l-2 border-yellow/30" />
+			<div className="absolute top-16 right-16 w-12 h-12 border-t-2 border-r-2 border-yellow/30" />
+			<div className="absolute bottom-16 left-16 w-12 h-12 border-b-2 border-l-2 border-yellow/30" />
+			<div className="absolute bottom-16 right-16 w-12 h-12 border-b-2 border-r-2 border-yellow/30" />
 
 			<motion.div
 				initial={{ opacity: 0, scale: 0.85 }}
@@ -57,12 +92,12 @@ export function SplashScreen() {
 				className="relative z-10 flex flex-col items-center"
 			>
 				<motion.div
-					className="mb-8 border border-[#e7d393]/40 px-8 py-2"
+					className="mb-8 border border-yellow/40 px-8 py-2"
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					transition={{ delay: 0.3, duration: 0.6 }}
 				>
-					<span className="text-xs tracking-[0.4em] text-[#e7d393]/60">
+					<span className="text-xs tracking-[0.4em] text-yellow/60">
 						SECURE CONNECTION
 					</span>
 				</motion.div>
@@ -72,17 +107,22 @@ export function SplashScreen() {
 					alt="ESCOM"
 					className="h-48 w-auto"
 					animate={{ opacity: [0.7, 1, 0.7] }}
-					transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+					transition={{
+						duration: 3,
+						repeat: Infinity,
+						ease: "easeInOut",
+						delay: 0.5,
+					}}
 				/>
 
 				<div className="mt-16 w-80">
-					<div className="flex justify-between text-sm tracking-[0.3em] text-[#e7d393]/60 mb-3">
+					<div className="flex justify-between text-sm tracking-[0.3em] text-yellow/60 mb-3">
 						<span>INITIALIZING TITAN DEFENSE</span>
 						<span>{Math.round(progress)}%</span>
 					</div>
-					<div className="h-1 overflow-hidden bg-[#e7d393]/10">
+					<div className="h-1 overflow-hidden bg-yellow/10">
 						<motion.div
-							className="h-full bg-[#e7d393]"
+							className="h-full bg-yellow"
 							initial={{ width: 0 }}
 							animate={{ width: `${progress}%` }}
 							transition={{ ease: "easeOut" }}
@@ -97,7 +137,7 @@ export function SplashScreen() {
 						animate={{ opacity: 1, y: 0 }}
 						exit={{ opacity: 0, y: -8 }}
 						transition={{ duration: 0.25 }}
-						className="pt-6 text-sm text-[#e7d393]/50 tracking-[0.2em]"
+						className="pt-6 text-sm text-yellow/50 tracking-[0.2em]"
 					>
 						{LOADING_MESSAGES[messageIndex]}
 					</motion.p>
@@ -107,7 +147,7 @@ export function SplashScreen() {
 					{[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
 						<motion.div
 							key={i}
-							className="h-3 w-3 border border-[#e7d393]/40"
+							className="h-3 w-3 border border-yellow/40"
 							animate={{
 								opacity: [0.15, 0.8, 0.15],
 								backgroundColor: ["transparent", "#e7d393", "transparent"],
@@ -123,7 +163,7 @@ export function SplashScreen() {
 				</div>
 			</motion.div>
 
-			<div className="absolute bottom-12 text-sm text-[#e7d393]/30 tracking-[0.3em]">
+			<div className="absolute bottom-12 text-sm text-yellow/30 tracking-[0.3em]">
 				EARTH SECURITY COMMAND &nbsp;//&nbsp; 22ND CENTURY
 			</div>
 		</div>

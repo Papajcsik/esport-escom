@@ -1,25 +1,123 @@
-import Arch from "../Arch";
-import { images } from "../../lib/imageMap";
+import { images } from "@/lib/imageMap";
+import { gsap } from "gsap";
+import { useEffect, useRef } from "react";
 
 export function ParallaxSection() {
+	const sectionRef = useRef<HTMLDivElement>(null);
+	const skyRef = useRef<HTMLImageElement>(null);
+	const middleLayerRef = useRef<HTMLImageElement>(null);
+	const groundRef = useRef<HTMLDivElement>(null);
+	const contractorRef = useRef<HTMLImageElement>(null);
+	const doorLeftRef = useRef<HTMLImageElement>(null);
+	const doorRightRef = useRef<HTMLImageElement>(null);
+	const robotRef = useRef<HTMLImageElement>(null);
+	const overlayRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		const context = gsap.context(() => {
+			gsap.set(skyRef.current, { scale: 1.12 });
+			gsap.set(middleLayerRef.current, { y: "70%", scale: 1.12 });
+			gsap.set(groundRef.current, { y: "100%", scale: 1.03 });
+			gsap.set(contractorRef.current, { xPercent: -120 });
+			gsap.set(robotRef.current, { opacity: 0 });
+
+			const timeline = gsap.timeline({
+				scrollTrigger: {
+					trigger: sectionRef.current,
+					start: "top top",
+					end: "+=200%",
+					pin: true,
+					scrub: 1,
+				},
+			});
+
+			timeline
+				.to(skyRef.current, { scale: 1, ease: "none" }, 0)
+				.to(overlayRef.current, { height: 0, opacity: 0, ease: "none" }, 0)
+				.to(middleLayerRef.current, { scale: 1, ease: "none" }, 0)
+				.to(middleLayerRef.current, { y: "0%", ease: "power2.out" }, 0.08)
+				.to(groundRef.current, { y: "0%", scale: 1, ease: "power2.out" }, 0.18)
+				.to(contractorRef.current, { xPercent: 0, ease: "power2.out" }, 0.35)
+				.to(doorLeftRef.current, { xPercent: -60, ease: "power2.inOut" }, 0.55)
+				.to(doorRightRef.current, { xPercent: 60, ease: "power2.inOut" }, 0.55)
+				.to(robotRef.current, { opacity: 1, ease: "power2.out" }, 0.65);
+		}, sectionRef.current!);
+
+		return () => context.revert();
+	}, []);
+
 	return (
-		<section className="relative flex-1 overflow-hidden min-h-screen bg-linear-to-b from-black to-transparent">
-			<img
-				src={images.sky}
-				alt="sky"
-				className="absolute inset-0 h-full w-full object-cover"
-			/>
-			<img
-				src={images.city}
-				alt="city"
-				className="absolute bottom-0 left-0 h-[clamp(280px,28vw,360px)] w-full object-cover object-bottom"
-			/>
-			<Arch />
-			<img
-				src={images.contractor}
-				alt="contractor"
-				className="absolute bottom-0 left-0 size-100"
-			/>
-		</section>
+		<>
+			<section
+				ref={sectionRef}
+				className="relative flex-1 overflow-hidden min-h-screen bg-linear-to-b from-black to-transparent"
+			>
+				<img
+					ref={skyRef}
+					src={images.sky}
+					alt="sky"
+					className="absolute inset-0 h-full w-full object-cover"
+				/>
+
+				<div
+					ref={overlayRef}
+					className="absolute inset-x-0 top-0 h-60 -translate-y-2.5 bg-linear-to-b from-black via-black/50 to-transparent pointer-events-none z-10"
+				/>
+
+				<img
+					ref={middleLayerRef}
+					src={images.middleLayer}
+					alt="middle layer"
+					className="absolute inset-0 h-full w-full object-cover"
+				/>
+
+				<div ref={groundRef} className="absolute inset-0">
+					<img
+						src={images.city}
+						alt="city"
+						className="absolute bottom-0 left-0 h-[clamp(280px,28vw,360px)] w-full object-cover object-bottom"
+					/>
+
+					<div className="absolute left-1/2 -translate-x-1/2 bottom-[245px]">
+						<div className="relative h-[38rem] w-[46rem]">
+							<img
+								ref={robotRef}
+								src={images.robot}
+								alt="robot"
+								className="abs-center translate-y-[-35%] h-[26rem] opacity-0"
+							/>
+
+							<div className="abs-center h-[28rem] w-[25.5rem] translate-y-[calc(-50%+4rem)]!">
+								<img
+									ref={doorLeftRef}
+									src={images.doorLeft}
+									alt="arch left"
+									className="absolute left-0 h-full w-1/2 object-contain"
+								/>
+								<img
+									ref={doorRightRef}
+									src={images.doorRight}
+									alt="arch right"
+									className="absolute right-0 h-full w-1/2 object-contain"
+								/>
+							</div>
+
+							<img
+								src={images.arch}
+								alt="arch"
+								className="abs-center h-[40rem] w-[48rem]"
+							/>
+						</div>
+					</div>
+				</div>
+
+				<img
+					ref={contractorRef}
+					src={images.contractor}
+					alt="contractor"
+					className="absolute bottom-0 left-0 w-100"
+				/>
+			</section>
+		</>
 	);
 }
