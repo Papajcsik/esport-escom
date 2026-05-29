@@ -19,13 +19,17 @@ export const images = {
   sky: "/images/parallax/sky.webp",
   middleLayer: "/images/parallax/middle-layer.png",
   logo: "/images/logo.webp",
-  robot: "/images/robot.png",
+  robot: "/images/robot.webp",
   bannerLeft: "/images/footer/banner-left.webp",
   bannerRight: "/images/footer/banner-right.webp",
   banner: "/images/footer/banner.webp",
   googlePlayFooter: "/images/footer/google-play-footer.webp",
   joinCause: "/images/footer/join-the-common-cause.webp",
   lifeIsGame: "/images/footer/life-is-a-game.webp",
+  hamburgerMenuBackground: "/images/header/hamburger-menu-background.png",
+  hamburgerMenuElementBackground: "/images/header/hamburger-menu-element-background.png",
+  hamburgerMenuElementHighlighted: "/images/header/hamburger_menu_pointer_highlighted.png",
+  hamburgerMenuOutside: "/images/header/hamburger-menu-outside.png",
 } as const;
 
 export const ICONS = [
