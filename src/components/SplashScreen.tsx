@@ -1,3 +1,4 @@
+import { siteConfig } from "@/lib/config";
 import { images } from "@/lib/imageMap";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
@@ -11,10 +12,10 @@ const LOADING_MESSAGES = [
 ];
 
 export function SplashScreen({
-	duration,
+	duration = siteConfig.splashScreenDurationInSeconds,
 	onComplete,
 }: {
-	duration: number;
+	duration?: number;
 	onComplete?: () => void;
 }) {
 	const [progress, setProgress] = useState(0);
