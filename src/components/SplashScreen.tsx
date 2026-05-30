@@ -1,5 +1,5 @@
 import { siteConfig } from "@/lib/config";
-import { images } from "@/lib/imageMap";
+import { IMAGES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -103,7 +103,7 @@ export function SplashScreen({
 				</motion.div>
 
 				<motion.img
-					src={images.escomLogo}
+					src={IMAGES.escomLogo}
 					alt="ESCOM"
 					className="h-48 w-auto"
 					animate={{ opacity: [0.7, 1, 0.7] }}
