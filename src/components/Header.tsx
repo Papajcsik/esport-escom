@@ -60,10 +60,10 @@ export function Header({ onNavigate, activePage }: Props) {
 	return (
 		<header
 			className={cn(
-				"flex items-center justify-between transition-all",
+				"flex items-center justify-between transition-all z-50",
 				isHeaderSticky
-					? "fixed top-0 left-0 right-0 z-50 backdrop-blur-sm translate-0"
-					: "relative  -translate-y-15",
+					? "fixed top-0 left-0 right-0 backdrop-blur-sm translate-0"
+					: "relative -translate-y-15",
 			)}
 		>
 			<img src={images.headerBackground} className="relative z-20 w-full" />
@@ -109,7 +109,7 @@ export function Header({ onNavigate, activePage }: Props) {
 
 			<nav
 				className={cn(
-					"absolute top-full -mt-9 left-0 z-10 w-[400px] overflow-hidden transition-all duration-400 ease-in-out",
+					"absolute top-full -mt-9 left-0 z-50 w-[400px] overflow-hidden transition-all duration-400 ease-in-out",
 					isMenuOpen
 						? "max-h-[600px] opacity-100"
 						: "max-h-0 opacity-0 pointer-events-none",

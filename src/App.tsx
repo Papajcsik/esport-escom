@@ -58,24 +58,26 @@ export default function LandingPage() {
       <HeroSection />
       <ParallaxSection />
       <Header onNavigate={handleNavigate} activePage={activePage} />
-      <Background />
 
-      {ActivePageComponent ? (
-        <ActivePageComponent />
-      ) : (
-        <>
-          {/* <div className="min-h-screen border">test</div> */}
-
-          <div
-            className={cn(
-              "fixed inset-0 z-50 transition-opacity duration-800",
-              isFadingOut && "pointer-events-none",
-            )}
-            style={{ opacity: isFadingOut ? 0 : 1 }}
-          >
-            <SplashScreen />
+      <div className="relative">
+        <Background />
+        {ActivePageComponent && (
+          <div className="absolute inset-0 z-10 overflow-y-auto">
+            <ActivePageComponent />
           </div>
-        </>
+        )}
+      </div>
+
+      {!ActivePageComponent && (
+        <div
+          className={cn(
+            "fixed inset-0 z-50 transition-opacity duration-800",
+            isFadingOut && "pointer-events-none",
+          )}
+          style={{ opacity: isFadingOut ? 0 : 1 }}
+        >
+          <SplashScreen />
+        </div>
       )}
       <Footer />
     </main>
