@@ -1,5 +1,7 @@
 import { IMAGES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { SwitchButton } from "@/components/SwitchButton";
+import type { FaqTab } from "@/pages/faq/index";
 import { useEffect, useState } from "react";
 
 export type PageId =
@@ -24,9 +26,11 @@ export const menuItems: { label: string; id: PageId }[] = [
 type Props = {
 	onNavigate?: (pageId: PageId | null) => void;
 	activePage?: PageId | null;
+	faqTab?: FaqTab;
+	onFaqTabChange?: (tab: FaqTab) => void;
 };
 
-export function Header({ onNavigate, activePage }: Props) {
+export function Header({ onNavigate, activePage, faqTab, onFaqTabChange }: Props) {
 	const [isHeaderSticky, setIsHeaderSticky] = useState(false);
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -221,6 +225,25 @@ export function Header({ onNavigate, activePage }: Props) {
 					</ul>
 				</div>
 			</nav>
+
+			{/* FAQ / EULA toggle buttons — shown only when FAQ page is active */}
+			{activePage === "faq" && (
+				<div className="absolute top-full left-0 right-0 z-40 -mt-4 flex items-center justify-center gap-48 md:gap-100 py-2">
+					<SwitchButton
+						label="F.A.Q."
+						isActive={faqTab === "faq"}
+						onClick={() => onFaqTabChange?.("faq")}
+						flipped
+						id="faq-tab-button"
+					/>
+					<SwitchButton
+						label="EULA"
+						isActive={faqTab === "eula"}
+						onClick={() => onFaqTabChange?.("eula")}
+						id="eula-tab-button"
+					/>
+				</div>
+			)}
 		</header>
 	);
 }

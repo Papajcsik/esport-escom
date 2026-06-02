@@ -32,6 +32,7 @@ export const IMAGES = {
 	hamburgerMenuElementHighlighted:
 		"/images/header/hamburger_menu_pointer_highlighted.png",
 	hamburgerMenuOutside: "/images/header/hamburger-menu-outside.png",
+	hamburgerSwitchButton: "/images/header/hamburger-switch-button.png",
 } as const;
 
 export const ICONS = [

@@ -10,6 +10,7 @@ import { siteConfig } from "./lib/config";
 import { cn } from "./lib/utils";
 import ComicBookPage from "./pages/comic-book/index";
 import FaqPage from "./pages/faq/index";
+import type { FaqTab } from "./pages/faq/index";
 import GamingStorePage from "./pages/gaming-store/index";
 import MainNewsPage from "./pages/main-news/index";
 import MerchandisePage from "./pages/merchandise/index";
@@ -33,6 +34,7 @@ const pageComponents: Record<PageId, React.FC> = {
 export default function LandingPage() {
 	const [isFadingOut, setIsFadingOut] = useState(false);
 	const [activePage, setActivePage] = useState<PageId | null>(null);
+	const [faqTab, setFaqTab] = useState<FaqTab>("faq");
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
@@ -45,7 +47,11 @@ export default function LandingPage() {
 		// null = home, same page = toggle off, different page = switch
 		if (pageId === null || activePage === pageId) {
 			setActivePage(null);
+			setFaqTab("faq"); // reset tab when leaving FAQ
 		} else {
+			if (pageId !== "faq") {
+				setFaqTab("faq"); // reset tab when switching away from FAQ
+			}
 			setActivePage(pageId);
 		}
 	};
@@ -57,13 +63,17 @@ export default function LandingPage() {
 			<SplashScreen />
 			<HeroSection />
 			<ParallaxSection />
-			<Header onNavigate={handleNavigate} activePage={activePage} />
+			<Header onNavigate={handleNavigate} activePage={activePage} faqTab={faqTab} onFaqTabChange={setFaqTab} />
 
 			<div className="relative">
 				<Background />
 				{ActivePageComponent && (
 					<div className="absolute inset-0 z-10 overflow-y-auto">
-						<ActivePageComponent />
+						{activePage === "faq" ? (
+							<FaqPage activeTab={faqTab} />
+						) : (
+							<ActivePageComponent />
+						)}
 					</div>
 				)}
 			</div>
