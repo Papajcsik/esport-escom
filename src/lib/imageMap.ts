@@ -1,6 +1,4 @@
 export const images = {
-  backgroundLights: "/images/background/backgroundtitan-lights.webp",
-  backgroundTitan: "/images/background/backgroundtitan.webp",
   buttonOff: "/images/header/button-off.webp",
   buttonOn: "/images/header/button-on.webp",
   googlePlay: "/images/header/google-play.webp",
@@ -27,9 +25,19 @@ export const images = {
   joinCause: "/images/footer/join-the-common-cause.webp",
   lifeIsGame: "/images/footer/life-is-a-game.webp",
   hamburgerMenuBackground: "/images/header/hamburger-menu-background.png",
-  hamburgerMenuElementBackground: "/images/header/hamburger-menu-element-background.png",
-  hamburgerMenuElementHighlighted: "/images/header/hamburger_menu_pointer_highlighted.png",
+  hamburgerMenuElementBackground:
+    "/images/header/hamburger-menu-element-background.png",
+  hamburgerMenuElementHighlighted:
+    "/images/header/hamburger_menu_pointer_highlighted.png",
   hamburgerMenuOutside: "/images/header/hamburger-menu-outside.png",
+} as const;
+
+export const backgroundImages = {
+  backgroundLights: "/images/background/backgroundtitan-lights.webp",
+  backgroundTitan: "/images/background/backgroundtitan.webp",
+  mechanic: "/images/background/mechanic.webp",
+  weldingSparks: "/images/background/welding-drone-sparks.webp",
+  weldingDrone: "/images/background/welding-drone.webp",
 } as const;
 
 export const ICONS = [
