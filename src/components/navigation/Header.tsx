@@ -2,7 +2,7 @@ import { IMAGES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { SwitchButton } from "@/components/SwitchButton";
 import type { FaqTab } from "@/pages/faq/index";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export type PageId =
 	| "what-is-escom"
@@ -32,25 +32,46 @@ type Props = {
 
 export function Header({ onNavigate, activePage, faqTab, onFaqTabChange }: Props) {
 	const [isHeaderSticky, setIsHeaderSticky] = useState(false);
+	const [isHeaderHidden, setIsHeaderHidden] = useState(false);
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const lastScrollY = useRef(0);
 
 	useEffect(() => {
 		const handleScroll = () => {
+			const currentScrollY = window.scrollY;
 			const underHeroElement = document.querySelector(
 				".relative.flex-1.overflow-hidden.min-h-screen",
 			);
+
 			if (underHeroElement) {
 				const underHeroBottom = underHeroElement.getBoundingClientRect().bottom;
-				setIsHeaderSticky(underHeroBottom <= 0);
+				const sticky = underHeroBottom <= 0;
+				setIsHeaderSticky(sticky);
+
+				// Only apply hide/show when header is sticky
+				if (sticky && !isMenuOpen) {
+					const scrollDelta = currentScrollY - lastScrollY.current;
+					if (scrollDelta > 5) {
+						// Scrolling down — hide
+						setIsHeaderHidden(true);
+					} else if (scrollDelta < -5) {
+						// Scrolling up — show
+						setIsHeaderHidden(false);
+					}
+				} else {
+					setIsHeaderHidden(false);
+				}
 			}
+
+			lastScrollY.current = currentScrollY;
 		};
 
-		window.addEventListener("scroll", handleScroll);
+		window.addEventListener("scroll", handleScroll, { passive: true });
 
 		handleScroll();
 
 		return () => window.removeEventListener("scroll", handleScroll);
-	}, []);
+	}, [isMenuOpen]);
 
 	const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
@@ -64,10 +85,11 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange }: Props
 	return (
 		<header
 			className={cn(
-				"flex items-center justify-between transition-all z-50",
+				"flex items-center justify-between transition-all duration-700 ease-in-out z-50",
 				isHeaderSticky
 					? "fixed top-0 left-0 right-0 backdrop-blur-sm translate-0"
 					: "relative -translate-y-15",
+				isHeaderSticky && isHeaderHidden && "-translate-y-[200%]",
 			)}
 		>
 			<img src={IMAGES.headerBackground} className="relative z-20 w-full" />
