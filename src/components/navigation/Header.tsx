@@ -1,4 +1,4 @@
-import { images } from "@/lib/imageMap";
+import { IMAGES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
@@ -60,13 +60,13 @@ export function Header({ onNavigate, activePage }: Props) {
 	return (
 		<header
 			className={cn(
-				"flex items-center justify-between transition-all",
+				"flex items-center justify-between transition-all z-50",
 				isHeaderSticky
-					? "fixed top-0 left-0 right-0 z-50 backdrop-blur-sm translate-0"
-					: "relative  -translate-y-15",
+					? "fixed top-0 left-0 right-0 backdrop-blur-sm translate-0"
+					: "relative -translate-y-15",
 			)}
 		>
-			<img src={images.headerBackground} className="relative z-20 w-full" />
+			<img src={IMAGES.headerBackground} className="relative z-20 w-full" />
 
 			<button
 				onClick={() => handleItemClick(null)}
@@ -76,22 +76,22 @@ export function Header({ onNavigate, activePage }: Props) {
 				<span className="sr-only">Home</span>
 			</button>
 
-
 			<button
 				onClick={toggleMenu}
 				className="absolute left-4 top-1/2 -translate-y-1/2 z-30 cursor-pointer bg-transparent border-none p-0"
 				aria-label={isMenuOpen ? "Close menu" : "Open menu"}
 			>
 				<img
-					src={isMenuOpen ? images.buttonOn : images.buttonOff}
+					src={isMenuOpen ? IMAGES.buttonOn : IMAGES.buttonOff}
 					alt="Menu"
 					className={cn(
 						"object-contain transition-transform duration-300",
-						isMenuOpen ? "w-20 h-20 hover:scale-110" : "w-20 h-16 hover:scale-110"
+						isMenuOpen
+							? "w-20 h-20 hover:scale-110"
+							: "w-20 h-16 hover:scale-110",
 					)}
 				/>
 			</button>
-
 
 			<a
 				href="https://play.google.com/store/apps/details?id=com.escom"
@@ -100,16 +100,15 @@ export function Header({ onNavigate, activePage }: Props) {
 				className="absolute right-4 top-1/2 -translate-y-1/2 z-30"
 			>
 				<img
-					src={images.googlePlay}
+					src={IMAGES.googlePlay}
 					alt="Get it on Google Play"
 					className="h-20 w-auto transition-transform duration-300 hover:scale-105"
 				/>
 			</a>
 
-
 			<nav
 				className={cn(
-					"absolute top-full -mt-9 left-0 z-10 w-[400px] overflow-hidden transition-all duration-400 ease-in-out",
+					"absolute top-full -mt-9 left-0 z-50 w-[400px] overflow-hidden transition-all duration-400 ease-in-out",
 					isMenuOpen
 						? "max-h-[600px] opacity-100"
 						: "max-h-0 opacity-0 pointer-events-none",
@@ -117,13 +116,13 @@ export function Header({ onNavigate, activePage }: Props) {
 			>
 				<div className="relative">
 					<img
-						src={images.hamburgerMenuBackground}
+						src={IMAGES.hamburgerMenuBackground}
 						alt=""
 						className="absolute inset-0 w-full h-full object-fill"
 					/>
 
 					<img
-						src={images.hamburgerMenuOutside}
+						src={IMAGES.hamburgerMenuOutside}
 						alt=""
 						className="absolute top-0 left-0 w-full h-full pointer-events-none object-fill"
 					/>
@@ -133,7 +132,9 @@ export function Header({ onNavigate, activePage }: Props) {
 						<li
 							className={cn(
 								"w-full transition-all duration-500 ease-out",
-								isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"
+								isMenuOpen
+									? "opacity-100 translate-y-0"
+									: "opacity-0 -translate-y-8",
 							)}
 							style={{ transitionDelay: isMenuOpen ? "0ms" : "0ms" }}
 						>
@@ -141,23 +142,25 @@ export function Header({ onNavigate, activePage }: Props) {
 								onClick={() => handleItemClick(null)}
 								className={cn(
 									"group relative block no-underline w-full text-left bg-transparent border-none p-0 cursor-pointer",
-									activePage === null && "scale-105"
+									activePage === null && "scale-105",
 								)}
 							>
 								<img
-									src={images.hamburgerMenuElementBackground}
+									src={IMAGES.hamburgerMenuElementBackground}
 									alt=""
 									className={cn(
 										"w-full h-full object-fill transition-opacity duration-200",
-										activePage === null ? "opacity-0" : "group-hover:opacity-0"
+										activePage === null ? "opacity-0" : "group-hover:opacity-0",
 									)}
 								/>
 								<img
-									src={images.hamburgerMenuElementHighlighted}
+									src={IMAGES.hamburgerMenuElementHighlighted}
 									alt=""
 									className={cn(
 										"absolute inset-0 w-full h-full object-fill transition-opacity duration-200",
-										activePage === null ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+										activePage === null
+											? "opacity-100"
+											: "opacity-0 group-hover:opacity-100",
 									)}
 								/>
 								<span className="absolute inset-0 flex items-center pl-6 text-white-100 text-lg font-bold uppercase tracking-wider">
@@ -172,31 +175,41 @@ export function Header({ onNavigate, activePage }: Props) {
 								key={item.label}
 								className={cn(
 									"w-full transition-all duration-500 ease-out",
-									isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"
+									isMenuOpen
+										? "opacity-100 translate-y-0"
+										: "opacity-0 -translate-y-8",
 								)}
-								style={{ transitionDelay: isMenuOpen ? `${(index + 1) * 100}ms` : "0ms" }}
+								style={{
+									transitionDelay: isMenuOpen
+										? `${(index + 1) * 100}ms`
+										: "0ms",
+								}}
 							>
 								<button
 									onClick={() => handleItemClick(item.id)}
 									className={cn(
 										"group relative block no-underline w-full text-left bg-transparent border-none p-0 cursor-pointer",
-										activePage === item.id && "scale-105"
+										activePage === item.id && "scale-105",
 									)}
 								>
 									<img
-										src={images.hamburgerMenuElementBackground}
+										src={IMAGES.hamburgerMenuElementBackground}
 										alt=""
 										className={cn(
 											"w-full h-full object-fill transition-opacity duration-200",
-											activePage === item.id ? "opacity-0" : "group-hover:opacity-0"
+											activePage === item.id
+												? "opacity-0"
+												: "group-hover:opacity-0",
 										)}
 									/>
 									<img
-										src={images.hamburgerMenuElementHighlighted}
+										src={IMAGES.hamburgerMenuElementHighlighted}
 										alt=""
 										className={cn(
 											"absolute inset-0 w-full h-full object-fill transition-opacity duration-200",
-											activePage === item.id ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+											activePage === item.id
+												? "opacity-100"
+												: "opacity-0 group-hover:opacity-100",
 										)}
 									/>
 									<span className="absolute inset-0 flex items-center pl-6 text-white-100 text-lg font-bold uppercase tracking-wider">

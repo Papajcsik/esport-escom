@@ -1,5 +1,5 @@
 import { siteConfig } from "@/lib/config";
-import { images } from "@/lib/imageMap";
+import { IMAGES } from "@/lib/constants";
 import { motion } from "framer-motion";
 
 const BASE_DELAY = siteConfig.splashScreenDurationInSeconds;
@@ -10,7 +10,7 @@ export function HeroSection() {
 	return (
 		<>
 			<img
-				src={images.escomHeroBattle}
+				src={IMAGES.escomHeroBattle}
 				className="absolute inset-0 z-0 min-h-screen object-cover"
 			/>
 			<div className="w-full min-h-screen flex flex-col gap-5 items-center justify-center relative z-10 bg-linear-to-b from-transparent via-transparent to-black">
@@ -32,7 +32,7 @@ export function HeroSection() {
 					className="flex items-center justify-center flex-col"
 				>
 					<motion.img
-						src={images.escomLogo}
+						src={IMAGES.escomLogo}
 						initial={{ opacity: 0 }}
 						animate={{ opacity: [1, 0.7, 1] }}
 						transition={{
@@ -96,7 +96,7 @@ export function HeroSection() {
 				</motion.div>
 
 				<motion.img
-					src={images.polygon}
+					src={IMAGES.polygon}
 					className="mt-6"
 					initial={{ opacity: 0, y: 16 }}
 					animate={{ opacity: [0, 1, 0.5], y: [16, 0, 8, 0, 16] }}

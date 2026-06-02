@@ -1,4 +1,4 @@
-import { images } from "@/lib/imageMap";
+import { IMAGES } from "@/lib/constants";
 import { gsap } from "gsap";
 import { useEffect, useRef } from "react";
 
@@ -54,7 +54,7 @@ export function ParallaxSection() {
 			>
 				<img
 					ref={skyRef}
-					src={images.sky}
+					src={IMAGES.sky}
 					alt="sky"
 					className="absolute inset-0 h-full w-full object-cover"
 				/>
@@ -66,14 +66,14 @@ export function ParallaxSection() {
 
 				<img
 					ref={middleLayerRef}
-					src={images.middleLayer}
+					src={IMAGES.middleLayer}
 					alt="middle layer"
 					className="absolute inset-0 h-full w-full object-cover"
 				/>
 
 				<div ref={groundRef} className="absolute inset-0">
 					<img
-						src={images.city}
+						src={IMAGES.city}
 						alt="city"
 						className="absolute bottom-0 left-0 h-[clamp(280px,28vw,360px)] w-full object-cover object-bottom"
 					/>
@@ -82,7 +82,7 @@ export function ParallaxSection() {
 						<div className="relative h-[38rem] w-[46rem]">
 							<img
 								ref={robotRef}
-								src={images.robot}
+								src={IMAGES.robot}
 								alt="robot"
 								className="abs-center translate-y-[-35%] h-[26rem] opacity-0"
 							/>
@@ -90,20 +90,20 @@ export function ParallaxSection() {
 							<div className="abs-center h-[28rem] w-[25.5rem] translate-y-[calc(-50%+4rem)]!">
 								<img
 									ref={doorLeftRef}
-									src={images.doorLeft}
+									src={IMAGES.doorLeft}
 									alt="arch left"
 									className="absolute left-0 h-full w-1/2 object-contain"
 								/>
 								<img
 									ref={doorRightRef}
-									src={images.doorRight}
+									src={IMAGES.doorRight}
 									alt="arch right"
 									className="absolute right-0 h-full w-1/2 object-contain"
 								/>
 							</div>
 
 							<img
-								src={images.arch}
+								src={IMAGES.arch}
 								alt="arch"
 								className="abs-center h-[40rem] w-[48rem]"
 							/>
@@ -113,7 +113,7 @@ export function ParallaxSection() {
 
 				<img
 					ref={contractorRef}
-					src={images.contractor}
+					src={IMAGES.contractor}
 					alt="contractor"
 					className="absolute bottom-0 left-0 w-100"
 				/>
