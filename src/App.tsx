@@ -42,14 +42,13 @@ export default function LandingPage() {
 		return () => clearTimeout(timer);
 	}, []);
 
-	const handleNavigate = (pageId: PageId | null) => {
-		// null = home, same page = toggle off, different page = switch
+	function handleNavigate(pageId: PageId | null) {
 		if (pageId === null || activePage === pageId) {
 			setActivePage(null);
 		} else {
 			setActivePage(pageId);
 		}
-	};
+	}
 
 	const ActivePageComponent = activePage ? pageComponents[activePage] : null;
 

@@ -74,10 +74,10 @@ export function MusicPlayer({ startPlaying = false }: Props) {
 	};
 
 	return (
-		<div className="fixed top-5 right-5 z-[100] flex flex-col items-end">
+		<div className="fixed top-5 right-5 z-[100] flex flex-row items-center gap-0">
 			<button
 				onClick={handleToggle}
-				className="flex items-center justify-center w-8 h-8 bg-[#0c0006] border border-yellow/20 hover:border-yellow/40 transition-colors duration-200 cursor-pointer"
+				className="flex items-center justify-center w-8 h-8 bg-[#0c0006] border border-yellow/20 hover:border-yellow/40 transition-colors duration-200 cursor-pointer shrink-0"
 				aria-label={isMuted ? "Unmute music" : "Mute music"}
 			>
 				{isMuted ? (
@@ -90,13 +90,13 @@ export function MusicPlayer({ startPlaying = false }: Props) {
 			<AnimatePresence>
 				{!isMuted && (
 					<motion.div
-						initial={{ height: 0, opacity: 0 }}
-						animate={{ height: "auto", opacity: 1 }}
-						exit={{ height: 0, opacity: 0 }}
-						transition={{ duration: 0.15 }}
+						initial={{ width: 0, opacity: 0 }}
+						animate={{ width: 88, opacity: 1 }}
+						exit={{ width: 0, opacity: 0 }}
+						transition={{ duration: 0.2, ease: "easeInOut" }}
 						className="overflow-hidden"
 					>
-						<div className="border-x border-b border-yellow/20 bg-[#0c0006] px-2.5 py-1.5">
+						<div className="h-8 flex items-center border-y border-r border-yellow/20 bg-[#0c0006] px-2.5">
 							<input
 								type="range"
 								min="0"
@@ -104,7 +104,7 @@ export function MusicPlayer({ startPlaying = false }: Props) {
 								step="0.01"
 								value={volume}
 								onChange={handleVolumeChange}
-								className="w-20 h-0.5 appearance-none cursor-pointer bg-yellow/20 accent-yellow [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-2 [&::-webkit-slider-thumb]:h-2 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-yellow [&::-webkit-slider-thumb]:border-none"
+								className="w-full h-0.5 appearance-none cursor-pointer bg-yellow/20 accent-yellow [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-2 [&::-webkit-slider-thumb]:h-2 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-yellow [&::-webkit-slider-thumb]:border-none"
 								aria-label="Volume"
 							/>
 						</div>
