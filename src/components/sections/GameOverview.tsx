@@ -15,7 +15,11 @@ export function GameOverview({ section }: Props) {
 
       <div className="relative @container">
         <HologramFrame side={section.hologram} />
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center">
+        <div
+          className={`absolute inset-x-0 top-[55%] z-10 flex flex-col items-center -translate-y-1/2 text-center ${
+            isLeft ? "translate-x-6" : "-translate-x-6"
+          }`}
+        >
           <div className="max-w-[70%]">
             <TextBlock section={section} />
           </div>

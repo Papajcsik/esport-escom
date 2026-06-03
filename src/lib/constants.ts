@@ -105,4 +105,10 @@ export const SECTIONS = [
 export const HOLDERS = {
   left: "/images/holders/left-holder.webp",
   right: "/images/holders/right-holder.webp",
+  readMoreLeft: "/images/holders/read-more-left.webp",
+  readMoreRight: "/images/holders/read-more-right.webp",
+  hologramLeft: "/images/holders/hologram-left.webp",
+  hologramRight: "/images/holders/hologram-right.webp",
+  holderLeft: "/images/holders/hologram-holder-left.webp",
+  holderRight: "/images/holders/hologram-holder-right.webp",
 } as const;

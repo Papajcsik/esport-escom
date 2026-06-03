@@ -1,17 +1,44 @@
 import { HOLDERS } from "@/lib/constants";
 import type { HologramPosition } from "@/types/types";
 
-const HOLOGRAM_SRC: Record<HologramPosition, string> = {
-  left: HOLDERS.left,
-  right: HOLDERS.right,
-};
-
 interface Props {
   side: HologramPosition;
 }
 
 export function HologramFrame({ side }: Props) {
+  const isLeft = side === "left";
+  const horizontal = isLeft ? "left-12" : "right-12";
+  const textPosition = isLeft ? "left-4" : "right-4";
+  const hologramTransform = isLeft ? "translate-x-6" : "-translate-x-6";
+
   return (
-    <img src={HOLOGRAM_SRC[side]} alt={`${side} hologram`} className="w-full" />
+    <div className="relative w-full">
+      <img
+        src={isLeft ? HOLDERS.hologramLeft : HOLDERS.hologramRight}
+        alt={`${side} hologram`}
+        className={`w-full ${hologramTransform}`}
+      />
+
+      <div
+        className={`absolute w-1/3 cursor-pointer hover:scale-105 transition-transform ${horizontal}`}
+      >
+        <img
+          src={isLeft ? HOLDERS.readMoreLeft : HOLDERS.readMoreRight}
+          alt="Read more"
+          className="w-full"
+        />
+        <p
+          className={`absolute inset-0 flex items-center justify-center text-orange text-l hover:scale-105 transition-transform ${textPosition}`}
+        >
+          READ MORE
+        </p>
+      </div>
+
+      <img
+        src={isLeft ? HOLDERS.holderLeft : HOLDERS.holderRight}
+        alt={`${side} holder`}
+        className="absolute bottom-0 w-full translate-y-1/3 pointer-events-none"
+      />
+    </div>
   );
 }
