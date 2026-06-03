@@ -48,17 +48,16 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange }: Props
 				const sticky = underHeroBottom <= 0;
 				setIsHeaderSticky(sticky);
 
-				// Only apply hide/show when header is sticky
 				if (sticky && !isMenuOpen) {
 					const scrollDelta = currentScrollY - lastScrollY.current;
 					if (scrollDelta > 5) {
-						// Scrolling down — hide
 						setIsHeaderHidden(true);
 					} else if (scrollDelta < -5) {
-						// Scrolling up — show
 						setIsHeaderHidden(false);
 					}
-				} else {
+				}
+
+				if (!sticky) {
 					setIsHeaderHidden(false);
 				}
 			}
@@ -85,9 +84,9 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange }: Props
 	return (
 		<header
 			className={cn(
-				"flex items-center justify-between transition-all duration-700 ease-in-out z-50",
+				"flex items-center justify-between z-50 transition-transform duration-1000 ease-[cubic-bezier(0.25,0.1,0.25,1)]",
 				isHeaderSticky
-					? "fixed top-0 left-0 right-0 backdrop-blur-sm translate-0"
+					? "fixed top-0 left-0 right-0 backdrop-blur-sm"
 					: "relative -translate-y-15",
 				isHeaderSticky && isHeaderHidden && "-translate-y-[200%]",
 			)}
