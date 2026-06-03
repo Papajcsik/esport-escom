@@ -75,55 +75,28 @@ export function MusicPlayer({ startPlaying = false }: Props) {
 
 	return (
 		<div className="fixed top-5 right-5 z-[100] flex flex-col items-end">
-			<div className="relative">
-				{/* Pulsing glow ring when unmuted */}
-				{!isMuted && hasStarted && (
-					<motion.div
-						className="absolute -inset-1 rounded-sm border border-yellow/30 pointer-events-none"
-						animate={{ opacity: [0.15, 0.4, 0.15] }}
-						transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-					/>
+			<button
+				onClick={handleToggle}
+				className="flex items-center justify-center w-8 h-8 bg-[#0c0006] border border-yellow/20 hover:border-yellow/40 transition-colors duration-200 cursor-pointer"
+				aria-label={isMuted ? "Unmute music" : "Mute music"}
+			>
+				{isMuted ? (
+					<VolumeX className="w-3.5 h-3.5 text-yellow/60" />
+				) : (
+					<Volume2 className="w-3.5 h-3.5 text-yellow/80" />
 				)}
+			</button>
 
-				<button
-					onClick={handleToggle}
-					className={cn(
-						"relative w-9 h-9 flex items-center justify-center bg-[#0c0006] border transition-all duration-300 cursor-pointer group",
-						isMuted
-							? "border-yellow/20 hover:border-yellow/40"
-							: "border-yellow/40 hover:border-yellow/60",
-					)}
-					aria-label={isMuted ? "Unmute music" : "Mute music"}
-				>
-					{/* Corner brackets */}
-					<span className="absolute top-0 left-0 w-2 h-px bg-yellow/50 group-hover:bg-yellow/70" />
-					<span className="absolute top-0 left-0 w-px h-2 bg-yellow/50 group-hover:bg-yellow/70" />
-					<span className="absolute top-0 right-0 w-2 h-px bg-yellow/50 group-hover:bg-yellow/70" />
-					<span className="absolute top-0 right-0 w-px h-2 bg-yellow/50 group-hover:bg-yellow/70" />
-					<span className="absolute bottom-0 left-0 w-2 h-px bg-yellow/50 group-hover:bg-yellow/70" />
-					<span className="absolute bottom-0 left-0 w-px h-2 bg-yellow/50 group-hover:bg-yellow/70" />
-					<span className="absolute bottom-0 right-0 w-2 h-px bg-yellow/50 group-hover:bg-yellow/70" />
-					<span className="absolute bottom-0 right-0 w-px h-2 bg-yellow/50 group-hover:bg-yellow/70" />
-
-					{isMuted ? (
-						<VolumeX className="w-4 h-4 text-yellow/50 group-hover:text-yellow/70 transition-colors" />
-					) : (
-						<Volume2 className="w-4 h-4 text-yellow/80 transition-colors" />
-					)}
-				</button>
-			</div>
-
-			{/* Volume slider panel drops down from button */}
 			<AnimatePresence>
 				{!isMuted && (
 					<motion.div
 						initial={{ height: 0, opacity: 0 }}
 						animate={{ height: "auto", opacity: 1 }}
 						exit={{ height: 0, opacity: 0 }}
-						transition={{ duration: 0.2, ease: "easeInOut" }}
+						transition={{ duration: 0.15 }}
 						className="overflow-hidden"
 					>
-						<div className="border-x border-b border-yellow/20 bg-[#0c0006] px-3 py-2">
+						<div className="border-x border-b border-yellow/20 bg-[#0c0006] px-2.5 py-1.5">
 							<input
 								type="range"
 								min="0"
@@ -131,14 +104,7 @@ export function MusicPlayer({ startPlaying = false }: Props) {
 								step="0.01"
 								value={volume}
 								onChange={handleVolumeChange}
-								className={cn(
-									"w-24 h-1 rounded-full appearance-none cursor-pointer",
-									"bg-yellow/20 accent-yellow",
-									"[&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-2.5 [&::-webkit-slider-thumb]:h-2.5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-yellow [&::-webkit-slider-thumb]:border-none",
-								)}
-								style={{
-									background: `linear-gradient(to right, #e7d393 0%, #e7d393 ${volume * 100}%, rgba(231,211,147,0.2) ${volume * 100}%)`,
-								}}
+								className="w-20 h-0.5 appearance-none cursor-pointer bg-yellow/20 accent-yellow [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-2 [&::-webkit-slider-thumb]:h-2 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-yellow [&::-webkit-slider-thumb]:border-none"
 								aria-label="Volume"
 							/>
 						</div>

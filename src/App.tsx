@@ -1,9 +1,11 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import { useEffect, useState } from "react";
 import Background from "./components/Background";
+import Footer from "./components/navigation/Footer";
+import type { PageId } from "./components/navigation/Header";
 import { Header } from "./components/navigation/Header";
 import { MusicPlayer } from "./components/navigation/MusicPlayer";
-import type { PageId } from "./components/navigation/Header";
 import { HeroSection } from "./components/sections/HeroSection";
 import { ParallaxSection } from "./components/sections/ParallaxSection";
 import { SplashScreen } from "./components/SplashScreen";
@@ -16,8 +18,6 @@ import MainNewsPage from "./pages/main-news/index";
 import MerchandisePage from "./pages/merchandise/index";
 import SupportPage from "./pages/support/index";
 import WhatIsEscomPage from "./pages/what-is-escom/index";
-import { useEffect, useState } from "react";
-import Footer from "./components/navigation/Footer";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,19 +34,11 @@ const pageComponents: Record<PageId, React.FC> = {
 export default function LandingPage() {
 	const [isFadingOut, setIsFadingOut] = useState(false);
 	const [activePage, setActivePage] = useState<PageId | null>(null);
-	const [startMusic, setStartMusic] = useState(false);
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			setIsFadingOut(true);
 		}, siteConfig.splashScreenDurationInSeconds * 1000);
-		return () => clearTimeout(timer);
-	}, []);
-
-	useEffect(() => {
-		const timer = setTimeout(() => {
-			setStartMusic(true);
-		}, (siteConfig.splashScreenDurationInSeconds + 0.8) * 1000);
 		return () => clearTimeout(timer);
 	}, []);
 
@@ -66,7 +58,7 @@ export default function LandingPage() {
 			<SplashScreen />
 			<HeroSection />
 			<ParallaxSection />
-			<MusicPlayer startPlaying={startMusic} />
+			<MusicPlayer startPlaying={true} />
 			<Header onNavigate={handleNavigate} activePage={activePage} />
 
 			<div className="relative">
