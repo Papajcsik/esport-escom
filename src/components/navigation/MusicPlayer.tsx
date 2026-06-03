@@ -1,8 +1,8 @@
 import { AUDIO } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
 import { Volume2, VolumeX } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 type Props = {
 	startPlaying?: boolean;
@@ -37,29 +37,29 @@ export function MusicPlayer({ startPlaying = false }: Props) {
 		if (startPlaying && audioRef.current && !hasStarted) {
 			const audio = audioRef.current;
 			audio.muted = false;
-			audio.play()
+			audio
+				.play()
 				.then(() => {
 					setHasStarted(true);
 					setIsMuted(false);
 				})
-				.catch(() => {
-					audio.muted = true;
-				});
+				.catch(() => {});
 		}
 	}, [startPlaying, hasStarted]);
 
-	const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+	function handleVolumeChange(e: React.ChangeEvent<HTMLInputElement>) {
 		const val = parseFloat(e.target.value);
 		setVolume(val);
-	};
+	}
 
-	const handleToggle = () => {
+	function handleToggle() {
 		const audio = audioRef.current;
 		if (!audio) return;
 
 		if (!hasStarted) {
 			audio.muted = false;
-			audio.play()
+			audio
+				.play()
 				.then(() => {
 					setHasStarted(true);
 					setIsMuted(false);
@@ -68,16 +68,20 @@ export function MusicPlayer({ startPlaying = false }: Props) {
 			return;
 		}
 
-		const next = !isMuted;
-		audio.muted = next;
-		setIsMuted(next);
-	};
+		if (isMuted) {
+			setIsMuted(false);
+			audio.play();
+		} else {
+			setIsMuted(true);
+			audio.pause();
+		}
+	}
 
 	return (
-		<div className="fixed top-5 right-5 z-[100] flex flex-row items-center gap-0">
+		<div className="fixed top-5 right-5 z-100 flex flex-row items-center gap-0 backdrop-blur-sm">
 			<button
 				onClick={handleToggle}
-				className="flex items-center justify-center w-8 h-8 bg-[#0c0006] border border-yellow/20 hover:border-yellow/40 transition-colors duration-200 cursor-pointer shrink-0"
+				className="flex items-center justify-center w-8 h-8 bg-transparent border border-yellow/20 hover:border-yellow/40 transition-colors duration-200 cursor-pointer shrink-0"
 				aria-label={isMuted ? "Unmute music" : "Mute music"}
 			>
 				{isMuted ? (
@@ -96,7 +100,7 @@ export function MusicPlayer({ startPlaying = false }: Props) {
 						transition={{ duration: 0.2, ease: "easeInOut" }}
 						className="overflow-hidden"
 					>
-						<div className="h-8 flex items-center border-y border-r border-yellow/20 bg-[#0c0006] px-2.5">
+						<div className="h-8 flex items-center border-y border-r border-yellow/20 bg-transparent px-2.5">
 							<input
 								type="range"
 								min="0"
