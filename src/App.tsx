@@ -5,7 +5,7 @@ import Background from "./components/Background";
 import Footer from "./components/navigation/Footer";
 import type { PageId } from "./components/navigation/Header";
 import { Header } from "./components/navigation/Header";
-import { MusicPlayer } from "./components/navigation/MusicPlayer";
+import { MusicPlayer } from "./components/MusicPlayer";
 import { HeroSection } from "./components/sections/HeroSection";
 import { ParallaxSection } from "./components/sections/ParallaxSection";
 import { SplashScreen } from "./components/SplashScreen";

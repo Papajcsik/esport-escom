@@ -69,7 +69,11 @@ export function MusicPlayer({ startPlaying = false }: Props) {
 
 	function handleVolumeChange(e: React.ChangeEvent<HTMLInputElement>) {
 		const val = parseFloat(e.target.value);
-		setVolume(val);
+		if (val <= 0) {
+			setIsMuted(true);
+		}
+
+		setVolume(Math.min(1, Math.max(0, val)));
 	}
 
 	function handleToggle() {
@@ -133,7 +137,7 @@ export function MusicPlayer({ startPlaying = false }: Props) {
 								step="0.01"
 								value={volume}
 								onChange={handleVolumeChange}
-								className="w-full h-0.5 appearance-none cursor-pointer bg-yellow/20 accent-yellow [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-2 [&::-webkit-slider-thumb]:h-2 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-yellow [&::-webkit-slider-thumb]:border-none"
+								className="w-full h-0.5 appearance-none cursor-pointer bg-transparent [&::-webkit-slider-runnable-track]:h-0.5 [&::-webkit-slider-runnable-track]:rounded-full [&::-webkit-slider-runnable-track]:bg-yellow/20 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-2 [&::-webkit-slider-thumb]:h-2 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-yellow/60 [&::-webkit-slider-thumb]:border-none [&::-webkit-slider-thumb]:-mt-1 [&::-moz-range-track]:h-1 [&::-moz-range-track]:rounded-full [&::-moz-range-track]:bg-yellow/20 [&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:h-3 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-yellow/60 [&::-moz-range-thumb]:border-none"
 								aria-label="Volume"
 							/>
 						</div>
