@@ -90,9 +90,9 @@ export function Header({ onNavigate, activePage }: Props) {
 
 			<nav
 				className={cn(
-					"absolute top-full -mt-9 left-0 z-50 w-[400px] overflow-hidden transition-all duration-400 ease-in-out",
+					"absolute top-full -mt-9 left-0 z-50 w-100 overflow-hidden transition-all duration-400 ease-in-out",
 					isMenuOpen
-						? "max-h-[600px] opacity-100"
+						? "max-h-150 opacity-100"
 						: "max-h-0 opacity-0 pointer-events-none",
 				)}
 			>
