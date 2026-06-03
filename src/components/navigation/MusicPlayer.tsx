@@ -13,6 +13,26 @@ export function MusicPlayer({ startPlaying = false }: Props) {
 	const [isMuted, setIsMuted] = useState(true);
 	const [volume, setVolume] = useState(0.5);
 	const [hasStarted, setHasStarted] = useState(false);
+	const [isUnderHeader, setIsUnderHeader] = useState(false);
+
+	useEffect(() => {
+		function handleScroll() {
+			const underHeroElement = document.querySelector(
+				".relative.flex-1.overflow-hidden.min-h-screen",
+			);
+			if (underHeroElement) {
+				const bottom = underHeroElement.getBoundingClientRect().bottom;
+				setIsUnderHeader(bottom <= 0);
+			}
+		}
+
+		window.addEventListener("scroll", handleScroll, {
+			passive: true,
+		});
+		handleScroll();
+
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
 
 	useEffect(() => {
 		const audio = new Audio(AUDIO.main);
@@ -78,7 +98,12 @@ export function MusicPlayer({ startPlaying = false }: Props) {
 	}
 
 	return (
-		<div className="fixed top-5 right-5 z-100 flex flex-row items-center gap-0 backdrop-blur-sm">
+		<div
+			className={cn(
+				"fixed right-5 z-100 flex flex-row items-center gap-0 backdrop-blur-sm transition-[top] duration-300",
+				isUnderHeader ? "top-50" : "top-5",
+			)}
+		>
 			<button
 				onClick={handleToggle}
 				className="flex items-center justify-center w-8 h-8 bg-transparent border border-yellow/20 hover:border-yellow/40 transition-colors duration-200 cursor-pointer shrink-0"
