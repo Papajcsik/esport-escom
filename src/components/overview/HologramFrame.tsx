@@ -7,9 +7,9 @@ interface Props {
 
 export function HologramFrame({ side }: Props) {
   const isLeft = side === "left";
-  const horizontal = isLeft ? "left-12" : "right-12";
+  const horizontal = isLeft ? "left-8" : "right-8";
   const textPosition = isLeft ? "left-4" : "right-4";
-  const hologramTransform = isLeft ? "translate-x-6" : "-translate-x-6";
+  const hologramTransform = isLeft ? "translate-x-4" : "-translate-x-4";
 
   return (
     <div className="relative w-full">
@@ -20,7 +20,7 @@ export function HologramFrame({ side }: Props) {
       />
 
       <div
-        className={`absolute w-1/3 cursor-pointer hover:scale-105 transition-transform ${horizontal}`}
+        className={`absolute w-[40%] cursor-pointer hover:scale-105 transition-transform ${horizontal}`}
       >
         <img
           src={isLeft ? HOLDERS.readMoreLeft : HOLDERS.readMoreRight}
@@ -28,7 +28,7 @@ export function HologramFrame({ side }: Props) {
           className="w-full"
         />
         <p
-          className={`absolute inset-0 flex items-center justify-center text-orange text-l hover:scale-105 transition-transform ${textPosition}`}
+          className={`absolute inset-0 flex items-center justify-center text-orange text-base text-[2.5cqi] hover:scale-105 transition-transform ${textPosition}`}
         >
           READ MORE
         </p>
