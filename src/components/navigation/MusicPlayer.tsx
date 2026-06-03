@@ -37,12 +37,14 @@ export function MusicPlayer({ startPlaying = false }: Props) {
 		if (startPlaying && audioRef.current && !hasStarted) {
 			const audio = audioRef.current;
 			audio.muted = false;
-			audio.play().then(() => {
-				setHasStarted(true);
-				setIsMuted(false);
-			}).catch(() => {
-				audio.muted = true;
-			});
+			audio.play()
+				.then(() => {
+					setHasStarted(true);
+					setIsMuted(false);
+				})
+				.catch(() => {
+					audio.muted = true;
+				});
 		}
 	}, [startPlaying, hasStarted]);
 
@@ -57,10 +59,12 @@ export function MusicPlayer({ startPlaying = false }: Props) {
 
 		if (!hasStarted) {
 			audio.muted = false;
-			audio.play().then(() => {
-				setHasStarted(true);
-				setIsMuted(false);
-			}).catch(() => {});
+			audio.play()
+				.then(() => {
+					setHasStarted(true);
+					setIsMuted(false);
+				})
+				.catch(() => {});
 			return;
 		}
 
@@ -70,46 +74,77 @@ export function MusicPlayer({ startPlaying = false }: Props) {
 	};
 
 	return (
-		<div className="fixed top-4 right-4 z-[100] flex items-center gap-3">
-			<AnimatePresence mode="wait">
+		<div className="fixed top-5 right-5 z-[100] flex flex-col items-end">
+			<div className="relative">
+				{/* Pulsing glow ring when unmuted */}
+				{!isMuted && hasStarted && (
+					<motion.div
+						className="absolute -inset-1 rounded-sm border border-yellow/30 pointer-events-none"
+						animate={{ opacity: [0.15, 0.4, 0.15] }}
+						transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+					/>
+				)}
+
+				<button
+					onClick={handleToggle}
+					className={cn(
+						"relative w-9 h-9 flex items-center justify-center bg-[#0c0006] border transition-all duration-300 cursor-pointer group",
+						isMuted
+							? "border-yellow/20 hover:border-yellow/40"
+							: "border-yellow/40 hover:border-yellow/60",
+					)}
+					aria-label={isMuted ? "Unmute music" : "Mute music"}
+				>
+					{/* Corner brackets */}
+					<span className="absolute top-0 left-0 w-2 h-px bg-yellow/50 group-hover:bg-yellow/70" />
+					<span className="absolute top-0 left-0 w-px h-2 bg-yellow/50 group-hover:bg-yellow/70" />
+					<span className="absolute top-0 right-0 w-2 h-px bg-yellow/50 group-hover:bg-yellow/70" />
+					<span className="absolute top-0 right-0 w-px h-2 bg-yellow/50 group-hover:bg-yellow/70" />
+					<span className="absolute bottom-0 left-0 w-2 h-px bg-yellow/50 group-hover:bg-yellow/70" />
+					<span className="absolute bottom-0 left-0 w-px h-2 bg-yellow/50 group-hover:bg-yellow/70" />
+					<span className="absolute bottom-0 right-0 w-2 h-px bg-yellow/50 group-hover:bg-yellow/70" />
+					<span className="absolute bottom-0 right-0 w-px h-2 bg-yellow/50 group-hover:bg-yellow/70" />
+
+					{isMuted ? (
+						<VolumeX className="w-4 h-4 text-yellow/50 group-hover:text-yellow/70 transition-colors" />
+					) : (
+						<Volume2 className="w-4 h-4 text-yellow/80 transition-colors" />
+					)}
+				</button>
+			</div>
+
+			{/* Volume slider panel drops down from button */}
+			<AnimatePresence>
 				{!isMuted && (
 					<motion.div
-						key="slider"
-						initial={{ width: 0, opacity: 0 }}
-						animate={{ width: 96, opacity: 1 }}
-						exit={{ width: 0, opacity: 0 }}
-						transition={{ duration: 0.25, ease: "easeInOut" }}
+						initial={{ height: 0, opacity: 0 }}
+						animate={{ height: "auto", opacity: 1 }}
+						exit={{ height: 0, opacity: 0 }}
+						transition={{ duration: 0.2, ease: "easeInOut" }}
 						className="overflow-hidden"
 					>
-						<input
-							type="range"
-							min="0"
-							max="1"
-							step="0.01"
-							value={volume}
-							onChange={handleVolumeChange}
-							className={cn(
-								"w-full h-1 rounded-full appearance-none cursor-pointer",
-								"bg-yellow/20 accent-yellow",
-								"[&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-yellow [&::-webkit-slider-thumb]:border-none [&::-webkit-slider-thumb]:shadow-none",
-							)}
-							aria-label="Volume"
-						/>
+						<div className="border-x border-b border-yellow/20 bg-[#0c0006] px-3 py-2">
+							<input
+								type="range"
+								min="0"
+								max="1"
+								step="0.01"
+								value={volume}
+								onChange={handleVolumeChange}
+								className={cn(
+									"w-24 h-1 rounded-full appearance-none cursor-pointer",
+									"bg-yellow/20 accent-yellow",
+									"[&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-2.5 [&::-webkit-slider-thumb]:h-2.5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-yellow [&::-webkit-slider-thumb]:border-none",
+								)}
+								style={{
+									background: `linear-gradient(to right, #e7d393 0%, #e7d393 ${volume * 100}%, rgba(231,211,147,0.2) ${volume * 100}%)`,
+								}}
+								aria-label="Volume"
+							/>
+						</div>
 					</motion.div>
 				)}
 			</AnimatePresence>
-
-			<button
-				onClick={handleToggle}
-				className="flex items-center justify-center w-10 h-10 rounded-full bg-[#0c0006]/80 border border-yellow/30 hover:border-yellow/60 hover:bg-[#0c0006] transition-colors cursor-pointer shrink-0"
-				aria-label={isMuted ? "Unmute music" : "Mute music"}
-			>
-				{isMuted ? (
-					<VolumeX className="w-5 h-5 text-yellow/70" />
-				) : (
-					<Volume2 className="w-5 h-5 text-yellow" />
-				)}
-			</button>
 		</div>
 	);
 }
