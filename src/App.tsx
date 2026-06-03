@@ -3,7 +3,6 @@ import { ScrollTrigger } from "gsap/all";
 import { useEffect, useState } from "react";
 import Background from "./components/Background";
 import Footer from "./components/navigation/Footer";
-import type { PageId } from "./components/navigation/Header";
 import { Header } from "./components/navigation/Header";
 import { MusicPlayer } from "./components/MusicPlayer";
 import { HeroSection } from "./components/sections/HeroSection";
@@ -18,6 +17,7 @@ import MainNewsPage from "./pages/main-news/index";
 import MerchandisePage from "./pages/merchandise/index";
 import SupportPage from "./pages/support/index";
 import WhatIsEscomPage from "./pages/what-is-escom/index";
+import type { PageId } from "./types/types";
 
 gsap.registerPlugin(ScrollTrigger);
 
