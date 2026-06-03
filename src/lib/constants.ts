@@ -60,3 +60,7 @@ export const ICONS = [
 		pos: "right-[35%]",
 	},
 ] as const;
+
+export const AUDIO = {
+	main: "/audio/main.mp3",
+} as const;
