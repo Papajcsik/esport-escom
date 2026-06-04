@@ -16,6 +16,7 @@ import MainNewsPage from "./pages/main-news/index";
 import MerchandisePage from "./pages/merchandise/index";
 import SupportPage from "./pages/support/index";
 import WhatIsEscomPage from "./pages/what-is-escom/index";
+import type { WhatIsEscomTab } from "./pages/what-is-escom/index";
 import { useEffect, useState } from "react";
 import Footer from "./components/navigation/Footer";
 
@@ -35,6 +36,7 @@ export default function LandingPage() {
 	const [isFadingOut, setIsFadingOut] = useState(false);
 	const [activePage, setActivePage] = useState<PageId | null>(null);
 	const [faqTab, setFaqTab] = useState<FaqTab>("faq");
+	const [escomTab, setEscomTab] = useState<WhatIsEscomTab>("contractors");
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
@@ -47,11 +49,11 @@ export default function LandingPage() {
 		// null = home, same page = toggle off, different page = switch
 		if (pageId === null || activePage === pageId) {
 			setActivePage(null);
-			setFaqTab("faq"); // reset tab when leaving FAQ
+			setFaqTab("faq");
+			setEscomTab("contractors");
 		} else {
-			if (pageId !== "faq") {
-				setFaqTab("faq"); // reset tab when switching away from FAQ
-			}
+			if (pageId !== "faq") setFaqTab("faq");
+			if (pageId !== "what-is-escom") setEscomTab("contractors");
 			setActivePage(pageId);
 		}
 	};
@@ -63,19 +65,21 @@ export default function LandingPage() {
 			<SplashScreen />
 			<HeroSection />
 			<ParallaxSection />
-			<Header onNavigate={handleNavigate} activePage={activePage} faqTab={faqTab} onFaqTabChange={setFaqTab} />
+			<Header onNavigate={handleNavigate} activePage={activePage} faqTab={faqTab} onFaqTabChange={setFaqTab} escomTab={escomTab} onEscomTabChange={setEscomTab} />
 
-			<div className="relative">
-				<Background />
+			<div className="relative" style={{ backgroundColor: "#220313" }}>
 				{ActivePageComponent && (
-					<div className="absolute inset-0 z-10 overflow-y-auto">
+					<div className="relative z-10">
 						{activePage === "faq" ? (
 							<FaqPage activeTab={faqTab} />
+						) : activePage === "what-is-escom" ? (
+							<WhatIsEscomPage activeTab={escomTab} />
 						) : (
 							<ActivePageComponent />
 						)}
 					</div>
 				)}
+				{!ActivePageComponent && <Background />}
 			</div>
 
 			{!ActivePageComponent && (

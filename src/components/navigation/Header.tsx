@@ -2,6 +2,7 @@ import { IMAGES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { SwitchButton } from "@/components/SwitchButton";
 import type { FaqTab } from "@/pages/faq/index";
+import type { WhatIsEscomTab } from "@/pages/what-is-escom/index";
 import { useEffect, useRef, useState } from "react";
 
 export type PageId =
@@ -28,9 +29,11 @@ type Props = {
 	activePage?: PageId | null;
 	faqTab?: FaqTab;
 	onFaqTabChange?: (tab: FaqTab) => void;
+	escomTab?: WhatIsEscomTab;
+	onEscomTabChange?: (tab: WhatIsEscomTab) => void;
 };
 
-export function Header({ onNavigate, activePage, faqTab, onFaqTabChange }: Props) {
+export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTab, onEscomTabChange }: Props) {
 	const [isHeaderSticky, setIsHeaderSticky] = useState(false);
 	const [isHeaderHidden, setIsHeaderHidden] = useState(false);
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -262,6 +265,38 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange }: Props
 						isActive={faqTab === "eula"}
 						onClick={() => onFaqTabChange?.("eula")}
 						id="eula-tab-button"
+					/>
+				</div>
+			)}
+
+			{/* What is ESCOM toggle buttons */}
+			{activePage === "what-is-escom" && (
+				<div className="absolute top-full left-0 right-0 z-40 -mt-4 flex items-center justify-center gap-6 md:gap-10 py-2">
+					<SwitchButton
+						label="Contractors"
+						isActive={escomTab === "contractors"}
+						onClick={() => onEscomTabChange?.("contractors")}
+						flipped
+						id="escom-contractors-button"
+					/>
+					<SwitchButton
+						label="Asteroid attack"
+						isActive={escomTab === "asteroid-attack"}
+						onClick={() => onEscomTabChange?.("asteroid-attack")}
+						flipped
+						id="escom-asteroid-button"
+					/>
+					<SwitchButton
+						label="ESCOM Initiative"
+						isActive={escomTab === "escom-initiative"}
+						onClick={() => onEscomTabChange?.("escom-initiative")}
+						id="escom-initiative-button"
+					/>
+					<SwitchButton
+						label="EULA"
+						isActive={escomTab === "eula"}
+						onClick={() => onEscomTabChange?.("eula")}
+						id="escom-eula-button"
 					/>
 				</div>
 			)}
