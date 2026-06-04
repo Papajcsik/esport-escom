@@ -32,20 +32,20 @@ export default function WhatIsEscomPage({
 
 				{/* Contractors Tab */}
 				{activeTab === "contractors" && (
-					<div className="flex flex-col gap-14 animate-[fadeIn_0.4s_ease-out]">
+					<div className="flex flex-col gap-24 animate-[fadeIn_0.4s_ease-out]">
 						{/* Section: Your time, your game */}
-						<section className="relative overflow-hidden">
+						<section className="relative">
 							<img
 								src="/images/background/mobile-game.png"
 								alt=""
-								className="absolute right-0 bottom-0 w-[500px] md:w-[600px] h-auto object-contain opacity-30 pointer-events-none"
+								className="absolute right-0 top-16 w-[600px] md:w-[700px] h-auto object-contain opacity-30 pointer-events-none"
 							/>
 							<div className="relative z-10 p-6 md:p-8">
 								<h2 className="text-orange-400 font-bold text-xl md:text-2xl mb-6 uppercase tracking-wide border-b border-orange-500/40 pb-3">
 									Your time, your game
 								</h2>
 
-								<div className="flex flex-col gap-4">
+								<div className="flex flex-col gap-4 max-w-[60%]">
 									<p className="text-white/80 text-sm md:text-base leading-relaxed">
 										ESCOM — is a mobile game packed with fast-paced,
 										challenging logic puzzles. You choose the difficulty of
@@ -81,18 +81,18 @@ export default function WhatIsEscomPage({
 						</section>
 
 						{/* Section: Contractors */}
-						<section className="relative overflow-hidden">
+						<section className="relative pb-32">
 							<img
 								src="/images/background/contractors.png"
 								alt=""
-								className="absolute right-0 bottom-0 w-[500px] md:w-[650px] h-auto object-contain opacity-30 pointer-events-none"
+								className="absolute right-0 top-16 w-[600px] md:w-[750px] h-auto object-contain opacity-30 pointer-events-none"
 							/>
 							<div className="relative z-10 p-6 md:p-8">
 								<h2 className="text-orange-400 font-bold text-xl md:text-2xl mb-6 uppercase tracking-wide border-b border-orange-500/40 pb-3">
 									Contractors
 								</h2>
 
-								<div className="flex flex-col gap-4">
+								<div className="flex flex-col gap-4 max-w-[60%]">
 									<p className="text-white/80 text-sm md:text-base leading-relaxed">
 										The players of ESCOM are known as
 										Contractors—22nd-century entrepreneurs who answered the
@@ -122,18 +122,18 @@ export default function WhatIsEscomPage({
 						</section>
 
 						{/* Section: Threat from another Star */}
-						<section className="relative overflow-hidden">
+						<section className="relative">
 							<img
 								src="/images/background/treath.png"
 								alt=""
-								className="absolute right-0 bottom-0 w-[450px] md:w-[550px] h-auto object-contain opacity-30 pointer-events-none"
+								className="absolute right-0 top-16 w-[550px] md:w-[650px] h-auto object-contain opacity-30 pointer-events-none"
 							/>
 							<div className="relative z-10 p-6 md:p-8">
 								<h2 className="text-orange-400 font-bold text-xl md:text-2xl mb-6 uppercase tracking-wide border-b border-orange-500/40 pb-3">
 									Threat from another Star
 								</h2>
 
-								<div className="flex flex-col gap-4">
+								<div className="flex flex-col gap-4 max-w-[60%]">
 									<p className="text-white/80 text-sm md:text-base leading-relaxed">
 										Proxima Centauri — the nearest star to our solar
 										system, a dim red dwarf lurking just 4.24 light-years
@@ -166,7 +166,7 @@ export default function WhatIsEscomPage({
 				{/* Asteroid Attack Tab */}
 				{activeTab === "asteroid-attack" && (
 					<div className="flex flex-col gap-10 animate-[fadeIn_0.4s_ease-out]">
-						<section className="relative overflow-hidden">
+						<section className="relative">
 							<div className="relative z-10 p-6 md:p-8">
 								<h2 className="text-orange-400 font-bold text-xl md:text-2xl mb-4 uppercase tracking-wide">
 									Asteroid Attack
@@ -187,7 +187,7 @@ export default function WhatIsEscomPage({
 				{/* ESCOM Initiative Tab */}
 				{activeTab === "escom-initiative" && (
 					<div className="flex flex-col gap-10 animate-[fadeIn_0.4s_ease-out]">
-						<section className="relative overflow-hidden">
+						<section className="relative">
 							<div className="relative z-10 p-6 md:p-8">
 								<h2 className="text-orange-400 font-bold text-xl md:text-2xl mb-4 uppercase tracking-wide">
 									The ESCOM Initiative
@@ -209,7 +209,7 @@ export default function WhatIsEscomPage({
 				{/* EULA Tab */}
 				{activeTab === "eula" && (
 					<div className="flex flex-col gap-10 animate-[fadeIn_0.4s_ease-out]">
-						<section className="relative overflow-hidden">
+						<section className="relative">
 							<div className="relative z-10 p-6 md:p-8">
 								<h2 className="text-orange-400 font-bold text-xl md:text-2xl mb-4 uppercase tracking-wide">
 									End User License Agreement
