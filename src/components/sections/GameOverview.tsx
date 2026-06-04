@@ -6,8 +6,7 @@ import { TextBlock } from "../overview/TextBlock";
 import { HologramFrame } from "../overview/HologramFrame";
 import type { GameSection } from "@/types/types";
 import { ThemeFrame } from "../theme-image/ThemeFrame";
-import { THEME_IMG, SECTIONS } from "@/lib/constants";
-import { cn } from "@/lib/utils";
+import { THEME_IMG } from "@/lib/constants";
 
 interface Props {
   section: GameSection;
@@ -43,13 +42,13 @@ export function GameOverview({ section, index }: Props) {
 
       const splitText = SplitText.create(text, { type: "lines" });
 
-      const xFinalPos = isLeft ? 20 : -20;
+      const xFinalPos = isLeft ? 3.45 : -3.45;
       gsap.set(hologram, { x: xFinalPos, y: 4 });
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "center 85%",
+          start: "top 75%", // when the top of the section hits 80% of the viewport height
         },
       });
 
@@ -161,7 +160,7 @@ export function GameOverview({ section, index }: Props) {
         {isLeft ? (
           <div className="relative @container">
             <HologramFrame side={section.hologram} />
-            <div className="absolute inset-x-0 top-[60%] z-10 flex flex-col items-center -translate-y-1/2 text-center translate-x-6">
+            <div className="absolute inset-x-0 top-[60%] z-10 flex flex-col items-center -translate-y-1/2 text-center translate-x-[4.1cqi]">
               <div className="max-w-[70%]">
                 <TextBlock section={section} />
               </div>
@@ -183,7 +182,7 @@ export function GameOverview({ section, index }: Props) {
         {!isLeft ? (
           <div className="relative @container">
             <HologramFrame side={section.hologram} />
-            <div className="absolute inset-x-0 top-[60%] z-10 flex flex-col items-center -translate-y-1/2 text-center -translate-x-6">
+            <div className="absolute inset-x-0 top-[60%] z-10 flex flex-col items-center -translate-y-1/2 text-center translate-x-[-4.1cqi]">
               <div className="max-w-[70%]">
                 <TextBlock section={section} />
               </div>

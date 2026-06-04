@@ -22,20 +22,20 @@ export default function Background() {
 
   return (
     <>
-      <div className="relative w-full overflow-hidden aspect-4057/8400">
+      <div className="relative w-full overflow-hidden aspect-1920/5000">
         <img
           src={backgroundImages.backgroundTitan}
           alt="background titan"
-          className="w-full h-auto block"
+          className="absolute inset-0 w-full h-full object-cover"
         />
         <img
           id="background-lights"
           src={backgroundImages.backgroundLights}
           alt="background lights"
-          className="absolute top-0 left-0 w-full h-auto"
+          className="absolute inset-0 w-full h-full object-cover"
         />
 
-        <div className="absolute top-0 left-0 w-full h-full flex flex-col">
+        <div className="absolute inset-0 flex flex-col">
           {SECTIONS.map((section, index: number) => (
             <GameOverview key={section.title} section={section} index={index} />
           ))}

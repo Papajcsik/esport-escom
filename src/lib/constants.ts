@@ -119,31 +119,31 @@ export const THEME_IMG = [
   {
     src: "/images/theme-images/01.webp",
     alt: "mobile game",
-    x: -34,
+    x: -5.9,
   },
   {
     src: "/images/theme-images/02.webp",
     alt: "contractor",
-    x: -42,
+    x: -7.3,
   },
   {
     src: "/images/theme-images/03.webp",
     alt: "asteroid",
-    x: 64,
+    x: 11,
   },
   {
     src: "/images/theme-images/04.webp",
     alt: "titan 01",
-    x: -24,
+    x: -4.1,
   },
   {
     src: "/images/theme-images/05.webp",
     alt: "leaderboard",
-    x: 66,
+    x: 11.4,
   },
   {
     src: "/images/theme-images/06.webp",
     alt: "titan defense",
-    x: 10,
+    x: 1.7,
   },
 ] as const;

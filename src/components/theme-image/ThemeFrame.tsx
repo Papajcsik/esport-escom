@@ -13,8 +13,8 @@ export function ThemeFrame({ side, src, alt, x, y = 0 }: Props) {
   const isLeft = side === "left";
 
   return (
-    <div className="relative w-full">
-      <div style={{ transform: `translate(${x}px, ${y}px)` }}>
+    <div className="relative w-full @container">
+      <div style={{ transform: `translate(${x}cqi, ${y}cqi)` }}>
         <img
           data-themeimg
           src={src}
@@ -27,7 +27,7 @@ export function ThemeFrame({ side, src, alt, x, y = 0 }: Props) {
         data-themeholder
         src={isLeft ? HOLDERS.rightImageHolder : HOLDERS.leftImageHolder}
         alt={`${side} holder`}
-        className="pointer-events-none absolute top-60 z-0 w-full select-none"
+        className="absolute top-[41cqi] z-0 w-full"
       />
     </div>
   );

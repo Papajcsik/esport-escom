@@ -8,8 +8,8 @@ interface Props {
 
 export function HologramFrame({ side }: Props) {
   const isLeft = side === "left";
-  const horizontal = isLeft ? "left-8" : "right-8";
-  const textPosition = isLeft ? "left-4" : "right-4";
+  const horizontal = isLeft ? "left-[5.5cqi]" : "right-[5.5cqi]";
+  const textPosition = isLeft ? "left-[2.8cqi]" : "right-[2.8cqi]";
 
   return (
     <div className="relative w-full">
@@ -29,7 +29,7 @@ export function HologramFrame({ side }: Props) {
           />
           <p
             className={cn(
-              "absolute inset-0 flex items-center justify-center p-0 text-orange text-base text-[2.5cqi] cursor-pointer hover:scale-105 transition-transform",
+              "absolute inset-0 flex items-center justify-center text-orange text-[2.5cqi] cursor-pointer hover:scale-105 transition-transform",
               textPosition,
             )}
           >
@@ -42,7 +42,7 @@ export function HologramFrame({ side }: Props) {
         data-holder
         src={isLeft ? HOLDERS.holderLeft : HOLDERS.holderRight}
         alt={`${side} holder`}
-        className="absolute -bottom-2 w-full pointer-events-none"
+        className="absolute bottom-[-1.4cqi] w-full pointer-events-none"
       />
     </div>
   );
