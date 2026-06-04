@@ -1,5 +1,5 @@
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/all";
+import { ScrollTrigger, SplitText } from "gsap/all";
 import Background from "./components/Background";
 import { Header } from "./components/navigation/Header";
 import type { PageId } from "./components/navigation/Header";
@@ -18,68 +18,68 @@ import WhatIsEscomPage from "./pages/what-is-escom/index";
 import { useEffect, useState } from "react";
 import Footer from "./components/navigation/Footer";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const pageComponents: Record<PageId, React.FC> = {
-	"what-is-escom": WhatIsEscomPage,
-	"main-news": MainNewsPage,
-	faq: FaqPage,
-	"comic-book": ComicBookPage,
-	merchandise: MerchandisePage,
-	support: SupportPage,
-	"gaming-store": GamingStorePage,
+  "what-is-escom": WhatIsEscomPage,
+  "main-news": MainNewsPage,
+  faq: FaqPage,
+  "comic-book": ComicBookPage,
+  merchandise: MerchandisePage,
+  support: SupportPage,
+  "gaming-store": GamingStorePage,
 };
 
 export default function LandingPage() {
-	const [isFadingOut, setIsFadingOut] = useState(false);
-	const [activePage, setActivePage] = useState<PageId | null>(null);
+  const [isFadingOut, setIsFadingOut] = useState(false);
+  const [activePage, setActivePage] = useState<PageId | null>(null);
 
-	useEffect(() => {
-		const timer = setTimeout(() => {
-			setIsFadingOut(true);
-		}, siteConfig.splashScreenDurationInSeconds * 1000);
-		return () => clearTimeout(timer);
-	}, []);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsFadingOut(true);
+    }, siteConfig.splashScreenDurationInSeconds * 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
-	const handleNavigate = (pageId: PageId | null) => {
-		// null = home, same page = toggle off, different page = switch
-		if (pageId === null || activePage === pageId) {
-			setActivePage(null);
-		} else {
-			setActivePage(pageId);
-		}
-	};
+  const handleNavigate = (pageId: PageId | null) => {
+    // null = home, same page = toggle off, different page = switch
+    if (pageId === null || activePage === pageId) {
+      setActivePage(null);
+    } else {
+      setActivePage(pageId);
+    }
+  };
 
-	const ActivePageComponent = activePage ? pageComponents[activePage] : null;
+  const ActivePageComponent = activePage ? pageComponents[activePage] : null;
 
-	return (
-		<main>
-			<SplashScreen />
-			<HeroSection />
-			<ParallaxSection />
-			<Header onNavigate={handleNavigate} activePage={activePage} />
+  return (
+    <main>
+      <SplashScreen />
+      <HeroSection />
+      <ParallaxSection />
+      <Header onNavigate={handleNavigate} activePage={activePage} />
 
-			<div className="relative">
-				<Background />
-				{ActivePageComponent && (
-					<div className="absolute inset-0 z-10 overflow-y-auto">
-						<ActivePageComponent />
-					</div>
-				)}
-			</div>
+      <div className="relative">
+        <Background />
+        {ActivePageComponent && (
+          <div className="absolute inset-0 z-10 overflow-y-auto">
+            <ActivePageComponent />
+          </div>
+        )}
+      </div>
 
-			{!ActivePageComponent && (
-				<div
-					className={cn(
-						"fixed inset-0 z-50 transition-opacity duration-800",
-						isFadingOut && "pointer-events-none",
-					)}
-					style={{ opacity: isFadingOut ? 0 : 1 }}
-				>
-					<SplashScreen />
-				</div>
-			)}
-			<Footer />
-		</main>
-	);
+      {!ActivePageComponent && (
+        <div
+          className={cn(
+            "fixed inset-0 z-50 transition-opacity duration-800",
+            isFadingOut && "pointer-events-none",
+          )}
+          style={{ opacity: isFadingOut ? 0 : 1 }}
+        >
+          <SplashScreen />
+        </div>
+      )}
+      <Footer />
+    </main>
+  );
 }

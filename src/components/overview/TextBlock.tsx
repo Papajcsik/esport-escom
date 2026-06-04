@@ -6,7 +6,7 @@ interface Props {
 
 export function TextBlock({ section }: Props) {
   return (
-    <div className="flex flex-col text-center">
+    <div data-textblock className="flex flex-col text-center">
       <h3 className="font-bold text-white uppercase tracking-widest text-[3cqi]">
         {section.title}
       </h3>
