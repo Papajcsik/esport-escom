@@ -5,12 +5,16 @@ import { useRef, useState } from "react";
 import { TextBlock } from "../overview/TextBlock";
 import { HologramFrame } from "../overview/HologramFrame";
 import type { GameSection } from "@/types/types";
+import { ThemeFrame } from "../theme-image/ThemeFrame";
+import { THEME_IMG, SECTIONS } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 
 interface Props {
   section: GameSection;
+  index: number;
 }
 
-export function GameOverview({ section }: Props) {
+export function GameOverview({ section, index }: Props) {
   const isLeft = section.hologram === "left";
   const sectionRef = useRef<HTMLDivElement>(null);
   const [ready, setReady] = useState(false);
@@ -34,6 +38,8 @@ export function GameOverview({ section }: Props) {
       const holder = inSection("[data-holder]");
       const readMore = inSection("[data-readmore]");
       const text = inSection("[data-textblock]");
+      const themeImg = inSection("[data-themeimg]");
+      const themeHolder = inSection("[data-themeholder]");
 
       const splitText = SplitText.create(text, { type: "lines" });
 
@@ -43,8 +49,7 @@ export function GameOverview({ section }: Props) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "center 90%",
-          // markers: true,
+          start: "center 85%",
         },
       });
 
@@ -80,6 +85,68 @@ export function GameOverview({ section }: Props) {
         },
         "+=0.1",
       );
+
+      tl.fromTo(
+        themeHolder,
+        { yPercent: 113 },
+        { yPercent: 0, duration: 0.4, ease: "power2.in" },
+      );
+
+      tl.from(
+        themeImg,
+        {
+          clipPath: "inset(100% 0% 0% 0%)",
+          duration: 0.35,
+          ease: "power2.out",
+        },
+        "+=0.01",
+      );
+
+      tl.then(() => {
+        gsap.to(themeImg, {
+          y: -12,
+          duration: 2,
+          ease: "sine.inOut",
+          repeat: -1,
+          yoyo: true,
+        });
+
+        const glitchLoop = () => {
+          const gt = gsap.timeline({
+            onComplete: () => {
+              gsap.delayedCall(gsap.utils.random(2, 6), glitchLoop);
+            },
+          });
+
+          gt.to(themeImg, {
+            clipPath: "inset(20% 0% 60% 0%)",
+            x: 10,
+            duration: 0.03,
+            ease: "none",
+          })
+            .to(themeImg, {
+              clipPath: "inset(0% 40% 0% 0%)",
+              x: 0,
+              duration: 0.03,
+              ease: "none",
+            })
+            .to(themeImg, {
+              clipPath: "inset(50% 0% 30% 0%)",
+              x: -8,
+              duration: 0.03,
+              ease: "none",
+            })
+            .to(themeImg, {
+              clipPath: "inset(0% 35% 0% 0%)",
+              x: 0,
+              duration: 0.03,
+              ease: "none",
+              clearProps: "clipPath,x",
+            });
+        };
+
+        gsap.delayedCall(gsap.utils.random(1, 3), glitchLoop);
+      });
     },
     { scope: sectionRef, dependencies: [ready] },
   );
@@ -87,11 +154,11 @@ export function GameOverview({ section }: Props) {
   return (
     <div
       ref={sectionRef}
-      className="grid grid-cols-[2fr_1fr_2fr] items-center flex-1 "
+      className="grid grid-cols-[2fr_1fr_2fr] items-center flex-1"
     >
       {/* left cell */}
       <div>
-        {isLeft && (
+        {isLeft ? (
           <div className="relative @container">
             <HologramFrame side={section.hologram} />
             <div className="absolute inset-x-0 top-[60%] z-10 flex flex-col items-center -translate-y-1/2 text-center translate-x-6">
@@ -100,13 +167,20 @@ export function GameOverview({ section }: Props) {
               </div>
             </div>
           </div>
+        ) : (
+          <ThemeFrame
+            side={section.hologram}
+            src={THEME_IMG[index].src}
+            alt={THEME_IMG[index].alt}
+            x={THEME_IMG[index].x}
+          />
         )}
       </div>
       {/* spacer */}
       <div />
       {/* right cell */}
       <div>
-        {!isLeft && (
+        {!isLeft ? (
           <div className="relative @container">
             <HologramFrame side={section.hologram} />
             <div className="absolute inset-x-0 top-[60%] z-10 flex flex-col items-center -translate-y-1/2 text-center -translate-x-6">
@@ -115,6 +189,13 @@ export function GameOverview({ section }: Props) {
               </div>
             </div>
           </div>
+        ) : (
+          <ThemeFrame
+            side={section.hologram}
+            src={THEME_IMG[index].src}
+            alt={THEME_IMG[index].alt}
+            x={THEME_IMG[index].x}
+          />
         )}
       </div>
     </div>

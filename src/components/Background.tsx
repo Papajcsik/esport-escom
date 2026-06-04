@@ -36,8 +36,8 @@ export default function Background() {
         />
 
         <div className="absolute top-0 left-0 w-full h-full flex flex-col">
-          {SECTIONS.map((section) => (
-            <GameOverview key={section.title} section={section} />
+          {SECTIONS.map((section, index: number) => (
+            <GameOverview key={section.title} section={section} index={index} />
           ))}
         </div>
       </div>

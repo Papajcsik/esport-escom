@@ -111,4 +111,39 @@ export const HOLDERS = {
   hologramRight: "/images/holders/hologram-right.webp",
   holderLeft: "/images/holders/hologram-holder-left.webp",
   holderRight: "/images/holders/hologram-holder-right.webp",
+  leftImageHolder: "/images/theme-images/image-holder-left.webp",
+  rightImageHolder: "/images/theme-images/image-holder-right.webp",
 } as const;
+
+export const THEME_IMG = [
+  {
+    src: "/images/theme-images/01.webp",
+    alt: "mobile game",
+    x: -34,
+  },
+  {
+    src: "/images/theme-images/02.webp",
+    alt: "contractor",
+    x: -42,
+  },
+  {
+    src: "/images/theme-images/03.webp",
+    alt: "asteroid",
+    x: 64,
+  },
+  {
+    src: "/images/theme-images/04.webp",
+    alt: "titan 01",
+    x: -24,
+  },
+  {
+    src: "/images/theme-images/05.webp",
+    alt: "leaderboard",
+    x: 66,
+  },
+  {
+    src: "/images/theme-images/06.webp",
+    alt: "titan defense",
+    x: 10,
+  },
+] as const;
