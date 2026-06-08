@@ -122,7 +122,7 @@ export default function WhatIsEscomPage({
 						</section>
 
 						{/* Section: Threat from another Star */}
-						<section className="relative">
+						<section className="relative pb-96">
 							<img
 								src="/images/background/treath.png"
 								alt=""
