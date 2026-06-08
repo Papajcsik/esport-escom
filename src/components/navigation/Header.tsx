@@ -36,17 +36,19 @@ type Props = {
 export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTab, onEscomTabChange }: Props) {
 	const [isHeaderSticky, setIsHeaderSticky] = useState(false);
 	const [isHeaderHidden, setIsHeaderHidden] = useState(false);
+	const [isTransitionEnabled, setIsTransitionEnabled] = useState(false);
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const lastScrollY = useRef(0);
-	const headerRef = useRef<HTMLElement>(null);
-	const [headerHeight, setHeaderHeight] = useState(0);
 
-	// Measure header height so we can reserve space when it goes fixed
+	// Prevent animation flashes on initial sticky state
 	useEffect(() => {
-		if (headerRef.current) {
-			setHeaderHeight(headerRef.current.offsetHeight);
+		if (isHeaderSticky) {
+			const timer = setTimeout(() => setIsTransitionEnabled(true), 50);
+			return () => clearTimeout(timer);
+		} else {
+			setIsTransitionEnabled(false);
 		}
-	}, []);
+	}, [isHeaderSticky]);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -57,19 +59,32 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
 
 			if (underHeroElement) {
 				const underHeroBottom = underHeroElement.getBoundingClientRect().bottom;
-				const sticky = underHeroBottom <= 0;
-				setIsHeaderSticky(sticky);
+				const atTopThreshold = 60;
+				const offScreenThreshold = -300;
 
-				if (sticky && !isMenuOpen) {
-					const scrollDelta = currentScrollY - lastScrollY.current;
-					if (scrollDelta > 5) {
+				let newSticky = isHeaderSticky;
+				if (!isHeaderSticky && underHeroBottom <= offScreenThreshold) {
+					newSticky = true;
+				} else if (isHeaderSticky && underHeroBottom > atTopThreshold) {
+					newSticky = false;
+				}
+
+				setIsHeaderSticky(newSticky);
+
+				if (newSticky && !isMenuOpen) {
+					if (!isHeaderSticky) {
 						setIsHeaderHidden(true);
-					} else if (scrollDelta < -5) {
-						setIsHeaderHidden(false);
+					} else {
+						const scrollDelta = currentScrollY - lastScrollY.current;
+						if (scrollDelta > 5) {
+							setIsHeaderHidden(true);
+						} else if (scrollDelta < -5) {
+							setIsHeaderHidden(false);
+						}
 					}
 				}
 
-				if (!sticky) {
+				if (!newSticky) {
 					setIsHeaderHidden(false);
 				}
 			}
@@ -82,7 +97,7 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
 		handleScroll();
 
 		return () => window.removeEventListener("scroll", handleScroll);
-	}, [isMenuOpen]);
+	}, [isMenuOpen, isHeaderSticky]);
 
 	const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
@@ -94,14 +109,18 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
 	};
 
 	return (
-		<div style={isHeaderSticky ? { height: headerHeight } : { backgroundColor: "#220313" }}>
+		<div className="relative w-full" style={{ backgroundColor: "#220313" }}>
+			<div className="w-full invisible pointer-events-none select-none" aria-hidden="true">
+				<img src={IMAGES.headerBackground} className="w-full block" />
+			</div>
+
 			<header
-				ref={headerRef}
 				className={cn(
-					"flex items-center justify-between z-50 transition-transform duration-1000 ease-[cubic-bezier(0.25,0.1,0.25,1)]",
+					"flex items-center justify-between z-50",
+					isHeaderSticky && isTransitionEnabled ? "transition-transform duration-1000 ease-[cubic-bezier(0.25,0.1,0.25,1)]" : "",
 					isHeaderSticky
 						? "fixed top-0 left-0 right-0 backdrop-blur-sm"
-						: "relative -translate-y-15",
+						: "absolute inset-x-0 top-0 -translate-y-15",
 					isHeaderSticky && isHeaderHidden && "-translate-y-[200%]",
 				)}
 			>
