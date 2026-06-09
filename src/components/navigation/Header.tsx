@@ -110,8 +110,8 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
 
 	return (
 		<div className="relative w-full" style={{ backgroundColor: "#220313" }}>
-			<div className="w-full invisible pointer-events-none select-none" aria-hidden="true">
-				<img src={IMAGES.headerBackground} className="w-full block" />
+			<div className="w-full flex justify-center overflow-hidden invisible pointer-events-none select-none" aria-hidden="true">
+				<img src={IMAGES.headerBackground} className="w-[180%] sm:w-[140%] md:w-full max-w-[180%] sm:max-w-[140%] md:max-w-full block flex-shrink-0" />
 			</div>
 
 			<header
@@ -120,11 +120,13 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
 					isHeaderSticky && isTransitionEnabled ? "transition-transform duration-1000 ease-[cubic-bezier(0.25,0.1,0.25,1)]" : "",
 					isHeaderSticky
 						? "fixed top-0 left-0 right-0 backdrop-blur-sm"
-						: "absolute inset-x-0 top-0 -translate-y-15",
+						: "absolute inset-x-0 top-0 -translate-y-6 sm:-translate-y-10 md:-translate-y-15",
 					isHeaderSticky && isHeaderHidden && "-translate-y-[200%]",
 				)}
 			>
-				<img src={IMAGES.headerBackground} className="relative z-20 w-full" />
+				<div className="relative z-20 w-full flex justify-center items-center overflow-hidden pointer-events-none select-none">
+					<img src={IMAGES.headerBackground} className="w-[180%] sm:w-[140%] md:w-full max-w-[180%] sm:max-w-[140%] md:max-w-full flex-shrink-0 block" />
+				</div>
 
 				<button
 					onClick={() => handleItemClick(null)}
@@ -136,7 +138,7 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
 
 				<button
 					onClick={toggleMenu}
-					className="absolute left-4 top-1/2 -translate-y-1/2 z-30 cursor-pointer bg-transparent border-none p-0"
+					className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-30 cursor-pointer bg-transparent border-none p-0"
 					aria-label={isMenuOpen ? "Close menu" : "Open menu"}
 				>
 					<img
@@ -145,8 +147,8 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
 						className={cn(
 							"object-contain transition-transform duration-300",
 							isMenuOpen
-								? "w-20 h-20 hover:scale-110"
-								: "w-20 h-16 hover:scale-110",
+								? "w-10 sm:w-12 md:w-20 h-10 sm:h-12 md:h-20 hover:scale-110"
+								: "w-10 sm:w-12 md:w-20 h-8 sm:h-10 md:h-16 hover:scale-110",
 						)}
 					/>
 				</button>
@@ -155,18 +157,18 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
 					href="https://play.google.com/store/apps/details?id=com.escom"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="absolute right-4 top-1/2 -translate-y-1/2 z-30"
+					className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-30"
 				>
 					<img
 						src={IMAGES.googlePlay}
 						alt="Get it on Google Play"
-						className="h-20 w-auto transition-transform duration-300 hover:scale-105"
+						className="h-8 sm:h-10 md:h-20 w-auto transition-transform duration-300 hover:scale-105"
 					/>
 				</a>
 
 				<nav
 					className={cn(
-						"absolute top-full -mt-9 left-0 z-50 w-[400px] overflow-hidden transition-all duration-400 ease-in-out",
+						"absolute top-full -mt-2 sm:-mt-4 md:-mt-9 left-0 z-50 w-[280px] sm:w-[340px] md:w-[400px] overflow-hidden transition-all duration-400 ease-in-out",
 						isMenuOpen
 							? "max-h-[600px] opacity-100"
 							: "max-h-0 opacity-0 pointer-events-none",
@@ -185,7 +187,7 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
 							className="absolute top-0 left-0 w-full h-full pointer-events-none object-fill"
 						/>
 
-						<ul className="relative z-10 flex flex-col items-start gap-4 pt-24 pb-8 pl-10 pr-8 list-none m-0">
+						<ul className="relative z-10 flex flex-col items-start gap-3 md:gap-4 pt-14 sm:pt-18 md:pt-24 pb-5 md:pb-8 pl-8 md:pl-10 pr-6 md:pr-8 list-none m-0">
 							{/* Home button */}
 							<li
 								className={cn(
@@ -221,7 +223,7 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
 												: "opacity-0 group-hover:opacity-100",
 										)}
 									/>
-									<span className="absolute inset-0 flex items-center pl-6 text-white-100 text-lg font-bold uppercase tracking-wider">
+									<span className="absolute inset-0 flex items-center pl-5 md:pl-6 text-white-100 text-sm sm:text-base md:text-lg font-bold uppercase tracking-wider">
 										HOME
 									</span>
 								</button>
@@ -270,7 +272,7 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
 													: "opacity-0 group-hover:opacity-100",
 											)}
 										/>
-										<span className="absolute inset-0 flex items-center pl-6 text-white-100 text-lg font-bold uppercase tracking-wider">
+										<span className="absolute inset-0 flex items-center pl-5 md:pl-6 text-white-100 text-sm sm:text-base md:text-lg font-bold uppercase tracking-wider">
 											{item.label}
 										</span>
 									</button>
@@ -282,7 +284,7 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
 
 				{/* FAQ / EULA toggle buttons — shown only when FAQ page is active */}
 				{activePage === "faq" && (
-					<div className="absolute top-full left-0 right-0 z-40 -mt-4 flex items-center justify-center gap-48 md:gap-100 py-2">
+					<div className="absolute top-full left-0 right-0 z-40 -mt-2 md:-mt-4 flex items-center justify-center gap-8 sm:gap-24 md:gap-48 lg:gap-100 py-2 px-2">
 						<SwitchButton
 							label="F.A.Q."
 							isActive={faqTab === "faq"}
@@ -301,7 +303,7 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
 
 				{/* What is ESCOM toggle buttons */}
 				{activePage === "what-is-escom" && (
-					<div className="absolute top-full left-0 right-0 z-40 -mt-4 flex items-center justify-center gap-6 md:gap-10 py-2">
+					<div className="absolute top-full left-0 right-0 z-40 -mt-2 md:-mt-4 flex flex-wrap items-center justify-center gap-2 md:gap-6 lg:gap-10 py-2 px-2">
 						<SwitchButton
 							label="Contractors"
 							isActive={escomTab === "contractors"}

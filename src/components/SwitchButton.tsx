@@ -39,7 +39,7 @@ export function SwitchButton({
 				src={IMAGES.hamburgerSwitchButton}
 				alt=""
 				className={cn(
-					"w-48 md:w-60 h-auto object-contain transition-all duration-300",
+					"w-36 sm:w-44 md:w-60 h-auto object-contain transition-all duration-300",
 					flipped && "-scale-x-100",
 					isActive
 						? "brightness-125 drop-shadow-[0_0_12px_rgba(255,100,50,0.6)]"
@@ -48,7 +48,7 @@ export function SwitchButton({
 			/>
 			<span
 				className={cn(
-					"absolute inset-0 flex items-center justify-center text-white font-bold text-base md:text-lg uppercase tracking-widest transition-all duration-300 pointer-events-none",
+					"absolute inset-0 flex items-center justify-center text-white font-bold text-sm sm:text-base md:text-lg uppercase tracking-widest transition-all duration-300 pointer-events-none",
 					isActive
 						? "drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]"
 						: "",
