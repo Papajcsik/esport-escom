@@ -1,28 +1,10 @@
-import { IMAGES } from "@/lib/constants";
+import { IMAGES, menuItems } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import type { PageId } from "@/types/types";
 import { SwitchButton } from "@/components/SwitchButton";
 import type { FaqTab } from "@/pages/faq/index";
 import type { WhatIsEscomTab } from "@/pages/what-is-escom/index";
 import { useCallback, useEffect, useRef, useState } from "react";
-
-export type PageId =
-	| "what-is-escom"
-	| "main-news"
-	| "faq"
-	| "comic-book"
-	| "merchandise"
-	| "support"
-	| "gaming-store";
-
-export const menuItems: { label: string; id: PageId }[] = [
-	{ label: "WHAT IS ESCOM ?", id: "what-is-escom" },
-	{ label: "MAIN NEWS", id: "main-news" },
-	{ label: "FAQ / EULA", id: "faq" },
-	{ label: "ESCOM COMIC BOOK", id: "comic-book" },
-	{ label: "MERCHANDISE", id: "merchandise" },
-	{ label: "SUPPORT", id: "support" },
-	{ label: "GAMING STORE", id: "gaming-store" },
-];
 
 type Props = {
 	onNavigate?: (pageId: PageId | null) => void;
