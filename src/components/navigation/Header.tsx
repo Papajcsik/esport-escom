@@ -1,25 +1,7 @@
-import { IMAGES } from "@/lib/constants";
+import { IMAGES, menuItems } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import type { PageId } from "@/types/types";
 import { useEffect, useState } from "react";
-
-export type PageId =
-	| "what-is-escom"
-	| "main-news"
-	| "faq"
-	| "comic-book"
-	| "merchandise"
-	| "support"
-	| "gaming-store";
-
-export const menuItems: { label: string; id: PageId }[] = [
-	{ label: "WHAT IS ESCOM ?", id: "what-is-escom" },
-	{ label: "MAIN NEWS", id: "main-news" },
-	{ label: "FAQ / EULA", id: "faq" },
-	{ label: "ESCOM COMIC BOOK", id: "comic-book" },
-	{ label: "MERCHANDISE", id: "merchandise" },
-	{ label: "SUPPORT", id: "support" },
-	{ label: "GAMING STORE", id: "gaming-store" },
-];
 
 type Props = {
 	onNavigate?: (pageId: PageId | null) => void;
@@ -108,9 +90,9 @@ export function Header({ onNavigate, activePage }: Props) {
 
 			<nav
 				className={cn(
-					"absolute top-full -mt-9 left-0 z-50 w-[400px] overflow-hidden transition-all duration-400 ease-in-out",
+					"absolute top-full -mt-9 left-0 z-50 w-100 overflow-hidden transition-all duration-400 ease-in-out",
 					isMenuOpen
-						? "max-h-[600px] opacity-100"
+						? "max-h-150 opacity-100"
 						: "max-h-0 opacity-0 pointer-events-none",
 				)}
 			>

@@ -1,3 +1,5 @@
+import type { PageId } from "@/types/types";
+
 export const IMAGES = {
 	backgroundLights: "/images/background/backgroundtitan-lights.webp",
 	backgroundTitan: "/images/background/backgroundtitan.webp",
@@ -60,3 +62,20 @@ export const ICONS = [
 		pos: "right-[35%]",
 	},
 ] as const;
+
+export const AUDIO = {
+	main: "/audio/main.mp3",
+} as const;
+
+export const menuItems: {
+	label: string;
+	id: PageId;
+}[] = [
+	{ label: "WHAT IS ESCOM ?", id: "what-is-escom" },
+	{ label: "MAIN NEWS", id: "main-news" },
+	{ label: "FAQ / EULA", id: "faq" },
+	{ label: "ESCOM COMIC BOOK", id: "comic-book" },
+	{ label: "MERCHANDISE", id: "merchandise" },
+	{ label: "SUPPORT", id: "support" },
+	{ label: "GAMING STORE", id: "gaming-store" },
+];

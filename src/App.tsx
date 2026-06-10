@@ -1,8 +1,10 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import { useEffect, useState } from "react";
 import Background from "./components/Background";
+import Footer from "./components/navigation/Footer";
 import { Header } from "./components/navigation/Header";
-import type { PageId } from "./components/navigation/Header";
+import { MusicPlayer } from "./components/MusicPlayer";
 import { HeroSection } from "./components/sections/HeroSection";
 import { ParallaxSection } from "./components/sections/ParallaxSection";
 import { SplashScreen } from "./components/SplashScreen";
@@ -15,8 +17,7 @@ import MainNewsPage from "./pages/main-news/index";
 import MerchandisePage from "./pages/merchandise/index";
 import SupportPage from "./pages/support/index";
 import WhatIsEscomPage from "./pages/what-is-escom/index";
-import { useEffect, useState } from "react";
-import Footer from "./components/navigation/Footer";
+import type { PageId } from "./types/types";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -41,14 +42,13 @@ export default function LandingPage() {
 		return () => clearTimeout(timer);
 	}, []);
 
-	const handleNavigate = (pageId: PageId | null) => {
-		// null = home, same page = toggle off, different page = switch
+	function handleNavigate(pageId: PageId | null) {
 		if (pageId === null || activePage === pageId) {
 			setActivePage(null);
 		} else {
 			setActivePage(pageId);
 		}
-	};
+	}
 
 	const ActivePageComponent = activePage ? pageComponents[activePage] : null;
 
@@ -57,6 +57,7 @@ export default function LandingPage() {
 			<SplashScreen />
 			<HeroSection />
 			<ParallaxSection />
+			<MusicPlayer startPlaying={true} />
 			<Header onNavigate={handleNavigate} activePage={activePage} />
 
 			<div className="relative">
