@@ -41,10 +41,10 @@ export default function Background() {
       />
 
       <SVGStage className="absolute inset-0 w-full h-full">
-        <Mechanic triangle={MECHANIC_1} duration={5} />
-        <Mechanic triangle={MECHANIC_2} duration={5} />
-        <Drone triangle={DRONE_1} duration={5} weldDuration={6} />
-        <Drone triangle={DRONE_2} duration={5} weldDuration={8} />
+        <Mechanic triangle={MECHANIC_1} duration={4} />
+        <Mechanic triangle={MECHANIC_2} duration={6} />
+        <Drone triangle={DRONE_1} duration={3} weldDuration={6} />
+        <Drone triangle={DRONE_2} duration={4} weldDuration={6} />
       </SVGStage>
     </div>
   );

@@ -82,14 +82,14 @@ export const menuItems: {
 
 export const MECHANIC_1: [Point, Point, Point] = [
   { x: 950, y: 142 },
-  { x: 300, y: 150 },
-  { x: 80, y: 200 },
+  { x: 1500, y: 460 },
+  { x: 1700, y: 240 },
 ];
 
 export const MECHANIC_2: [Point, Point, Point] = [
   { x: 700, y: 197 },
-  { x: 1600, y: 200 },
-  { x: 1500, y: 450 },
+  { x: 1700, y: -230 },
+  { x: 1300, y: -380 },
 ];
 
 export const DRONE_1: [Point, Point, Point] = [

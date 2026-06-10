@@ -18,14 +18,15 @@ export default function Mechanic({ triangle, duration }: MechanicProps) {
       const element = groupRef.current;
       if (!element) return;
 
-      gsap.set(element, { x: triangle[0].x, y: triangle[0].y });
+      // Returns a whole number from 0 to the length of the triangle array
+      const index = Math.floor(Math.random() * triangle.length);
+      gsap.set(element, { x: triangle[index].x, y: triangle[index].y });
 
       const animate = () => {
-        // Returns a whole number from 0 to the length of the triangle array
         const nextIndex = Math.floor(Math.random() * triangle.length);
         const nextPoint = triangle[nextIndex];
 
-        gsap.timeline({ onComplete: animate }).to(element, {
+        gsap.timeline({ onComplete: animate, delay: 20 }).to(element, {
           x: nextPoint.x,
           y: nextPoint.y,
           duration,
@@ -33,7 +34,7 @@ export default function Mechanic({ triangle, duration }: MechanicProps) {
         });
       };
 
-      //animate();
+      animate();
     },
     { dependencies: [triangle, duration] },
   );

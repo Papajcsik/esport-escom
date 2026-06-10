@@ -25,11 +25,12 @@ export default function Drone({
       const sparks = sparksRef.current;
       if (!element || !sparks) return;
 
-      gsap.set(element, { x: triangle[0].x, y: triangle[0].y });
+      // Returns a whole number from 0 to the length of the triangle array
+      const index = Math.floor(Math.random() * triangle.length);
+      gsap.set(element, { x: triangle[index].x, y: triangle[index].y });
       gsap.set(sparks, { opacity: 0, scale: 1 });
 
       const animate = () => {
-        // Returns a whole number from 0 to the length of the triangle array
         const nextIndex = Math.floor(Math.random() * triangle.length);
         const nextPoint = triangle[nextIndex];
 
