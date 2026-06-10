@@ -9,3 +9,12 @@ export interface GameSection {
   text: string;
   hologram: HologramPosition;
 }
+
+export type PageId =
+  | "what-is-escom"
+  | "main-news"
+  | "faq"
+  | "comic-book"
+  | "merchandise"
+  | "support"
+  | "gaming-store";
