@@ -47,18 +47,6 @@ export default function Background() {
         ))}
       </div>
 
-      <img
-        src={backgroundImages.backgroundTitan}
-        alt="background titan"
-        className="w-full h-auto block"
-      />
-      <img
-        id="background-lights"
-        src={backgroundImages.backgroundLights}
-        alt="background lights"
-        className="absolute top-0 left-0 w-full h-auto"
-      />
-
       <SVGStage className="absolute inset-0 w-full h-full">
         <Mechanic triangle={MECHANIC_1} duration={4} />
         <Mechanic triangle={MECHANIC_2} duration={6} />
