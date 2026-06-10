@@ -1,8 +1,4 @@
-import type { PageId, Point } from "@/types/types";
-
-export const IMAGES = {
-  backgroundLights: "/images/background/backgroundtitan-lights.webp",
-  backgroundTitan: "/images/background/backgroundtitan.webp",
+export const images = {
   buttonOff: "/images/header/button-off.webp",
   buttonOn: "/images/header/button-on.webp",
   googlePlay: "/images/header/google-play.webp",
@@ -34,7 +30,14 @@ export const IMAGES = {
   hamburgerMenuElementHighlighted:
     "/images/header/hamburger_menu_pointer_highlighted.png",
   hamburgerMenuOutside: "/images/header/hamburger-menu-outside.png",
-  hamburgerSwitchButton: "/images/header/hamburger-switch-button.png",
+} as const;
+
+export const backgroundImages = {
+  backgroundLights: "/images/background/backgroundtitan-lights.webp",
+  backgroundTitan: "/images/background/backgroundtitan.webp",
+  mechanic: "/images/background/mechanic.webp",
+  weldingSparks: "/images/background/welding-drone-sparks.webp",
+  weldingDrone: "/images/background/welding-drone.webp",
 } as const;
 
 export const ICONS = [
@@ -64,43 +67,4 @@ export const ICONS = [
   },
 ] as const;
 
-export const AUDIO = {
-  main: "/audio/main.mp3",
-} as const;
-
-export const menuItems: {
-  label: string;
-  id: PageId;
-}[] = [
-    { label: "WHAT IS ESCOM ?", id: "what-is-escom" },
-    { label: "MAIN NEWS", id: "main-news" },
-    { label: "FAQ / EULA", id: "faq" },
-    { label: "ESCOM COMIC BOOK", id: "comic-book" },
-    { label: "MERCHANDISE", id: "merchandise" },
-    { label: "SUPPORT", id: "support" },
-    { label: "GAMING STORE", id: "gaming-store" },
-  ];
-
-export const MECHANIC_1: [Point, Point, Point] = [
-  { x: 950, y: 142 },
-  { x: 1500, y: 460 },
-  { x: 1700, y: 240 },
-];
-
-export const MECHANIC_2: [Point, Point, Point] = [
-  { x: 700, y: 197 },
-  { x: 1700, y: -230 },
-  { x: 1300, y: -380 },
-];
-
-export const DRONE_1: [Point, Point, Point] = [
-  { x: 822, y: -170 },
-  { x: 1050, y: -450 },
-  { x: 405, y: -220 },
-];
-
-export const DRONE_2: [Point, Point, Point] = [
-  { x: 1243, y: 505 },
-  { x: 1065, y: 910 },
-  { x: 805, y: 668 },
-];
+export type Icon = (typeof ICONS)[number];
