@@ -12,11 +12,13 @@ import { siteConfig } from "./lib/config";
 import { cn } from "./lib/utils";
 import ComicBookPage from "./pages/comic-book/index";
 import FaqPage from "./pages/faq/index";
+import type { FaqTab } from "./pages/faq/index";
 import GamingStorePage from "./pages/gaming-store/index";
 import MainNewsPage from "./pages/main-news/index";
 import MerchandisePage from "./pages/merchandise/index";
 import SupportPage from "./pages/support/index";
 import WhatIsEscomPage from "./pages/what-is-escom/index";
+import type { WhatIsEscomTab } from "./pages/what-is-escom/index";
 import type { PageId } from "./types/types";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -34,6 +36,8 @@ const pageComponents: Record<PageId, React.FC> = {
 export default function LandingPage() {
 	const [isFadingOut, setIsFadingOut] = useState(false);
 	const [activePage, setActivePage] = useState<PageId | null>(null);
+	const [faqTab, setFaqTab] = useState<FaqTab>("faq");
+	const [escomTab, setEscomTab] = useState<WhatIsEscomTab>("contractors");
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
@@ -45,7 +49,11 @@ export default function LandingPage() {
 	function handleNavigate(pageId: PageId | null) {
 		if (pageId === null || activePage === pageId) {
 			setActivePage(null);
+			setFaqTab("faq");
+			setEscomTab("contractors");
 		} else {
+			if (pageId !== "faq") setFaqTab("faq");
+			if (pageId !== "what-is-escom") setEscomTab("contractors");
 			setActivePage(pageId);
 		}
 	}
@@ -58,15 +66,21 @@ export default function LandingPage() {
 			<HeroSection />
 			<ParallaxSection />
 			<MusicPlayer startPlaying={true} />
-			<Header onNavigate={handleNavigate} activePage={activePage} />
+			<Header onNavigate={handleNavigate} activePage={activePage} faqTab={faqTab} onFaqTabChange={setFaqTab} escomTab={escomTab} onEscomTabChange={setEscomTab} />
 
-			<div className="relative">
-				<Background />
+			<div className="relative" style={{ backgroundColor: "#220313" }}>
 				{ActivePageComponent && (
-					<div className="absolute inset-0 z-10 overflow-y-auto">
-						<ActivePageComponent />
+					<div className="relative z-10">
+						{activePage === "faq" ? (
+							<FaqPage activeTab={faqTab} />
+						) : activePage === "what-is-escom" ? (
+							<WhatIsEscomPage />
+						) : (
+							<ActivePageComponent />
+						)}
 					</div>
 				)}
+				{!ActivePageComponent && <Background />}
 			</div>
 
 			{!ActivePageComponent && (
