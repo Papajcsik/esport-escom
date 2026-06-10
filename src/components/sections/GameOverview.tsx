@@ -42,8 +42,14 @@ export function GameOverview({ section, index }: Props) {
 
       const splitText = SplitText.create(text, { type: "lines" });
 
-      const xFinalPos = isLeft ? 3.45 : -3.45;
-      gsap.set(hologram, { x: xFinalPos, y: 4 });
+      const xFinalPos = isLeft ? 3.5 : -3.5;
+      const hologramHolderStartRot = isLeft ? -90 : 90;
+      const imgHolderStartRot = -90;
+      gsap.set(hologram, {
+        xPercent: xFinalPos,
+        y: 4,
+        transformOrigin: "center center",
+      });
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -63,9 +69,10 @@ export function GameOverview({ section, index }: Props) {
         { yPercent: 0, duration: 0.4, ease: "power2.in" },
         "<",
       );
-      tl.from(
+      tl.fromTo(
         hologram,
-        { clipPath: "inset(100% 0% 0% 0%)", duration: 0.1, ease: "power2.out" },
+        { rotation: hologramHolderStartRot, opacity: 0 },
+        { rotation: 0, opacity: 1, duration: 0.4, ease: "power2.out" },
         "+=0.01",
       );
 
@@ -87,8 +94,12 @@ export function GameOverview({ section, index }: Props) {
 
       tl.fromTo(
         themeHolder,
-        { yPercent: 113 },
-        { yPercent: 0, duration: 0.4, ease: "power2.in" },
+        {
+          rotation: imgHolderStartRot,
+          yPercent: 113,
+          transformOrigin: "center center",
+        },
+        { rotation: 0, yPercent: 0, duration: 0.4, ease: "power2.in" },
       );
 
       tl.from(
