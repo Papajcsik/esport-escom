@@ -87,7 +87,33 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
 		if (onNavigate) {
 			onNavigate(pageId);
 			setIsMenuOpen(false);
+
+			const underHeroElement = document.querySelector(".relative.flex-1.overflow-hidden.min-h-screen");
+			if (underHeroElement) {
+				const headerOffset = 50; // offset to prevent the top of the header from being cut off
+				const offsetPosition = underHeroElement.getBoundingClientRect().bottom + window.scrollY - headerOffset;
+				window.scrollTo({
+					top: offsetPosition,
+					behavior: "smooth"
+				});
+			} else {
+				window.scrollTo({ top: 0, behavior: "smooth" });
+			}
 		}
+	};
+
+	const handleEscomTabClick = (tab: WhatIsEscomTab) => {
+		const element = document.getElementById(tab);
+		if (element) {
+			const headerOffset = 120;
+			const elementPosition = element.getBoundingClientRect().top;
+			const offsetPosition = elementPosition + window.scrollY - headerOffset;
+			window.scrollTo({
+				top: offsetPosition,
+				behavior: "smooth"
+			});
+		}
+		onEscomTabChange?.(tab);
 	};
 
 	return (
@@ -289,28 +315,28 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
 						<SwitchButton
 							label="Contractors"
 							isActive={escomTab === "contractors"}
-							onClick={() => onEscomTabChange?.("contractors")}
+							onClick={() => handleEscomTabClick("contractors")}
 							flipped
 							id="escom-contractors-button"
 						/>
 						<SwitchButton
 							label="Asteroid attack"
 							isActive={escomTab === "asteroid-attack"}
-							onClick={() => onEscomTabChange?.("asteroid-attack")}
+							onClick={() => handleEscomTabClick("asteroid-attack")}
 							flipped
 							id="escom-asteroid-button"
 						/>
 						<SwitchButton
 							label="ESCOM Initiative"
 							isActive={escomTab === "escom-initiative"}
-							onClick={() => onEscomTabChange?.("escom-initiative")}
+							onClick={() => handleEscomTabClick("escom-initiative")}
 							id="escom-initiative-button"
 						/>
 						<SwitchButton
-							label="EULA"
-							isActive={escomTab === "eula"}
-							onClick={() => onEscomTabChange?.("eula")}
-							id="escom-eula-button"
+							label="Draft-list"
+							isActive={escomTab === "draft-list"}
+							onClick={() => handleEscomTabClick("draft-list")}
+							id="escom-draft-list-button"
 						/>
 					</div>
 				)}

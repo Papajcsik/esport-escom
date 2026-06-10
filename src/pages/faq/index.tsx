@@ -4,30 +4,11 @@ export type FaqTab = "faq" | "eula";
 
 const faqData = [
 	{
-		question: "What is ESCOM?",
+		question: "Why are you gay?",
 		answer:
-			"ESCOM (Earth Security Command) is a sci-fi universe combining gaming, comics, and community. It is an immersive entertainment platform that brings together competitive gaming, interactive storytelling, and digital collectibles.",
+			"We welcome here Pepe Osimba human rights activist....",
 	},
-	{
-		question: "How do I get started?",
-		answer:
-			"Download the ESCOM app from Google Play, create your account, and dive into the universe. You can start by exploring the comic book series, joining gaming tournaments, or browsing the merchandise store.",
-	},
-	{
-		question: "Is the app free to download?",
-		answer:
-			"Yes, the ESCOM app is free to download. Some premium features and in-app purchases may be available for enhanced experiences and exclusive content.",
-	},
-	{
-		question: "What platforms are supported?",
-		answer:
-			"ESCOM is currently available on Android via Google Play. We are actively working on expanding to iOS and desktop platforms in the near future.",
-	},
-	{
-		question: "How can I contact support?",
-		answer:
-			"You can reach our support team through the Support page on the website, or email us directly. We aim to respond to all inquiries within 24-48 hours.",
-	},
+
 ];
 
 const eulaContent = `END USER LICENSE AGREEMENT
