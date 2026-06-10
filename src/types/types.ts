@@ -18,3 +18,9 @@ export type PageId =
   | "merchandise"
   | "support"
   | "gaming-store";
+
+export type Point = {
+  x: number;
+  y: number;
+};
+export type Triangle = [Point, Point, Point];

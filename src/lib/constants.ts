@@ -1,4 +1,4 @@
-import type { PageId } from "@/types/types";
+import type { PageId, Point } from "@/types/types";
 
 export const IMAGES = {
   buttonOff: "/images/header/button-off.webp",
@@ -165,4 +165,28 @@ export const menuItems: {
   { label: "MERCHANDISE", id: "merchandise" },
   { label: "SUPPORT", id: "support" },
   { label: "GAMING STORE", id: "gaming-store" },
+];
+
+export const MECHANIC_1: [Point, Point, Point] = [
+  { x: 950, y: 142 },
+  { x: 1500, y: 460 },
+  { x: 1700, y: 240 },
+];
+
+export const MECHANIC_2: [Point, Point, Point] = [
+  { x: 700, y: 197 },
+  { x: 1700, y: -230 },
+  { x: 1300, y: -380 },
+];
+
+export const DRONE_1: [Point, Point, Point] = [
+  { x: 822, y: -170 },
+  { x: 1050, y: -450 },
+  { x: 405, y: -220 },
+];
+
+export const DRONE_2: [Point, Point, Point] = [
+  { x: 1243, y: 505 },
+  { x: 1065, y: 910 },
+  { x: 805, y: 668 },
 ];
