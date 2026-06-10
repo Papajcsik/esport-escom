@@ -158,7 +158,7 @@ export default function WhatIsEscomPage() {
 						<img
 							src="/images/background/escom-initiative.png"
 							alt=""
-							className="absolute right-0 top-16 w-[600px] md:w-[750px] h-auto object-contain opacity-30 pointer-events-none"
+							className="absolute right-0 top-32 w-[700px] md:w-[900px] h-auto object-contain opacity-30 pointer-events-none"
 						/>
 						<div className="relative z-10 p-6 md:p-8">
 							<h2 className="text-orange-400 font-bold text-4xl md:text-6xl mb-6 uppercase tracking-wide border-b border-orange-500/40 pb-3">
