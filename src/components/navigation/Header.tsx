@@ -21,6 +21,8 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
 	const [isTransitionEnabled, setIsTransitionEnabled] = useState(false);
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const lastScrollY = useRef(0);
+	const scrollLockUntil = useRef<number>(0);
+	const hideHeaderTimeoutRef = useRef<any>(null);
 
 	// Prevent animation flashes on initial sticky state
 	useEffect(() => {
@@ -58,10 +60,12 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
 						setIsHeaderHidden(true);
 					} else {
 						const scrollDelta = currentScrollY - lastScrollY.current;
-						if (scrollDelta > 5) {
-							setIsHeaderHidden(true);
-						} else if (scrollDelta < -5) {
-							setIsHeaderHidden(false);
+						if (Date.now() > scrollLockUntil.current) {
+							if (scrollDelta > 5) {
+								setIsHeaderHidden(true);
+							} else if (scrollDelta < -5) {
+								setIsHeaderHidden(false);
+							}
 						}
 					}
 				}
@@ -114,6 +118,13 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
 			});
 		}
 		onEscomTabChange?.(tab);
+
+		setIsHeaderHidden(false);
+		scrollLockUntil.current = Date.now() + 1000;
+		if (hideHeaderTimeoutRef.current) clearTimeout(hideHeaderTimeoutRef.current);
+		hideHeaderTimeoutRef.current = setTimeout(() => {
+			setIsHeaderHidden(true);
+		}, 1000);
 	};
 
 	return (
