@@ -6,13 +6,7 @@ export type WhatIsEscomTab =
 	| "escom-initiative"
 	| "draft-list";
 
-type Props = {
-	activeTab?: WhatIsEscomTab;
-};
-
-export default function WhatIsEscomPage({
-	activeTab = "contractors",
-}: Props) {
+export default function WhatIsEscomPage() {
 	return (
 		<div className="min-h-screen px-6 py-8 md:px-12 lg:px-24 pt-16">
 			<div>

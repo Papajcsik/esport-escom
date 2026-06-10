@@ -74,7 +74,7 @@ export default function LandingPage() {
 						{activePage === "faq" ? (
 							<FaqPage activeTab={faqTab} />
 						) : activePage === "what-is-escom" ? (
-							<WhatIsEscomPage activeTab={escomTab} />
+							<WhatIsEscomPage />
 						) : (
 							<ActivePageComponent />
 						)}

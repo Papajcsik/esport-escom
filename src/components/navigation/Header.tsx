@@ -4,7 +4,7 @@ import type { PageId } from "@/types/types";
 import { SwitchButton } from "@/components/SwitchButton";
 import type { FaqTab } from "@/pages/faq/index";
 import type { WhatIsEscomTab } from "@/pages/what-is-escom/index";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Props = {
 	onNavigate?: (pageId: PageId | null) => void;
@@ -90,7 +90,7 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
 
 			const underHeroElement = document.querySelector(".relative.flex-1.overflow-hidden.min-h-screen");
 			if (underHeroElement) {
-				const headerOffset = 50; // offset to prevent the top of the header from being cut off
+				const headerOffset = 50;
 				const offsetPosition = underHeroElement.getBoundingClientRect().bottom + window.scrollY - headerOffset;
 				window.scrollTo({
 					top: offsetPosition,
