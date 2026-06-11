@@ -25,11 +25,12 @@ export function ThemeFrame({ side, src, alt, x, y = 7 }: Props) {
           data-themeimg
           src={src}
           alt={alt}
-          className="block w-[75%] mx-auto scale-[1.6]"
+          className="block w-[75%] mx-auto scale-[1.6] will-change-transform"
         />
       </div>
 
       <img
+        data-spark
         src={
           isLeft ? HOLDERS.rightImageHolderSpark : HOLDERS.leftImageHolderSpark
         }
@@ -44,7 +45,7 @@ export function ThemeFrame({ side, src, alt, x, y = 7 }: Props) {
         data-themeholder
         src={isLeft ? HOLDERS.rightImageHolder : HOLDERS.leftImageHolder}
         alt={`${side} holder`}
-        className={cn("block w-[75%]", alignment)}
+        className={cn("block w-[75%] will-change-transform", alignment)}
       />
     </div>
   );

@@ -20,7 +20,13 @@ export function HologramFrame({ side }: Props) {
         className="w-full"
       />
 
-      <div data-readmore className={cn("absolute w-[38%]", horizontal)}>
+      <div
+        data-readmore
+        className={cn(
+          "absolute w-[38%] z-20 will-change-transform",
+          horizontal,
+        )}
+      >
         <div className="cursor-pointer hover:scale-105 transition-transform">
           <img
             src={isLeft ? HOLDERS.readMoreLeft : HOLDERS.readMoreRight}
@@ -42,7 +48,7 @@ export function HologramFrame({ side }: Props) {
         data-holder
         src={isLeft ? HOLDERS.holderLeft : HOLDERS.holderRight}
         alt={`${side} holder`}
-        className="absolute bottom-[-1.4cqi] w-full pointer-events-none"
+        className="absolute bottom-[-1.4cqi] w-full pointer-events-none will-change-transform"
       />
     </div>
   );

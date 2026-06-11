@@ -15,64 +15,79 @@ interface Props {
 
 export function GameOverview({ section, index }: Props) {
   const isLeft = section.hologram === "left";
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [ready, setReady] = useState(false);
+  const hologramCellRef = useRef<HTMLDivElement>(null);
+  const themeCellRef = useRef<HTMLDivElement>(null);
+  const [ready, setReady] = useState(() => document.readyState === "complete");
+
+  // Build only after full load: all images in + parallax pin-spacing injected.
+  useGSAP(
+    () => {
+      if (ready) return;
+      const onLoad = () => setReady(true);
+      window.addEventListener("load", onLoad);
+      return () => window.removeEventListener("load", onLoad);
+    },
+    { dependencies: [ready] },
+  );
 
   useGSAP(
     () => {
-      // Build only after full load: all images in + parallax pin-spacing injected.
-      if (!ready) {
-        if (document.readyState === "complete") {
-          setReady(true);
-        } else {
-          const onLoad = () => setReady(true);
-          window.addEventListener("load", onLoad);
-          return () => window.removeEventListener("load", onLoad);
-        }
-        return;
-      }
+      if (!ready) return;
 
-      const inSection = gsap.utils.selector(sectionRef);
-      const hologram = inSection("[data-hologram]");
-      const holder = inSection("[data-holder]");
-      const readMore = inSection("[data-readmore]");
-      const text = inSection("[data-textblock]");
-      const themeImg = inSection("[data-themeimg]");
-      const themeHolder = inSection("[data-themeholder]");
+      const inCell = gsap.utils.selector(hologramCellRef);
+      const hologram = inCell("[data-hologram]");
+      const holder = inCell("[data-holder]");
+      const readMore = inCell("[data-readmore]");
+      const text = inCell("[data-textblock]");
 
       const splitText = SplitText.create(text, { type: "lines" });
 
+      // consts for hologram + read more animations - ensures they end in the same position regardless of side
       const xFinalPos = isLeft ? 3.5 : -3.5;
-      const hologramHolderStartRot = isLeft ? -90 : 90;
-      const imgHolderStartRot = -90;
+      const holderOrigin = isLeft ? "left center" : "right center";
+      const hologramHolderStartRot = isLeft ? 90 : -90;
+      const startingX = isLeft ? -113 : 113;
+
+      gsap.set([holder, readMore], {
+        transformOrigin: holderOrigin,
+      });
+
       gsap.set(hologram, {
         xPercent: xFinalPos,
         y: 4,
-        transformOrigin: "center center",
       });
 
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 75%", // when the top of the section hits 80% of the viewport height
+          trigger: hologramCellRef.current,
+          start: "center 50%", // when the top of the section hits 40% of the viewport height
         },
       });
 
       tl.fromTo(
         holder,
-        { yPercent: 113 },
-        { yPercent: 33, duration: 0.4, ease: "power2.in" },
+        { yPercent: 113, rotation: hologramHolderStartRot },
+        { yPercent: 33, rotation: 0, duration: 0.4, ease: "power2.in" },
       );
       tl.fromTo(
         readMore,
-        { yPercent: 113 },
-        { yPercent: 0, duration: 0.4, ease: "power2.in" },
+        {
+          xPercent: startingX,
+          yPercent: 113,
+          rotation: hologramHolderStartRot,
+        },
+        {
+          xPercent: 0,
+          yPercent: 0,
+          rotation: 0,
+          duration: 0.4,
+          ease: "power2.in",
+        },
         "<",
       );
-      tl.fromTo(
+      tl.from(
         hologram,
-        { rotation: hologramHolderStartRot, opacity: 0 },
-        { rotation: 0, opacity: 1, duration: 0.4, ease: "power2.out" },
+        { clipPath: "inset(100% 0% 0% 0%)", duration: 0.1, ease: "power2.out" },
         "+=0.01",
       );
 
@@ -91,15 +106,44 @@ export function GameOverview({ section, index }: Props) {
         },
         "+=0.1",
       );
+    },
+    { scope: hologramCellRef, dependencies: [ready] },
+  );
+
+  useGSAP(
+    () => {
+      if (!ready) return;
+
+      const inCell = gsap.utils.selector(themeCellRef);
+      const themeImg = inCell("[data-themeimg]");
+      const themeHolderSpark = inCell("[data-spark]");
+      const themeHolder = inCell("[data-themeholder]");
+
+      // consts for theme image holder animation - ensures it ends in the same position regardless of side
+      const imgHolderOrigin = isLeft ? "right center" : "left center";
+      const imgHolderStartRot = isLeft ? -90 : 90;
+
+      gsap.set(themeHolder, {
+        transformOrigin: imgHolderOrigin,
+      });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: themeCellRef.current,
+          start: "center 35%", // when the top of the section hits 70% of the viewport height
+        },
+      });
 
       tl.fromTo(
         themeHolder,
-        {
-          rotation: imgHolderStartRot,
-          yPercent: 113,
-          transformOrigin: "center center",
-        },
-        { rotation: 0, yPercent: 0, duration: 0.4, ease: "power2.in" },
+        { yPercent: 113, rotation: imgHolderStartRot },
+        { yPercent: 0, rotation: 0, duration: 0.4, ease: "power2.in" },
+      );
+
+      tl.from(
+        themeHolderSpark,
+        { clipPath: "inset(100% 0% 0% 0%)", duration: 0.1, ease: "power2.out" },
+        "+=0.01",
       );
 
       tl.from(
@@ -158,16 +202,13 @@ export function GameOverview({ section, index }: Props) {
         gsap.delayedCall(gsap.utils.random(1, 3), glitchLoop);
       });
     },
-    { scope: sectionRef, dependencies: [ready] },
+    { scope: themeCellRef, dependencies: [ready] },
   );
 
   return (
-    <div
-      ref={sectionRef}
-      className="grid grid-cols-[2fr_1fr_2fr] items-center flex-1"
-    >
+    <div className="grid grid-cols-[2fr_1fr_2fr] items-center flex-1">
       {/* left cell */}
-      <div>
+      <div ref={isLeft ? hologramCellRef : themeCellRef}>
         {isLeft ? (
           <div className="relative @container">
             <HologramFrame side={section.hologram} />
@@ -189,7 +230,7 @@ export function GameOverview({ section, index }: Props) {
       {/* spacer */}
       <div />
       {/* right cell */}
-      <div>
+      <div ref={!isLeft ? hologramCellRef : themeCellRef}>
         {!isLeft ? (
           <div className="relative @container">
             <HologramFrame side={section.hologram} />
