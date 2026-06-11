@@ -60,31 +60,49 @@ export function GameOverview({ section, index }: Props) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: hologramCellRef.current,
-          start: "center 50%", // when the top of the section hits 40% of the viewport height
+          start: "center 45%", // when the top of the section hits 40% of the viewport height
         },
       });
 
       tl.fromTo(
         holder,
-        { yPercent: 113, rotation: hologramHolderStartRot },
-        { yPercent: 33, rotation: 0, duration: 0.4, ease: "power2.in" },
+        { yPercent: 113 },
+        { yPercent: 33, duration: 0.45, ease: "expo.out" },
       );
+      tl.fromTo(
+        holder,
+        { rotation: hologramHolderStartRot },
+        { rotation: 0, duration: 0.45, ease: "back.out(1.5)" },
+        "<",
+      );
+
       tl.fromTo(
         readMore,
         {
           xPercent: startingX,
           yPercent: 113,
-          rotation: hologramHolderStartRot,
         },
         {
           xPercent: 0,
           yPercent: 0,
-          rotation: 0,
-          duration: 0.4,
-          ease: "power2.in",
+          duration: 0.45,
+          ease: "expo.out",
         },
         "<",
       );
+      tl.fromTo(
+        readMore,
+        {
+          rotation: hologramHolderStartRot,
+        },
+        {
+          rotation: 0,
+          duration: 0.45,
+          ease: "back.out(1.5)",
+        },
+        "<",
+      );
+
       tl.from(
         hologram,
         { clipPath: "inset(100% 0% 0% 0%)", duration: 0.1, ease: "power2.out" },
@@ -131,13 +149,21 @@ export function GameOverview({ section, index }: Props) {
         scrollTrigger: {
           trigger: themeCellRef.current,
           start: "center 35%", // when the top of the section hits 70% of the viewport height
+          once: true, // animation plays only once
         },
       });
 
       tl.fromTo(
         themeHolder,
-        { yPercent: 113, rotation: imgHolderStartRot },
-        { yPercent: 0, rotation: 0, duration: 0.4, ease: "power2.in" },
+        { yPercent: 113 },
+        { yPercent: 0, duration: 0.45, ease: "expo.out" },
+      );
+
+      tl.fromTo(
+        themeHolder,
+        { rotation: imgHolderStartRot },
+        { rotation: 0, duration: 0.45, ease: "back.out(1.5)" },
+        "<",
       );
 
       tl.from(
