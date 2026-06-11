@@ -1,5 +1,6 @@
 import { HOLDERS } from "@/lib/constants";
 import type { HologramPosition } from "@/types/types";
+import { cn } from "@/lib/utils";
 
 interface Props {
   side: HologramPosition;
@@ -9,25 +10,41 @@ interface Props {
   y?: number;
 }
 
-export function ThemeFrame({ side, src, alt, x, y = 0 }: Props) {
+export function ThemeFrame({ side, src, alt, x, y = 7 }: Props) {
   const isLeft = side === "left";
+  const horizontal = isLeft ? "translate-x-[-13cqi]" : "translate-x-[13cqi]";
+  const alignment = isLeft ? "ml-auto" : "";
 
   return (
-    <div className="relative w-full @container">
-      <div style={{ transform: `translate(${x}cqi, ${y}cqi)` }}>
+    <div className="w-full @container">
+      <div
+        className="relative z-10"
+        style={{ transform: `translate(${x}cqi, ${y}cqi)` }}
+      >
         <img
           data-themeimg
           src={src}
           alt={alt}
-          className="relative z-10 block w-auto mx-auto"
+          className="block w-[75%] mx-auto scale-[1.6]"
         />
       </div>
 
       <img
+        src={
+          isLeft ? HOLDERS.rightImageHolderSpark : HOLDERS.leftImageHolderSpark
+        }
+        alt={`${side} spark`}
+        className={cn(
+          "block w-[75%] scale-x-[1.12] translate-y-[5cqi]",
+          horizontal,
+          alignment,
+        )}
+      />
+      <img
         data-themeholder
         src={isLeft ? HOLDERS.rightImageHolder : HOLDERS.leftImageHolder}
         alt={`${side} holder`}
-        className="absolute top-[41cqi] z-0 w-full"
+        className={cn("block w-[75%]", alignment)}
       />
     </div>
   );

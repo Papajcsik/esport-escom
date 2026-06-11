@@ -116,38 +116,40 @@ export const HOLDERS = {
   holderRight: "/images/holders/hologram-holder-right.webp",
   leftImageHolder: "/images/theme-images/image-holder-left.webp",
   rightImageHolder: "/images/theme-images/image-holder-right.webp",
+  leftImageHolderSpark: "/images/theme-images/image-holder-spark-left.webp",
+  rightImageHolderSpark: "/images/theme-images/image-holder-spark-right.webp",
 } as const;
 
 export const THEME_IMG = [
   {
     src: "/images/theme-images/01.webp",
     alt: "mobile game",
-    x: -5.9,
+    x: -13,
   },
   {
     src: "/images/theme-images/02.webp",
     alt: "contractor",
-    x: -7.3,
+    x: -5.8,
   },
   {
     src: "/images/theme-images/03.webp",
     alt: "asteroid",
-    x: 11,
+    x: 8,
   },
   {
     src: "/images/theme-images/04.webp",
     alt: "titan 01",
-    x: -4.1,
+    x: -2.8,
   },
   {
     src: "/images/theme-images/05.webp",
     alt: "leaderboard",
-    x: 11.4,
+    x: 10,
   },
   {
     src: "/images/theme-images/06.webp",
     alt: "titan defense",
-    x: 1.7,
+    x: 2.5,
   },
 ] as const;
 
@@ -159,14 +161,14 @@ export const menuItems: {
   label: string;
   id: PageId;
 }[] = [
-    { label: "WHAT IS ESCOM ?", id: "what-is-escom" },
-    { label: "MAIN NEWS", id: "main-news" },
-    { label: "FAQ / EULA", id: "faq" },
-    { label: "ESCOM COMIC BOOK", id: "comic-book" },
-    { label: "MERCHANDISE", id: "merchandise" },
-    { label: "SUPPORT", id: "support" },
-    { label: "GAMING STORE", id: "gaming-store" },
-  ];
+  { label: "WHAT IS ESCOM ?", id: "what-is-escom" },
+  { label: "MAIN NEWS", id: "main-news" },
+  { label: "FAQ / EULA", id: "faq" },
+  { label: "ESCOM COMIC BOOK", id: "comic-book" },
+  { label: "MERCHANDISE", id: "merchandise" },
+  { label: "SUPPORT", id: "support" },
+  { label: "GAMING STORE", id: "gaming-store" },
+];
 
 export const MECHANIC_1: [Point, Point, Point] = [
   { x: 950, y: 142 },

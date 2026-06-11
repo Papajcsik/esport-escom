@@ -32,13 +32,13 @@ export default function Background() {
       <img
         src={backgroundImages.backgroundTitan}
         alt="background titan"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover z-0"
       />
       <img
         id="background-lights"
         src={backgroundImages.backgroundLights}
         alt="background lights"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover z-1"
       />
 
       <div className="absolute inset-0 flex flex-col">
@@ -47,7 +47,7 @@ export default function Background() {
         ))}
       </div>
 
-      <SVGStage className="absolute inset-0 w-full h-full">
+      <SVGStage className="absolute inset-0 w-full h-full z-10">
         <Mechanic triangle={MECHANIC_1} duration={4} />
         <Mechanic triangle={MECHANIC_2} duration={6} />
         <Drone triangle={DRONE_1} duration={3} weldDuration={6} />
