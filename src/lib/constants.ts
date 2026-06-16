@@ -161,14 +161,14 @@ export const menuItems: {
   label: string;
   id: PageId;
 }[] = [
-  { label: "WHAT IS ESCOM ?", id: "what-is-escom" },
-  { label: "MAIN NEWS", id: "main-news" },
-  { label: "FAQ / EULA", id: "faq" },
-  { label: "ESCOM COMIC BOOK", id: "comic-book" },
-  { label: "MERCHANDISE", id: "merchandise" },
-  { label: "SUPPORT", id: "support" },
-  { label: "GAMING STORE", id: "gaming-store" },
-];
+    { label: "WHAT IS ESCOM ?", id: "what-is-escom" },
+    { label: "MAIN NEWS", id: "main-news" },
+    { label: "FAQ / EULA", id: "faq" },
+    { label: "ESCOM COMIC BOOK", id: "comic-book" },
+    { label: "MERCHANDISE", id: "merchandise" },
+    { label: "SUPPORT", id: "support" },
+    { label: "GAMING STORE", id: "gaming-store" },
+  ];
 
 export const MECHANIC_1: [Point, Point, Point] = [
   { x: 950, y: 142 },
