@@ -30,6 +30,8 @@ export const images = {
   hamburgerMenuElementHighlighted:
     "/images/header/hamburger_menu_pointer_highlighted.png",
   hamburgerMenuOutside: "/images/frames/hamburger-menu-outside.png",
+  hamburgerSwitchButton: "/images/header/hamburger-switch-button.png",
+  mainNewsKeret: "/images/frames/main-news-keret.png",
 } as const;
 
 export const backgroundImages = {
@@ -38,6 +40,11 @@ export const backgroundImages = {
   mechanic: "/images/background/mechanic.webp",
   weldingSparks: "/images/background/welding-drone-sparks.webp",
   weldingDrone: "/images/background/welding-drone.webp",
+  draftList: "/images/background/draft-list.png",
+  contractors: "/images/background/contractors.png",
+  escomInitiative: "/images/background/escom-initiative.png",
+  mobileGame: "/images/background/mobile-game.png",
+  treath: "/images/background/treath.png",
 } as const;
 
 export const ICONS = [

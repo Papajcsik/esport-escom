@@ -216,7 +216,7 @@ export default function WhatIsEscomPage() {
 					{/* Section: Rise Through the DRAFT List */}
 					<section id="draft-list" className="relative pb-96">
 						<img
-							src="/images/background/treath.png"
+							src="/images/background/draft-list.png"
 							alt=""
 							className="absolute right-0 top-16 w-137.5 md:w-162.5 h-auto object-contain opacity-30 pointer-events-none"
 						/>

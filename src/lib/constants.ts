@@ -35,6 +35,15 @@ export const IMAGES = {
     "/images/header/hamburger_menu_pointer_highlighted.png",
   hamburgerMenuOutside: "/images/frames/hamburger-menu-outside.png",
   hamburgerSwitchButton: "/images/header/hamburger-switch-button.png",
+  draftList: "/images/background/draft-list.png",
+  mainNewsKeret: "/images/frames/main-news-keret.png",
+  contractors: "/images/background/contractors.png",
+  escomInitiative: "/images/background/escom-initiative.png",
+  mobileGame: "/images/background/mobile-game.png",
+  treath: "/images/background/treath.png",
+  mechanic: "/images/background/mechanic.webp",
+  weldingSparks: "/images/background/welding-drone-sparks.webp",
+  weldingDrone: "/images/background/welding-drone.webp",
 } as const;
 
 export const ICONS = [
