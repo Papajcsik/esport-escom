@@ -38,6 +38,11 @@ export const backgroundImages = {
   mechanic: "/images/background/mechanic.webp",
   weldingSparks: "/images/background/welding-drone-sparks.webp",
   weldingDrone: "/images/background/welding-drone.webp",
+  draftList: "/images/background/draft-list.png",
+  contractors: "/images/background/contractors.png",
+  escomInitiative: "/images/background/escom-initiative.png",
+  mobileGame: "/images/background/mobile-game.png",
+  treath: "/images/background/treath.png",
 } as const;
 
 export const ICONS = [
