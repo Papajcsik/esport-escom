@@ -6,7 +6,6 @@ export default function MainNewsPage() {
 
 	return (
 		<div className="min-h-screen px-6 py-8 md:px-12 lg:px-24 pt-16">
-			{/* Page Title */}
 			<h1
 				className={cn(
 					"text-center text-white font-bold text-6xl md:text-8xl uppercase tracking-wider mb-10",
@@ -19,10 +18,8 @@ export default function MainNewsPage() {
 				</span>
 			</h1>
 
-			{/* Main News Layout */}
 			<div className="relative w-full max-w-6xl mx-auto mt-12 flex flex-col justify-end">
 				
-				{/* The main news overlay frame - defines the natural height */}
 				<img 
 					src="/images/frames/main-news-keret.png" 
 					alt="News Frame" 
@@ -30,7 +27,6 @@ export default function MainNewsPage() {
 					onLoad={() => setIsFrameLoaded(true)}
 				/>
 
-				{/* The actual news picture - behind the frame, fades in when frame is ready */}
 				<div className={cn(
 					"absolute inset-0 z-0 transition-opacity duration-700 ease-out",
 					isFrameLoaded ? "opacity-100" : "opacity-0"
@@ -42,7 +38,6 @@ export default function MainNewsPage() {
 					/>
 				</div>
 
-				{/* The text part - above the frame in the lower part, slides & fades in */}
 				<div className={cn(
 					"absolute bottom-0 left-0 w-full z-20 py-8 pr-8 pl-16 md:py-12 md:pr-12 md:pl-24 lg:py-16 lg:pr-16 lg:pl-32 flex flex-col items-center text-center transition-all duration-1000 ease-out delay-100",
 					isFrameLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
