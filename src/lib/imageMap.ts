@@ -29,7 +29,7 @@ export const images = {
     "/images/header/hamburger-menu-element-background.png",
   hamburgerMenuElementHighlighted:
     "/images/header/hamburger_menu_pointer_highlighted.png",
-  hamburgerMenuOutside: "/images/header/hamburger-menu-outside.png",
+  hamburgerMenuOutside: "/images/frames/hamburger-menu-outside.png",
 } as const;
 
 export const backgroundImages = {

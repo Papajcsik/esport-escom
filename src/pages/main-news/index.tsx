@@ -24,7 +24,7 @@ export default function MainNewsPage() {
 				
 				{/* The main news overlay frame - defines the natural height */}
 				<img 
-					src="/images/background/main-news-keret.png" 
+					src="/images/frames/main-news-keret.png" 
 					alt="News Frame" 
 					className="relative w-full h-auto z-10 pointer-events-none" 
 					onLoad={() => setIsFrameLoaded(true)}
