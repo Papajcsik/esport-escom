@@ -22,7 +22,7 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const lastScrollY = useRef(0);
 	const scrollLockUntil = useRef<number>(0);
-	const hideHeaderTimeoutRef = useRef<any>(null);
+	const hideHeaderTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
 	// Prevent animation flashes on initial sticky state
 	useEffect(() => {
@@ -30,7 +30,8 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
 			const timer = setTimeout(() => setIsTransitionEnabled(true), 50);
 			return () => clearTimeout(timer);
 		} else {
-			setIsTransitionEnabled(false);
+			const timer = setTimeout(() => setIsTransitionEnabled(false), 0);
+			return () => clearTimeout(timer);
 		}
 	}, [isHeaderSticky]);
 
@@ -130,7 +131,7 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
 	return (
 		<div className="relative w-full" style={{ backgroundColor: "#220313" }}>
 			<div className="w-full flex justify-center overflow-hidden invisible pointer-events-none select-none" aria-hidden="true">
-				<img src={IMAGES.headerBackground} className="w-[180%] sm:w-[140%] md:w-full max-w-[180%] sm:max-w-[140%] md:max-w-full block flex-shrink-0" />
+				<img src={IMAGES.headerBackground} className="w-[180%] sm:w-[140%] md:w-full max-w-[180%] sm:max-w-[140%] md:max-w-full block shrink-0" />
 			</div>
 
 			<header
@@ -140,11 +141,11 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
 					isHeaderSticky
 						? "fixed top-0 left-0 right-0 backdrop-blur-sm"
 						: "absolute inset-x-0 top-0 -translate-y-6 sm:-translate-y-10 md:-translate-y-15",
-					isHeaderSticky && isHeaderHidden && "-translate-y-[200%]",
+					isHeaderSticky && isHeaderHidden && "translate-y-[-200%]",
 				)}
 			>
 				<div className="relative z-20 w-full flex justify-center items-center overflow-hidden pointer-events-none select-none">
-					<img src={IMAGES.headerBackground} className="w-[180%] sm:w-[140%] md:w-full max-w-[180%] sm:max-w-[140%] md:max-w-full flex-shrink-0 block" />
+					<img src={IMAGES.headerBackground} className="w-[180%] sm:w-[140%] md:w-full max-w-[180%] sm:max-w-[140%] md:max-w-full shrink-0 block" />
 				</div>
 
 				<button
@@ -187,9 +188,9 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
 
 				<nav
 					className={cn(
-						"absolute top-full -mt-2 sm:-mt-4 md:-mt-9 left-0 z-50 w-[280px] sm:w-[340px] md:w-[400px] overflow-hidden transition-all duration-400 ease-in-out",
+						"absolute top-full -mt-2 sm:-mt-4 md:-mt-9 left-0 z-50 w-70 sm:w-85 md:w-100 overflow-hidden transition-all duration-400 ease-in-out",
 						isMenuOpen
-							? "max-h-[600px] opacity-100"
+							? "max-h-150 opacity-100"
 							: "max-h-0 opacity-0 pointer-events-none",
 					)}
 				>
