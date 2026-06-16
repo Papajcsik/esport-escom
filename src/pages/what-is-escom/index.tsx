@@ -18,7 +18,7 @@ export default function WhatIsEscomPage() {
 					)}
 				>
 					WHAT IS{" "}
-					<span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">
+					<span className="text-transparent bg-clip-text bg-linear-to-r from-orange-500 to-red-500">
 						ESCOM
 					</span>{" "}
 					?
@@ -30,7 +30,7 @@ export default function WhatIsEscomPage() {
 						<img
 							src="/images/background/mobile-game.png"
 							alt=""
-							className="absolute right-0 top-16 w-[600px] md:w-[700px] h-auto object-contain opacity-30 pointer-events-none"
+							className="absolute right-0 top-16 w-150 md:w-175 h-auto object-contain opacity-30 pointer-events-none"
 						/>
 						<div className="relative z-10 p-6 md:p-8">
 							<h2 className="text-orange-400 font-bold text-4xl md:text-6xl mb-6 uppercase tracking-wide border-b border-orange-500/40 pb-3">
@@ -77,7 +77,7 @@ export default function WhatIsEscomPage() {
 						<img
 							src="/images/background/contractors.png"
 							alt=""
-							className="absolute right-0 top-16 w-[600px] md:w-[750px] h-auto object-contain opacity-30 pointer-events-none"
+							className="absolute right-0 top-16 w-150 md:w-187.5 h-auto object-contain opacity-30 pointer-events-none"
 						/>
 						<div className="relative z-10 p-6 md:p-8">
 							<h2 className="text-orange-400 font-bold text-4xl md:text-6xl mb-6 uppercase tracking-wide border-b border-orange-500/40 pb-3">
@@ -118,7 +118,7 @@ export default function WhatIsEscomPage() {
 						<img
 							src="/images/background/treath.png"
 							alt=""
-							className="absolute right-0 top-16 w-[550px] md:w-[650px] h-auto object-contain opacity-30 pointer-events-none"
+							className="absolute right-0 top-16 w-137.5 md:w-162.5 h-auto object-contain opacity-30 pointer-events-none"
 						/>
 						<div className="relative z-10 p-6 md:p-8">
 							<h2 className="text-orange-400 font-bold text-4xl md:text-6xl mb-6 uppercase tracking-wide border-b border-orange-500/40 pb-3">
@@ -158,7 +158,7 @@ export default function WhatIsEscomPage() {
 						<img
 							src="/images/background/escom-initiative.png"
 							alt=""
-							className="absolute right-0 top-32 w-[700px] md:w-[900px] h-auto object-contain opacity-30 pointer-events-none"
+							className="absolute right-0 top-32 w-175 md:w-225 h-auto object-contain opacity-30 pointer-events-none"
 						/>
 						<div className="relative z-10 p-6 md:p-8">
 							<h2 className="text-orange-400 font-bold text-4xl md:text-6xl mb-6 uppercase tracking-wide border-b border-orange-500/40 pb-3">
@@ -218,7 +218,7 @@ export default function WhatIsEscomPage() {
 						<img
 							src="/images/background/treath.png"
 							alt=""
-							className="absolute right-0 top-16 w-[550px] md:w-[650px] h-auto object-contain opacity-30 pointer-events-none"
+							className="absolute right-0 top-16 w-137.5 md:w-162.5 h-auto object-contain opacity-30 pointer-events-none"
 						/>
 						<div className="relative z-10 p-6 md:p-8">
 							<h2 className="text-orange-400 font-bold text-4xl md:text-6xl mb-6 uppercase tracking-wide border-b border-orange-500/40 pb-3">
