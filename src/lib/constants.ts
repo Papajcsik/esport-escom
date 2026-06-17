@@ -5,12 +5,12 @@ export const IMAGES = {
   buttonOn: "/images/header/button-on.webp",
   googlePlay: "/images/header/google-play.webp",
   headerBackground: "/images/header/header-background.webp",
-  headerLeft: "/images/header/header-left.png",
-  headerMiddle: "/images/header/header-middle.png",
-  headerRight: "/images/header/header-right.png",
+  headerLeft: "/images/header/header-left.webp",
+  headerMiddle: "/images/header/header-middle.webp",
+  headerRight: "/images/header/header-right.webp",
   escomHeroBattle: "/images/hero/escom-hero-battle.webp",
-  escomLogo: "/images/hero/escom-logo.png",
-  polygon: "/images/hero/polygon.png",
+  escomLogo: "/images/hero/escom-logo.webp",
+  polygon: "/images/hero/polygon.webp",
   arch: "/images/parallax/arch.webp",
   city: "/images/parallax/city.webp",
   contractor: "/images/parallax/contractor.webp",
@@ -26,13 +26,13 @@ export const IMAGES = {
   googlePlayFooter: "/images/footer/google-play-footer.webp",
   joinCause: "/images/footer/join-the-common-cause.webp",
   lifeIsGame: "/images/footer/life-is-a-game.webp",
-  hamburgerMenuBackground: "/images/header/hamburger-menu-background.png",
+  hamburgerMenuBackground: "/images/header/hamburger-menu-background.webp",
   hamburgerMenuElementBackground:
-    "/images/header/hamburger-menu-element-background.png",
+    "/images/header/hamburger-menu-element-background.webp",
   hamburgerMenuElementHighlighted:
-    "/images/header/hamburger_menu_pointer_highlighted.png",
-  hamburgerMenuOutside: "/images/header/hamburger-menu-outside.png",
-  hamburgerSwitchButton: "/images/header/hamburger-switch-button.png",
+    "/images/header/hamburger_menu_pointer_highlighted.webp",
+  hamburgerMenuOutside: "/images/header/hamburger-menu-outside.webp",
+  hamburgerSwitchButton: "/images/header/hamburger-switch-button.webp",
 } as const;
 
 export const backgroundImages = {
