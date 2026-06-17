@@ -7,19 +7,19 @@ export const IMAGES = {
   buttonOn: "/images/header/button-on.webp",
   googlePlay: "/images/header/google-play.webp",
   headerBackground: "/images/header/header-background.webp",
-  headerLeft: "/images/header/header-left.png",
-  headerMiddle: "/images/header/header-middle.png",
-  headerRight: "/images/header/header-right.png",
-  escomHeroBattle: "/images/hero/escom-hero-battle.png",
-  escomLogo: "/images/hero/escom-logo.png",
-  polygon: "/images/hero/polygon.png",
+  headerLeft: "/images/header/header-left.webp",
+  headerMiddle: "/images/header/header-middle.webp",
+  headerRight: "/images/header/header-right.webp",
+  escomHeroBattle: "/images/hero/escom-hero-battle.webp",
+  escomLogo: "/images/hero/escom-logo.webp",
+  polygon: "/images/hero/polygon.webp",
   arch: "/images/parallax/arch.webp",
   city: "/images/parallax/city.webp",
   contractor: "/images/parallax/contractor.webp",
   doorLeft: "/images/parallax/door-left.webp",
   doorRight: "/images/parallax/door-right.webp",
   sky: "/images/parallax/sky.webp",
-  middleLayer: "/images/parallax/middle-layer.png",
+  middleLayer: "/images/parallax/middle-layer.webp",
   logo: "/images/logo.webp",
   robot: "/images/robot.webp",
   bannerLeft: "/images/footer/banner-left.webp",
@@ -28,13 +28,13 @@ export const IMAGES = {
   googlePlayFooter: "/images/footer/google-play-footer.webp",
   joinCause: "/images/footer/join-the-common-cause.webp",
   lifeIsGame: "/images/footer/life-is-a-game.webp",
-  hamburgerMenuBackground: "/images/header/hamburger-menu-background.png",
+  hamburgerMenuBackground: "/images/header/hamburger-menu-background.webp",
   hamburgerMenuElementBackground:
-    "/images/header/hamburger-menu-element-background.png",
+    "/images/header/hamburger-menu-element-background.webp",
   hamburgerMenuElementHighlighted:
-    "/images/header/hamburger_menu_pointer_highlighted.png",
-  hamburgerMenuOutside: "/images/header/hamburger-menu-outside.png",
-  hamburgerSwitchButton: "/images/header/hamburger-switch-button.png",
+    "/images/header/hamburger_menu_pointer_highlighted.webp",
+  hamburgerMenuOutside: "/images/header/hamburger-menu-outside.webp",
+  hamburgerSwitchButton: "/images/header/hamburger-switch-button.webp",
 } as const;
 
 export const ICONS = [
@@ -72,14 +72,14 @@ export const menuItems: {
   label: string;
   id: PageId;
 }[] = [
-    { label: "WHAT IS ESCOM ?", id: "what-is-escom" },
-    { label: "MAIN NEWS", id: "main-news" },
-    { label: "FAQ / EULA", id: "faq" },
-    { label: "ESCOM COMIC BOOK", id: "comic-book" },
-    { label: "MERCHANDISE", id: "merchandise" },
-    { label: "SUPPORT", id: "support" },
-    { label: "GAMING STORE", id: "gaming-store" },
-  ];
+  { label: "WHAT IS ESCOM ?", id: "what-is-escom" },
+  { label: "MAIN NEWS", id: "main-news" },
+  { label: "FAQ / EULA", id: "faq" },
+  { label: "ESCOM COMIC BOOK", id: "comic-book" },
+  { label: "MERCHANDISE", id: "merchandise" },
+  { label: "SUPPORT", id: "support" },
+  { label: "GAMING STORE", id: "gaming-store" },
+];
 
 export const MECHANIC_1: [Point, Point, Point] = [
   { x: 950, y: 142 },
