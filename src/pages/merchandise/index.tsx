@@ -15,28 +15,45 @@ export default function MerchandisePage() {
 				</span>
 			</h1>
 
-			<div className="relative w-full max-w-5xl mx-auto mt-16 p-8 md:p-16 flex flex-col items-center justify-center bg-black/40 backdrop-blur-sm rounded-xl border border-orange-500/20 shadow-2xl">
-				<img 
-					src="/images/background/welding-drone.webp" 
-					alt="" 
-					className="absolute inset-0 w-full h-full object-cover z-0 opacity-20 pointer-events-none rounded-xl" 
-				/>
+			<div className="relative w-full max-w-7xl mx-auto mt-16 p-8 md:p-16 flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20 bg-black/40 backdrop-blur-sm rounded-xl border border-orange-500/20 shadow-2xl">
+				{/* Merch Display */}
+				<div className="relative w-full max-w-[500px] md:max-w-[700px] aspect-square flex flex-col items-center justify-center shrink-0">
+					<img
+						src="/images/frames/merch_frame.png"
+						alt=""
+						className="absolute inset-0 w-full h-full object-contain z-0 pointer-events-none"
+					/>
+					<img
+						src="/images/background/mockup_shirt.png"
+						alt="ESCOM Merch Shirt"
+						className="relative z-10 w-[65%] h-[65%] object-contain mb-12"
+					/>
 
-				<div className="relative z-10 flex flex-col items-center text-center max-w-4xl">
-					<h2 className="text-orange-400 font-bold text-3xl md:text-5xl mb-6 uppercase tracking-wide">
+					{/* Button fit into frame */}
+					<a
+						href="#"
+						className="absolute bottom-[0.5%] md:bottom-[1.5%] left-1/2 -translate-x-1/2 group flex items-center justify-center px-4 py-2 w-[40%] sm:w-[35%] h-[9%] shrink-0 transition-transform duration-300 hover:scale-105 z-20"
+					>
+						<img
+							src="/images/background/merch_frame_button.png"
+							alt=""
+							className="absolute inset-0 w-full h-full object-fill pointer-events-none"
+						/>
+						<span className="relative z-10 text-white-400 font-extrabold text-xs sm:text-sm tracking-widest uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+							Enter the Shop
+						</span>
+					</a>
+				</div>
+
+				{/* Merch Info */}
+				<div className="relative z-10 flex flex-col items-center lg:items-start text-center lg:text-left max-w-2xl">
+					<h2 className="text-orange-400 font-bold text-4xl md:text-6xl mb-6 uppercase tracking-wide">
 						Suit Up, Contractor
 					</h2>
-					
-					<p className="text-white/90 text-lg md:text-2xl leading-relaxed mb-12 drop-shadow-md">
+
+					<p className="text-white/90 text-xl md:text-2xl leading-relaxed drop-shadow-md">
 						Show your allegiance to the Earth Security Command. The official ESCOM merchandise store features exclusive, high-quality gear and apparel designed for the defenders of the Homeworld.
 					</p>
-
-					<a 
-						href="#" 
-						className="group relative px-10 py-5 bg-orange-500/20 border border-orange-500/50 hover:bg-orange-500/40 text-orange-400 font-bold text-lg md:text-xl tracking-widest uppercase transition-all duration-300 rounded shadow-[0_0_15px_rgba(255,100,0,0.2)] hover:shadow-[0_0_30px_rgba(255,100,0,0.5)] hover:scale-105 backdrop-blur-sm"
-					>
-						Enter the Shop
-					</a>
 				</div>
 			</div>
 		</div>
