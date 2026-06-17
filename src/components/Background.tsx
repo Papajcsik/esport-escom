@@ -32,13 +32,13 @@ export default function Background() {
       <img
         src={backgroundImages.backgroundTitan}
         alt="background titan"
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        className="absolute inset-0 w-full h-full object-cover z-0 will-change-transform"
       />
       <img
         id="background-lights"
         src={backgroundImages.backgroundLights}
         alt="background lights"
-        className="absolute inset-0 w-full h-full object-cover z-1"
+        className="absolute inset-0 w-full h-full object-cover z-1 will-change-transform"
       />
 
       <div className="absolute inset-0 flex flex-col">
