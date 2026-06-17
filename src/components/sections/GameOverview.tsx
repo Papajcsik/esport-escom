@@ -1,6 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { SplitText } from "gsap/all";
+import { ScrollTrigger, SplitText } from "gsap/all";
 import { useRef, useState } from "react";
 import { TextBlock } from "../overview/TextBlock";
 import { HologramFrame } from "../overview/HologramFrame";
@@ -50,6 +50,7 @@ export function GameOverview({ section, index }: Props) {
 
       gsap.set([holder, readMore], {
         transformOrigin: holderOrigin,
+        willChange: "transform",
       });
 
       gsap.set(hologram, {
@@ -60,19 +61,19 @@ export function GameOverview({ section, index }: Props) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: hologramCellRef.current,
-          start: "center 45%", // when the top of the section hits 40% of the viewport height
+          start: "center 60%", // when the center of the section hits 60% of the viewport height
         },
       });
 
       tl.fromTo(
         holder,
         { yPercent: 113 },
-        { yPercent: 33, duration: 0.45, ease: "expo.out" },
+        { yPercent: 33, duration: 0.7, ease: "expo.out" },
       );
       tl.fromTo(
         holder,
         { rotation: hologramHolderStartRot },
-        { rotation: 0, duration: 0.45, ease: "back.out(1.5)" },
+        { rotation: 0, duration: 0.7, ease: "back.out(1.8)" },
         "<",
       );
 
@@ -85,7 +86,7 @@ export function GameOverview({ section, index }: Props) {
         {
           xPercent: 0,
           yPercent: 0,
-          duration: 0.45,
+          duration: 0.7,
           ease: "expo.out",
         },
         "<",
@@ -97,8 +98,8 @@ export function GameOverview({ section, index }: Props) {
         },
         {
           rotation: 0,
-          duration: 0.45,
-          ease: "back.out(1.5)",
+          duration: 0.7,
+          ease: "back.out(1.8)",
         },
         "<",
       );
@@ -124,6 +125,11 @@ export function GameOverview({ section, index }: Props) {
         },
         "+=0.1",
       );
+
+      // Reveal is one-shot: drop the compositor layer once it's done.
+      tl.eventCallback("onComplete", () =>
+        gsap.set([holder, readMore], { willChange: "auto" }),
+      );
     },
     { scope: hologramCellRef, dependencies: [ready] },
   );
@@ -143,12 +149,13 @@ export function GameOverview({ section, index }: Props) {
 
       gsap.set(themeHolder, {
         transformOrigin: imgHolderOrigin,
+        willChange: "transform",
       });
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: themeCellRef.current,
-          start: "center 35%", // when the top of the section hits 70% of the viewport height
+          start: "center 85%", // when the center of the section hits 80% of the viewport height
           once: true, // animation plays only once
         },
       });
@@ -156,13 +163,13 @@ export function GameOverview({ section, index }: Props) {
       tl.fromTo(
         themeHolder,
         { yPercent: 113 },
-        { yPercent: 0, duration: 0.45, ease: "expo.out" },
+        { yPercent: 0, duration: 0.7, ease: "expo.out" },
       );
 
       tl.fromTo(
         themeHolder,
         { rotation: imgHolderStartRot },
-        { rotation: 0, duration: 0.45, ease: "back.out(1.5)" },
+        { rotation: 0, duration: 0.7, ease: "back.out(1.8)" },
         "<",
       );
 
@@ -183,20 +190,32 @@ export function GameOverview({ section, index }: Props) {
       );
 
       tl.then(() => {
-        gsap.to(themeImg, {
-          y: -12,
-          duration: 2,
-          ease: "sine.inOut",
-          repeat: -1,
-          yoyo: true,
-        });
+        // Reveal is one-shot: drop the compositor layer once it's done.
+        gsap.set(themeHolder, { willChange: "auto" });
+
+        let floatTween: gsap.core.Tween | null = null;
+        let glitchAnimation: gsap.core.Tween | gsap.core.Timeline | null = null;
+
+        const startFloat = () => {
+          floatTween = gsap.to(themeImg, {
+            y: -12,
+            duration: 2,
+            ease: "sine.inOut",
+            repeat: -1,
+            yoyo: true,
+          });
+        };
 
         const glitchLoop = () => {
           const gt = gsap.timeline({
             onComplete: () => {
-              gsap.delayedCall(gsap.utils.random(2, 6), glitchLoop);
+              glitchAnimation = gsap.delayedCall(
+                gsap.utils.random(2, 6),
+                glitchLoop,
+              );
             },
           });
+          glitchAnimation = gt;
 
           gt.to(themeImg, {
             clipPath: "inset(20% 0% 60% 0%)",
@@ -225,7 +244,33 @@ export function GameOverview({ section, index }: Props) {
             });
         };
 
+        startFloat();
         gsap.delayedCall(gsap.utils.random(1, 3), glitchLoop);
+
+        // These loops run indefinitely; pause them while off-screen so they
+        // don't keep competing for frame budget with active scroll-triggered
+        // work elsewhere on the page.
+        ScrollTrigger.create({
+          trigger: themeCellRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          onLeave: () => {
+            floatTween?.pause();
+            glitchAnimation?.pause();
+          },
+          onLeaveBack: () => {
+            floatTween?.pause();
+            glitchAnimation?.pause();
+          },
+          onEnter: () => {
+            floatTween?.resume();
+            glitchAnimation?.resume();
+          },
+          onEnterBack: () => {
+            floatTween?.resume();
+            glitchAnimation?.resume();
+          },
+        });
       });
     },
     { scope: themeCellRef, dependencies: [ready] },

@@ -45,7 +45,7 @@ export function ThemeFrame({ side, src, alt, x, y = 7 }: Props) {
         data-themeholder
         src={isLeft ? HOLDERS.rightImageHolder : HOLDERS.leftImageHolder}
         alt={`${side} holder`}
-        className={cn("block w-[75%] will-change-transform", alignment)}
+        className={cn("block w-[75%]", alignment)}
       />
     </div>
   );
