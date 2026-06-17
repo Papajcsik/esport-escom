@@ -53,6 +53,8 @@ export function GameOverview({ section, index }: Props) {
         willChange: "transform",
       });
 
+      gsap.set(hologram, { willChange: "clip-path" });
+
       gsap.set(hologram, {
         xPercent: xFinalPos,
         y: 4,
@@ -128,7 +130,7 @@ export function GameOverview({ section, index }: Props) {
 
       // Reveal is one-shot: drop the compositor layer once it's done.
       tl.eventCallback("onComplete", () =>
-        gsap.set([holder, readMore], { willChange: "auto" }),
+        gsap.set([holder, readMore, hologram], { willChange: "auto" }),
       );
     },
     { scope: hologramCellRef, dependencies: [ready] },
@@ -152,10 +154,12 @@ export function GameOverview({ section, index }: Props) {
         willChange: "transform",
       });
 
+      gsap.set([themeHolderSpark, themeImg], { willChange: "clip-path" });
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: themeCellRef.current,
-          start: "center 85%", // when the center of the section hits 80% of the viewport height
+          start: "center 90%", // when the center of the section hits 90% of the viewport height
           once: true, // animation plays only once
         },
       });
@@ -190,8 +194,10 @@ export function GameOverview({ section, index }: Props) {
       );
 
       tl.then(() => {
-        // Reveal is one-shot: drop the compositor layer once it's done.
-        gsap.set(themeHolder, { willChange: "auto" });
+        // Reveal is one-shot for the holder/spark: drop their compositor
+        // layer once done. themeImg keeps it - the glitch loop below
+        // keeps animating its clip-path.
+        gsap.set([themeHolder, themeHolderSpark], { willChange: "auto" });
 
         let floatTween: gsap.core.Tween | null = null;
         let glitchAnimation: gsap.core.Tween | gsap.core.Timeline | null = null;
@@ -207,7 +213,11 @@ export function GameOverview({ section, index }: Props) {
         };
 
         const glitchLoop = () => {
+          // Jump-cuts, not tweens: each step is on screen for ~30ms, well
+          // below the point where eased interpolation reads as motion -
+          // gsap.set() skips that per-tick work entirely.
           const gt = gsap.timeline({
+            defaults: { duration: 0 },
             onComplete: () => {
               glitchAnimation = gsap.delayedCall(
                 gsap.utils.random(2, 6),
@@ -217,31 +227,22 @@ export function GameOverview({ section, index }: Props) {
           });
           glitchAnimation = gt;
 
-          gt.to(themeImg, {
-            clipPath: "inset(20% 0% 60% 0%)",
-            x: 10,
-            duration: 0.03,
-            ease: "none",
-          })
-            .to(themeImg, {
-              clipPath: "inset(0% 40% 0% 0%)",
-              x: 0,
-              duration: 0.03,
-              ease: "none",
-            })
-            .to(themeImg, {
-              clipPath: "inset(50% 0% 30% 0%)",
-              x: -8,
-              duration: 0.03,
-              ease: "none",
-            })
-            .to(themeImg, {
-              clipPath: "inset(0% 35% 0% 0%)",
-              x: 0,
-              duration: 0.03,
-              ease: "none",
-              clearProps: "clipPath,x",
-            });
+          gt.set(themeImg, { clipPath: "inset(20% 0% 60% 0%)", x: 10 })
+            .set(themeImg, { clipPath: "inset(0% 40% 0% 0%)", x: 0 }, "+=0.03")
+            .set(
+              themeImg,
+              { clipPath: "inset(50% 0% 30% 0%)", x: -8 },
+              "+=0.03",
+            )
+            .set(
+              themeImg,
+              {
+                clipPath: "inset(0% 35% 0% 0%)",
+                x: 0,
+                clearProps: "clipPath,x",
+              },
+              "+=0.03",
+            );
         };
 
         startFloat();
