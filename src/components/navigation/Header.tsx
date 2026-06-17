@@ -142,7 +142,7 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
       >
         <img
           src={IMAGES.headerBackground}
-          className="w-[180%] sm:w-[140%] md:w-full max-w-[180%] sm:max-w-[140%] md:max-w-full block flex-shrink-0"
+          className="w-[180%] sm:w-[140%] md:w-full max-w-[180%] sm:max-w-[140%] md:max-w-full block shrink-0"
         />
       </div>
 
@@ -155,13 +155,13 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
           isHeaderSticky
             ? "fixed top-0 left-0 right-0 backdrop-blur-sm"
             : "absolute inset-x-0 top-0 -translate-y-6 sm:-translate-y-10 md:-translate-y-15",
-          isHeaderSticky && isHeaderHidden && "-translate-y-[200%]",
+          isHeaderSticky && isHeaderHidden && "translate-y-[-200%]",
         )}
       >
         <div className="relative z-20 w-full flex justify-center items-center overflow-hidden pointer-events-none select-none">
           <img
             src={IMAGES.headerBackground}
-            className="w-[180%] sm:w-[140%] md:w-full max-w-[180%] sm:max-w-[140%] md:max-w-full flex-shrink-0 block"
+            className="w-[180%] sm:w-[140%] md:w-full max-w-[180%] sm:max-w-[140%] md:max-w-full shrink-0 block"
           />
         </div>
 

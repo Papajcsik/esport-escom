@@ -20,7 +20,7 @@ export function SplashScreen({
 }) {
 	const [progress, setProgress] = useState(0);
 	const [messageIndex, setMessageIndex] = useState(0);
-	const [_, setTickCount] = useState(0);
+	const [, setTickCount] = useState(0);
 	const [isFadingOut, setIsFadingOut] = useState(false);
 
 	useEffect(() => {
@@ -75,8 +75,8 @@ export function SplashScreen({
 		>
 			<div className="absolute inset-0 overflow-hidden">
 				<div className="absolute inset-0 bg-[linear-gradient(0deg,transparent_50%,rgba(231,211,147,0.02)_50%)] bg-size-[100%_4px]" />
-				<div className="absolute left-12 top-0 h-px w-32 bg-gradient-to-r from-transparent via-yellow/30 to-transparent" />
-				<div className="absolute right-12 top-0 h-px w-32 bg-gradient-to-r from-transparent via-yellow/30 to-transparent" />
+				<div className="absolute left-12 top-0 h-px w-32 bg-linear-to-r from-transparent via-yellow/30 to-transparent" />
+				<div className="absolute right-12 top-0 h-px w-32 bg-linear-to-r from-transparent via-yellow/30 to-transparent" />
 			</div>
 
 			{/* Corner brackets */}

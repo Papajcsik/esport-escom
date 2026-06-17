@@ -63,7 +63,7 @@ export function MusicPlayer({ startPlaying = false }: Props) {
 					setHasStarted(true);
 					setIsMuted(false);
 				})
-				.catch(() => {});
+				.catch(() => { });
 		}
 	}, [startPlaying, hasStarted]);
 
@@ -88,7 +88,7 @@ export function MusicPlayer({ startPlaying = false }: Props) {
 					setHasStarted(true);
 					setIsMuted(false);
 				})
-				.catch(() => {});
+				.catch(() => { });
 			return;
 		}
 
