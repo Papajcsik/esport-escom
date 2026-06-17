@@ -43,6 +43,7 @@ export const backgroundImages = {
   escomInitiative: "/images/background/escom-initiative.png",
   mobileGame: "/images/background/mobile-game.png",
   treath: "/images/background/treath.png",
+  develop: "/images/background/develop.png",
 } as const;
 
 export const ICONS = [
