@@ -41,6 +41,7 @@ export const IMAGES = {
   escomInitiative: "/images/background/escom-initiative.png",
   mobileGame: "/images/background/mobile-game.png",
   treath: "/images/background/treath.png",
+  develop: "/images/background/develop.png",
   mechanic: "/images/background/mechanic.webp",
   weldingSparks: "/images/background/welding-drone-sparks.webp",
   weldingDrone: "/images/background/welding-drone.webp",

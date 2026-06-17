@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { backgroundImages } from "@/lib/imageMap";
 
 export type WhatIsEscomTab =
 	| "contractors"
@@ -28,7 +29,7 @@ export default function WhatIsEscomPage() {
 					{/* Section: Your time, your game */}
 					<section className="relative">
 						<img
-							src="/images/background/mobile-game.png"
+							src={backgroundImages.mobileGame}
 							alt=""
 							className="absolute right-0 top-16 w-150 md:w-175 h-auto object-contain opacity-30 pointer-events-none"
 						/>
@@ -75,7 +76,7 @@ export default function WhatIsEscomPage() {
 					{/* Section: Contractors */}
 					<section id="contractors" className="relative pb-128">
 						<img
-							src="/images/background/contractors.png"
+							src={backgroundImages.contractors}
 							alt=""
 							className="absolute right-0 top-16 w-150 md:w-187.5 h-auto object-contain opacity-30 pointer-events-none"
 						/>
@@ -116,7 +117,7 @@ export default function WhatIsEscomPage() {
 					{/* Section: Threat from another Star */}
 					<section id="asteroid-attack" className="relative pb-128 ">
 						<img
-							src="/images/background/treath.png"
+							src={backgroundImages.treath}
 							alt=""
 							className="absolute right-0 top-16 w-137.5 md:w-162.5 h-auto object-contain opacity-30 pointer-events-none"
 						/>
@@ -156,7 +157,7 @@ export default function WhatIsEscomPage() {
 					{/* Section: ESCOM's defender */}
 					<section id="escom-initiative" className="relative pb-128">
 						<img
-							src="/images/background/escom-initiative.png"
+							src={backgroundImages.escomInitiative}
 							alt=""
 							className="absolute right-0 top-32 w-175 md:w-225 h-auto object-contain opacity-30 pointer-events-none"
 						/>
@@ -216,7 +217,7 @@ export default function WhatIsEscomPage() {
 					{/* Section: Rise Through the DRAFT List */}
 					<section id="draft-list" className="relative pb-96">
 						<img
-							src="/images/background/draft-list.png"
+							src={backgroundImages.draftList}
 							alt=""
 							className="absolute right-0 top-16 w-137.5 md:w-162.5 h-auto object-contain opacity-30 pointer-events-none"
 						/>
@@ -255,6 +256,40 @@ export default function WhatIsEscomPage() {
 									Produce. Deliver. Climb the DRAFT List.
 									<br />
 									Become one of the Ten.
+								</p>
+							</div>
+						</div>
+					</section>
+					{/* Section: Develop. Adapt. Defend. */}
+					<section id="develop-adapt-defend" className="relative pb-96">
+						<img
+							src={backgroundImages.develop}
+							alt=""
+							className="absolute right-0 top-16 w-137.5 md:w-162.5 h-auto object-contain opacity-30 pointer-events-none"
+						/>
+						<div className="relative z-10 p-6 md:p-8">
+							<h2 className="text-orange-400 font-bold text-4xl md:text-6xl mb-6 uppercase tracking-wide border-b border-orange-500/40 pb-3">
+								Develop. Adapt. Defend.
+							</h2>
+
+							<div className="flex flex-col gap-4 max-w-[60%]">
+								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+									Download the game and take part in the growth of a living community-driven world.
+								</p>
+								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+									Play fast, intelligent logic challenges, develop your skills, and contribute to the ongoing evolution of the ESCOM Initiative. Earn rewards, improve your performance, and climb your way to the top of the leaderboard to leave your mark in history as a legendary Contractor.
+								</p>
+								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+									Experience quick, smart entertainment designed for mobile play—focused on skill, progression, and competition.
+								</p>
+								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+									Invite your friends, compete together, and see who can contribute more to the development of TITAN-01. Every challenge you complete brings the community closer to its ultimate goal.
+								</p>
+								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+									No hidden payments. No intrusive ads. Just pure challenge, progression, and competition.
+								</p>
+								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+									Develop. Adapt. Defend.
 								</p>
 							</div>
 						</div>
