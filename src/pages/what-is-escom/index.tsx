@@ -218,8 +218,7 @@ export default function WhatIsEscomPage() {
 					<section id="draft-list" className="relative pb-64">
 						<img
 							src={backgroundImages.draftList}
-							alt=""
-							className="absolute right-0 top-16 w-137.5 md:w-162.5 h-auto object-contain opacity-30 pointer-events-none"
+							className="absolute right-0 top-16 w-150 md:w-187.5 h-auto object-contain opacity-30 pointer-events-none"
 						/>
 						<div className="relative z-10 p-6 md:p-8">
 							<h2 className="text-orange-400 font-bold text-4xl md:text-6xl mb-6 uppercase tracking-wide border-b border-orange-500/40 pb-3">
@@ -264,8 +263,7 @@ export default function WhatIsEscomPage() {
 					<section id="develop-adapt-defend" className="relative pb-32">
 						<img
 							src={backgroundImages.develop}
-							alt=""
-							className="absolute right-0 top-16 w-137.5 md:w-162.5 h-auto object-contain opacity-30 pointer-events-none"
+							className="absolute right-0 top-32 w-150 md:w-187.5 h-auto object-contain opacity-30 pointer-events-none"
 						/>
 						<div className="relative z-10 p-6 md:p-8">
 							<h2 className="text-orange-400 font-bold text-4xl md:text-6xl mb-6 uppercase tracking-wide border-b border-orange-500/40 pb-3">
