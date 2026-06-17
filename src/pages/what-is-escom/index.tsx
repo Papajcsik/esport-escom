@@ -74,7 +74,7 @@ export default function WhatIsEscomPage() {
 					</section>
 
 					{/* Section: Contractors */}
-					<section id="contractors" className="relative pb-128">
+					<section id="contractors" className="relative pb-64">
 						<img
 							src={backgroundImages.contractors}
 							alt=""
@@ -115,7 +115,7 @@ export default function WhatIsEscomPage() {
 					</section>
 
 					{/* Section: Threat from another Star */}
-					<section id="asteroid-attack" className="relative pb-128 ">
+					<section id="asteroid-attack" className="relative pb-64">
 						<img
 							src={backgroundImages.treath}
 							alt=""
@@ -155,7 +155,7 @@ export default function WhatIsEscomPage() {
 					</section>
 
 					{/* Section: ESCOM's defender */}
-					<section id="escom-initiative" className="relative pb-128">
+					<section id="escom-initiative" className="relative pb-64">
 						<img
 							src={backgroundImages.escomInitiative}
 							alt=""
@@ -215,7 +215,7 @@ export default function WhatIsEscomPage() {
 					</section>
 
 					{/* Section: Rise Through the DRAFT List */}
-					<section id="draft-list" className="relative pb-96">
+					<section id="draft-list" className="relative pb-64">
 						<img
 							src={backgroundImages.draftList}
 							alt=""
@@ -261,7 +261,7 @@ export default function WhatIsEscomPage() {
 						</div>
 					</section>
 					{/* Section: Develop. Adapt. Defend. */}
-					<section id="develop-adapt-defend" className="relative pb-96">
+					<section id="develop-adapt-defend" className="relative pb-32">
 						<img
 							src={backgroundImages.develop}
 							alt=""

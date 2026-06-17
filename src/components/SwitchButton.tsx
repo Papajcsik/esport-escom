@@ -39,7 +39,7 @@ export function SwitchButton({
 				alt=""
 				onLoad={() => setIsLoaded(true)}
 				className={cn(
-					"w-36 sm:w-44 md:w-60 h-auto object-contain transition-all duration-300",
+					"w-44 sm:w-52 md:w-72 h-auto object-contain transition-all duration-300",
 					flipped && "-scale-x-100",
 					isActive
 						? "brightness-125 drop-shadow-[0_0_12px_rgba(255,100,50,0.6)]"

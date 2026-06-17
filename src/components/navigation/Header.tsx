@@ -142,7 +142,7 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
       >
         <img
           src={IMAGES.headerBackground}
-          className="w-[180%] sm:w-[140%] md:w-full max-w-[180%] sm:max-w-[140%] md:max-w-full block shrink-0"
+          className="w-[180%] sm:w-[140%] md:w-full max-w-[180%] sm:max-w-[140%] md:max-w-full aspect-12/1 object-fill block shrink-0"
         />
       </div>
 
@@ -161,7 +161,7 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
         <div className="relative z-20 w-full flex justify-center items-center overflow-hidden pointer-events-none select-none">
           <img
             src={IMAGES.headerBackground}
-            className="w-[180%] sm:w-[140%] md:w-full max-w-[180%] sm:max-w-[140%] md:max-w-full shrink-0 block"
+            className="w-[180%] sm:w-[140%] md:w-full max-w-[180%] sm:max-w-[140%] md:max-w-full aspect-12/1 object-fill shrink-0 block"
           />
         </div>
 
