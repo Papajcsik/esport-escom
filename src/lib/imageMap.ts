@@ -29,7 +29,7 @@ export const images = {
     "/images/header/hamburger-menu-element-background.webp",
   hamburgerMenuElementHighlighted:
     "/images/header/hamburger_menu_pointer_highlighted.webp",
-  hamburgerMenuOutside: "/images/header/hamburger-menu-outside.webp",
+  hamburgerMenuOutside: "/images/frames/hamburger-menu-outside.webp",
 } as const;
 
 export const backgroundImages = {
@@ -39,10 +39,10 @@ export const backgroundImages = {
   weldingSparks: "/images/background/welding-drone-sparks.webp",
   weldingDrone: "/images/background/welding-drone.webp",
   draftList: "/images/background/draft-list.png",
-  contractors: "/images/background/contractors.png",
-  escomInitiative: "/images/background/escom-initiative.png",
-  mobileGame: "/images/background/mobile-game.png",
-  treath: "/images/background/treath.png",
+  contractors: "/images/background/contractors.webp",
+  escomInitiative: "/images/background/escom-initiative.webp",
+  mobileGame: "/images/background/mobile-game.webp",
+  treath: "/images/background/treath.webp",
   develop: "/images/background/develop.png",
 } as const;
 

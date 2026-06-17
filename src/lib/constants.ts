@@ -31,7 +31,7 @@ export const IMAGES = {
     "/images/header/hamburger-menu-element-background.webp",
   hamburgerMenuElementHighlighted:
     "/images/header/hamburger_menu_pointer_highlighted.webp",
-  hamburgerMenuOutside: "/images/header/hamburger-menu-outside.webp",
+  hamburgerMenuOutside: "/images/frames/hamburger-menu-outside.webp",
   hamburgerSwitchButton: "/images/header/hamburger-switch-button.webp",
 } as const;
 
