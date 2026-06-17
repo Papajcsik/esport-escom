@@ -1,6 +1,7 @@
-import { backgroundImages } from "@/lib/imageMap";
+import { backgroundImages, SECTIONS } from "@/lib/constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { GameOverview } from "./sections/GameOverview";
 import SVGStage from "./workers/SVGStage";
 import Mechanic from "./workers/Mechanic";
 import Drone from "./workers/Drone";
@@ -27,20 +28,26 @@ export default function Background() {
   );
 
   return (
-    <div className="relative w-full overflow-hidden aspect-4057/8400">
+    <div className="relative w-full overflow-hidden aspect-1920/5000">
       <img
         src={backgroundImages.backgroundTitan}
         alt="background titan"
-        className="w-full h-auto block"
+        className="absolute inset-0 w-full h-full object-cover z-0"
       />
       <img
         id="background-lights"
         src={backgroundImages.backgroundLights}
         alt="background lights"
-        className="absolute top-0 left-0 w-full h-auto"
+        className="absolute inset-0 w-full h-full object-cover z-1"
       />
 
-      <SVGStage className="absolute inset-0 w-full h-full">
+      <div className="absolute inset-0 flex flex-col">
+        {SECTIONS.map((section, index: number) => (
+          <GameOverview key={section.title} section={section} index={index} />
+        ))}
+      </div>
+
+      <SVGStage className="absolute inset-0 w-full h-full z-10">
         <Mechanic triangle={MECHANIC_1} duration={4} />
         <Mechanic triangle={MECHANIC_2} duration={6} />
         <Drone triangle={DRONE_1} duration={3} weldDuration={6} />

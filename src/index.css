@@ -1,8 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap");
+
 @import "tailwindcss";
 
 @theme {
   --color-yellow: #e7d393;
-  --font-sans: "Ubuntu", sans-serif;
+  --color-orange: #dc4c13;
+  /* --font-sans: "Ubuntu", sans-serif; */
+  --font-sans: "Goldman", sans-serif;
 }
 
 html,
@@ -12,7 +16,6 @@ body {
   padding: 0;
   background-color: #0c0006 !important;
   color: white;
-  scroll-behavior: smooth;
   overflow-x: hidden;
 }
 

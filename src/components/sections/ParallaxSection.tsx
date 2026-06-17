@@ -16,6 +16,7 @@ export function ParallaxSection() {
 	useEffect(() => {
 		const context = gsap.context(() => {
 			gsap.set(skyRef.current, { scale: 1.12 });
+			gsap.set(overlayRef.current, { transformOrigin: "top" });
 			gsap.set(middleLayerRef.current, { y: "70%", scale: 1.12 });
 			gsap.set(groundRef.current, { y: "100%", scale: 1.03 });
 			gsap.set(contractorRef.current, { xPercent: -120 });
@@ -33,7 +34,7 @@ export function ParallaxSection() {
 
 			timeline
 				.to(skyRef.current, { scale: 1, ease: "none" }, 0)
-				.to(overlayRef.current, { height: 0, opacity: 0, ease: "none" }, 0)
+				.to(overlayRef.current, { scaleY: 0, opacity: 0, ease: "none" }, 0)
 				.to(middleLayerRef.current, { scale: 1, ease: "none" }, 0)
 				.to(middleLayerRef.current, { y: "0%", ease: "power2.out" }, 0.08)
 				.to(groundRef.current, { y: "0%", scale: 1, ease: "power2.out" }, 0.18)
