@@ -24,11 +24,17 @@ export default function Footer() {
             alt="Join"
             className="absolute left-1/2 top-[15%] w-[50%] h-auto -translate-x-1/2"
           />
-          <img
-            src={IMAGES.googlePlayFooter}
-            alt="Google Play"
-            className="absolute left-1/2 top-[58%] w-[73%] h-auto -translate-x-1/2 -translate-y-1/2"
-          />
+          <a
+            href="https://play.google.com/store/apps/details?id=com.escom"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src={IMAGES.googlePlayFooter}
+              alt="Google Play"
+              className="absolute left-1/2 top-[58%] w-[73%] h-auto -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 hover:scale-105"
+            />
+          </a>
         </div>
         <div className="relative flex-1 min-w-0 ml-[clamp(-50px,-2.15vw,-32px)] translate-y-[clamp(-12px,-0.54vw,-8px)]">
           <img
