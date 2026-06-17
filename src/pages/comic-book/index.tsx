@@ -17,7 +17,7 @@ export default function ComicBookPage() {
 
 			<div className="relative w-full max-w-5xl mx-auto mt-16 p-8 md:p-16 flex flex-col items-center justify-center bg-black/40 backdrop-blur-sm rounded-xl border border-orange-500/20 shadow-2xl">
 				<img 
-					src="/images/background/escom-initiative.png" 
+					src="/images/background/escom-initiative.webp" 
 					alt="" 
 					className="absolute inset-0 w-full h-full object-cover z-0 opacity-20 pointer-events-none rounded-xl" 
 				/>

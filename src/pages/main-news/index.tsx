@@ -7,7 +7,7 @@ function NewsCard({ title, text, bgImage }: { title: string; text: string; bgIma
 	return (
 		<div className="relative w-full flex flex-col justify-end">
 			<img 
-				src="/images/frames/main-news-keret.png" 
+				src="/images/frames/main-news-keret.webp" 
 				alt="News Frame" 
 				className="relative w-full h-auto z-10 pointer-events-none" 
 				onLoad={() => setIsFrameLoaded(true)}

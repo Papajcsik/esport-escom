@@ -30,12 +30,12 @@ export default function MerchandisePage() {
 				{/* Merch Display */}
 				<div className="relative w-full max-w-[500px] md:max-w-[700px] aspect-square flex flex-col items-center justify-center shrink-0 mt-4">
 					<img
-						src="/images/frames/merch_frame.png"
+						src="/images/frames/merch_frame.webp"
 						alt=""
 						className="absolute inset-0 w-full h-full object-contain z-0 pointer-events-none"
 					/>
 					<img
-						src="/images/background/mockup_shirt.png"
+						src="/images/background/mockup_shirt.webp"
 						alt="ESCOM Merch Shirt"
 						className="relative z-10 w-[65%] h-[65%] object-contain mb-12"
 					/>
@@ -45,7 +45,7 @@ export default function MerchandisePage() {
 						className="absolute bottom-[0.5%] md:bottom-[1.5%] left-1/2 -translate-x-1/2 group flex items-center justify-center px-4 py-2 w-[40%] sm:w-[35%] h-[9%] shrink-0 transition-transform duration-300 hover:scale-105 z-20"
 					>
 						<img
-							src="/images/background/merch_frame_button.png"
+							src="/images/background/merch_frame_button.webp"
 							alt=""
 							className="absolute inset-0 w-full h-full object-fill pointer-events-none"
 						/>
