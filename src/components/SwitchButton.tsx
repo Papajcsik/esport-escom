@@ -1,18 +1,13 @@
 import { IMAGES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 type SwitchButtonProps = {
-	/** Text label displayed on the button */
 	label: string;
-	/** Whether this button is currently the active/selected one */
 	isActive: boolean;
-	/** Click handler */
 	onClick: () => void;
-	/** Horizontally flip the button image */
 	flipped?: boolean;
-	/** Optional id for the button element */
 	id?: string;
-	/** Optional extra className on the outer button */
 	className?: string;
 };
 
@@ -24,12 +19,16 @@ export function SwitchButton({
 	id,
 	className,
 }: SwitchButtonProps) {
+	const [isLoaded, setIsLoaded] = useState(false);
+
 	return (
 		<button
 			onClick={onClick}
 			className={cn(
-				"group relative cursor-pointer bg-transparent border-none p-0 transition-transform duration-300 hover:scale-105",
+				"group relative cursor-pointer bg-transparent border-none p-0 transition-all duration-500",
 				isActive && "scale-105",
+				!isLoaded && "opacity-0 translate-y-2",
+				isLoaded && "opacity-100 translate-y-0",
 				className,
 			)}
 			aria-label={label}
@@ -38,8 +37,9 @@ export function SwitchButton({
 			<img
 				src={IMAGES.hamburgerSwitchButton}
 				alt=""
+				onLoad={() => setIsLoaded(true)}
 				className={cn(
-					"w-36 sm:w-44 md:w-60 h-auto object-contain transition-all duration-300",
+					"w-44 sm:w-52 md:w-72 h-auto object-contain transition-all duration-300",
 					flipped && "-scale-x-100",
 					isActive
 						? "brightness-125 drop-shadow-[0_0_12px_rgba(255,100,50,0.6)]"

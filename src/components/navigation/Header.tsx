@@ -15,21 +15,14 @@ type Props = {
   onEscomTabChange?: (tab: WhatIsEscomTab) => void;
 };
 
-export function Header({
-  onNavigate,
-  activePage,
-  faqTab,
-  onFaqTabChange,
-  escomTab,
-  onEscomTabChange,
-}: Props) {
+export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTab, onEscomTabChange }: Props) {
   const [isHeaderSticky, setIsHeaderSticky] = useState(false);
   const [isHeaderHidden, setIsHeaderHidden] = useState(false);
   const [isTransitionEnabled, setIsTransitionEnabled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const lastScrollY = useRef(0);
   const scrollLockUntil = useRef<number>(0);
-  const hideHeaderTimeoutRef = useRef<any>(null);
+  const hideHeaderTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Prevent animation flashes on initial sticky state
   useEffect(() => {
@@ -37,7 +30,8 @@ export function Header({
       const timer = setTimeout(() => setIsTransitionEnabled(true), 50);
       return () => clearTimeout(timer);
     } else {
-      setIsTransitionEnabled(false);
+      const timer = setTimeout(() => setIsTransitionEnabled(false), 0);
+      return () => clearTimeout(timer);
     }
   }, [isHeaderSticky]);
 
@@ -148,7 +142,7 @@ export function Header({
       >
         <img
           src={IMAGES.headerBackground}
-          className="w-[180%] sm:w-[140%] md:w-full max-w-[180%] sm:max-w-[140%] md:max-w-full block flex-shrink-0"
+          className="w-[180%] sm:w-[140%] md:w-full max-w-[180%] sm:max-w-[140%] md:max-w-full aspect-12/1 object-fill block shrink-0"
         />
       </div>
 
@@ -161,13 +155,13 @@ export function Header({
           isHeaderSticky
             ? "fixed top-0 left-0 right-0 backdrop-blur-sm"
             : "absolute inset-x-0 top-0 -translate-y-6 sm:-translate-y-10 md:-translate-y-15",
-          isHeaderSticky && isHeaderHidden && "-translate-y-[200%]",
+          isHeaderSticky && isHeaderHidden && "translate-y-[-200%]",
         )}
       >
         <div className="relative z-20 w-full flex justify-center items-center overflow-hidden pointer-events-none select-none">
           <img
             src={IMAGES.headerBackground}
-            className="w-[180%] sm:w-[140%] md:w-full max-w-[180%] sm:max-w-[140%] md:max-w-full flex-shrink-0 block"
+            className="w-[180%] sm:w-[140%] md:w-full max-w-[180%] sm:max-w-[140%] md:max-w-full aspect-12/1 object-fill shrink-0 block"
           />
         </div>
 
@@ -211,9 +205,9 @@ export function Header({
 
         <nav
           className={cn(
-            "absolute top-full -mt-2 sm:-mt-4 md:-mt-9 left-0 z-50 w-[280px] sm:w-[340px] md:w-[400px] overflow-hidden transition-all duration-400 ease-in-out",
+            "absolute top-full -mt-2 sm:-mt-4 md:-mt-9 left-0 z-50 w-70 sm:w-85 md:w-100 overflow-hidden transition-all duration-400 ease-in-out",
             isMenuOpen
-              ? "max-h-[600px] opacity-100"
+              ? "max-h-150 opacity-100"
               : "max-h-0 opacity-0 pointer-events-none",
           )}
         >

@@ -4,11 +4,35 @@ export type FaqTab = "faq" | "eula";
 
 const faqData = [
 	{
-		question: "Why are you gay?",
+		question: "What is ESCOM?",
 		answer:
-			"We welcome here Pepe Osimba human rights activist....",
+			"ESCOM (Earth Security Command) is a fast-paced, community-driven mobile logic game. Players take on the role of Contractors, completing logic challenges to help defend Earth from the Centauri threat by building TITAN-01.",
 	},
-
+	{
+		question: "Is ESCOM free to play?",
+		answer:
+			"Yes! You can download the game and train for free. Practice unlimited challenges at no cost to sharpen your skills before entering ranked competitions.",
+	},
+	{
+		question: "What is ESCoin?",
+		answer:
+			"ESCoin is the official cryptocurrency of the ESCOM ecosystem. It is used to enter live ranked competitions where you can climb the leaderboards and prove yourself as a top Contractor.",
+	},
+	{
+		question: "How do I contribute to building TITAN-01?",
+		answer:
+			"By participating in challenges and delivering components via the Hyper Train network. Every challenge you successfully complete brings the community closer to its ultimate goal of finishing TITAN-01.",
+	},
+	{
+		question: "Are there any hidden payments or intrusive ads?",
+		answer:
+			"No. ESCOM is designed for pure challenge, progression, and competition. There are no hidden payments or intrusive ads to disrupt your gameplay.",
+	},
+	{
+		question: "Can I play with my friends?",
+		answer:
+			"Absolutely! You can invite your friends, compete together, and see who can climb higher on the DRAFT List leaderboards while contributing to the ESCOM Initiative.",
+	},
 ];
 
 const eulaContent = `END USER LICENSE AGREEMENT
