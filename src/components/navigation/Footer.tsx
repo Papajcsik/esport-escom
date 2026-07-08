@@ -32,7 +32,7 @@ export default function Footer() {
             <img
               src={IMAGES.googlePlayFooter}
               alt="Google Play"
-              className="absolute left-[48%] top-[58%] w-[73%] h-auto -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 hover:scale-105"
+              className="absolute left-[50%] top-[58%] w-[73%] h-auto -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 hover:scale-105"
             />
           </a>
         </div>

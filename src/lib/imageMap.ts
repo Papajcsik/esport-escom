@@ -44,6 +44,7 @@ export const backgroundImages = {
   mobileGame: "/images/background/mobile-game.webp",
   treath: "/images/background/treath.webp",
   develop: "/images/background/develop.webp",
+  reward: "/images/background/reward.png",
 } as const;
 
 export const ICONS = [
