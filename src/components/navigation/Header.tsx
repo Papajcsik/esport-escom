@@ -93,13 +93,11 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
       onNavigate(pageId);
       setIsMenuOpen(false);
 
-      const underHeroElement = document.querySelector(
-        ".relative.flex-1.overflow-hidden.min-h-screen",
-      );
-      if (underHeroElement) {
-        const headerOffset = 50;
+      const pageContent = document.getElementById("page-content");
+      if (pageContent) {
+        const headerOffset = 20;
         const offsetPosition =
-          underHeroElement.getBoundingClientRect().bottom +
+          pageContent.getBoundingClientRect().top +
           window.scrollY -
           headerOffset;
         window.scrollTo({
@@ -155,7 +153,7 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
           isHeaderSticky
             ? "fixed top-0 left-0 right-0 backdrop-blur-sm"
             : "absolute inset-x-0 top-0 -translate-y-6 sm:-translate-y-10 md:-translate-y-15",
-          isHeaderSticky && isHeaderHidden && "translate-y-[-200%]",
+          isHeaderSticky && isHeaderHidden && "translate-y-[-400%] md:translate-y-[-200%]",
         )}
       >
         <div className="relative z-20 w-full flex justify-center items-center overflow-hidden pointer-events-none select-none">
@@ -342,12 +340,12 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
 
         {/* What is ESCOM toggle buttons */}
         {activePage === "what-is-escom" && (
-          <div className="absolute top-full left-0 right-0 z-40 -mt-2 md:-mt-4 flex flex-wrap items-center justify-center gap-2 md:gap-6 lg:gap-10 py-2 px-2">
+          <div className="absolute top-full left-0 right-0 z-40 -mt-2 md:-mt-4 grid grid-cols-2 md:flex items-center justify-center gap-2 md:gap-6 lg:gap-10 py-2 px-2">
             <SwitchButton
               label="Contractors"
               isActive={escomTab === "contractors"}
               onClick={() => handleEscomTabClick("contractors")}
-              flipped
+
               id="escom-contractors-button"
             />
             <SwitchButton
@@ -368,6 +366,7 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
               isActive={escomTab === "draft-list"}
               onClick={() => handleEscomTabClick("draft-list")}
               id="escom-draft-list-button"
+              flipped
             />
           </div>
         )}
