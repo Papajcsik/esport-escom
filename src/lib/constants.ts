@@ -60,13 +60,13 @@ export const ICONS = [
     id: "TikTok",
     icon: "/images/icons/tiktok-icon.webp",
     route: "https://www.tiktok.com/@earthsecuritycomma",
-    pos: "right-[70%]",
+    pos: "right-[60%]",
   },
   {
     id: "YouTube",
     icon: "/images/icons/youtube-icon.webp",
     route: "https://www.youtube.com/channel/UC9lAnxCQy5BZ1lB-cNSlO4Q",
-    pos: "right-[35%]",
+    pos: "right-[25%]",
   },
 ] as const;
 

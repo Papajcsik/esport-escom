@@ -345,7 +345,7 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
               label="Contractors"
               isActive={escomTab === "contractors"}
               onClick={() => handleEscomTabClick("contractors")}
-              flipped
+
               id="escom-contractors-button"
             />
             <SwitchButton
@@ -366,6 +366,7 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
               isActive={escomTab === "draft-list"}
               onClick={() => handleEscomTabClick("draft-list")}
               id="escom-draft-list-button"
+              flipped
             />
           </div>
         )}

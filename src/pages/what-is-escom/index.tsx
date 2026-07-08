@@ -25,7 +25,7 @@ export default function WhatIsEscomPage() {
 					?
 				</h1>
 
-				<div className="flex flex-col gap-24 animate-[fadeIn_0.4s_ease-out]">
+				<div className="flex flex-col gap-10 md:gap-14 animate-[fadeIn_0.4s_ease-out]">
 					{/* Section: Your time, your game */}
 					<section className="relative">
 						{/* Desktop: absolute overlay */}
@@ -35,25 +35,25 @@ export default function WhatIsEscomPage() {
 							className="hidden md:block absolute right-0 top-16 w-175 h-auto object-contain opacity-30 pointer-events-none"
 						/>
 						<div className="relative z-10 p-6 md:p-8">
-							<h2 className="text-orange-400 font-bold text-4xl md:text-6xl mb-6 uppercase tracking-wide border-b border-orange-500/40 pb-3">
+							<h2 className="text-orange-400 font-bold text-2xl md:text-4xl mb-4 uppercase tracking-wide border-b border-orange-500/40 pb-3">
 								Your time, your game
 							</h2>
 							{/* Mobile: image below title, above text */}
 							<img
 								src={backgroundImages.mobileGame}
 								alt=""
-								className="block md:hidden w-full h-auto object-contain opacity-100 pointer-events-none mb-6"
+								className="block md:hidden w-full h-auto object-contain opacity-30 pointer-events-none mb-6"
 							/>
 
 							<div className="flex flex-col gap-4 max-w-full md:max-w-[60%]">
-								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+								<p className="text-white/80 text-base md:text-xl leading-relaxed">
 									ESCOM — is a mobile game packed with fast-paced,
 									challenging logic puzzles. You choose the difficulty of
 									each challenge—the greater the risk, the greater the
 									reward. Your performance determines your position on
 									both competitive leaderboards and the global rankings.
 								</p>
-								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+								<p className="text-white/80 text-base md:text-xl leading-relaxed">
 									The game also features a community-driven RPG layer.
 									Every challenge you complete contributes to a shared
 									objective that influences the entire community and
@@ -61,14 +61,14 @@ export default function WhatIsEscomPage() {
 									Together, players help build humanity's ultimate defense
 									against the Centauri threat.
 								</p>
-								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+								<p className="text-white/80 text-base md:text-xl leading-relaxed">
 									Play on your own schedule. Each campaign lasts one
 									month, culminating in a community-driven endgame event.
 									There are no fixed playtimes or mandatory sessions—you
 									decide when, how often, and how intensely you
 									participate. Every contribution counts.
 								</p>
-								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+								<p className="text-white/80 text-base md:text-xl leading-relaxed">
 									Train for free. Compete for glory. Practice unlimited
 									challenges at no cost, sharpen your logical thinking,
 									and master the game at your own pace. When you're ready
@@ -81,7 +81,7 @@ export default function WhatIsEscomPage() {
 					</section>
 
 					{/* Section: Contractors */}
-					<section id="contractors" className="relative pb-64">
+					<section id="contractors" className="relative pb-12 md:pb-20">
 						{/* Desktop: absolute overlay */}
 						<img
 							src={backgroundImages.contractors}
@@ -89,34 +89,34 @@ export default function WhatIsEscomPage() {
 							className="hidden md:block absolute right-0 top-16 w-187.5 h-auto object-contain opacity-30 pointer-events-none"
 						/>
 						<div className="relative z-10 p-6 md:p-8">
-							<h2 className="text-orange-400 font-bold text-4xl md:text-6xl mb-6 uppercase tracking-wide border-b border-orange-500/40 pb-3">
+							<h2 className="text-orange-400 font-bold text-2xl md:text-4xl mb-4 uppercase tracking-wide border-b border-orange-500/40 pb-3">
 								Contractors
 							</h2>
 							{/* Mobile: image below title, above text */}
 							<img
 								src={backgroundImages.contractors}
 								alt=""
-								className="block md:hidden w-full h-auto object-contain opacity-100 pointer-events-none mb-6"
+								className="block md:hidden w-full h-auto object-contain opacity-30 pointer-events-none mb-6"
 							/>
 
 							<div className="flex flex-col gap-4 max-w-full md:max-w-[60%]">
-								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+								<p className="text-white/80 text-base md:text-xl leading-relaxed">
 									The players of ESCOM are known as
 									Contractors—22nd-century entrepreneurs who answered the
 									call of the ESCOM Initiative and joined the alliance.
 								</p>
-								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+								<p className="text-white/80 text-base md:text-xl leading-relaxed">
 									Their shared mission is to supply the ESCOM Assembly
 									Dome with the components needed to construct TITAN-01,
 									the most advanced defensive machine ever created.
 								</p>
-								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+								<p className="text-white/80 text-base md:text-xl leading-relaxed">
 									Upon joining the Initiative, Contractors reconfigure
 									their existing industrial facilities for ESCOM
 									production and establish a connection to the Hyper
 									Train network.
 								</p>
-								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+								<p className="text-white/80 text-base md:text-xl leading-relaxed">
 									The Hyper Train transports all manufactured components
 									to the Assembly Dome. Each delivery request costs 1
 									ESCoin, the official cryptocurrency of the ESCOM
@@ -129,7 +129,7 @@ export default function WhatIsEscomPage() {
 					</section>
 
 					{/* Section: Threat from another Star */}
-					<section id="asteroid-attack" className="relative pb-64">
+					<section id="asteroid-attack" className="relative pb-12 md:pb-20">
 						{/* Desktop: absolute overlay */}
 						<img
 							src={backgroundImages.treath}
@@ -137,32 +137,32 @@ export default function WhatIsEscomPage() {
 							className="hidden md:block absolute right-0 top-16 w-162.5 h-auto object-contain opacity-30 pointer-events-none"
 						/>
 						<div className="relative z-10 p-6 md:p-8">
-							<h2 className="text-orange-400 font-bold text-4xl md:text-6xl mb-6 uppercase tracking-wide border-b border-orange-500/40 pb-3">
+							<h2 className="text-orange-400 font-bold text-2xl md:text-4xl mb-4 uppercase tracking-wide border-b border-orange-500/40 pb-3">
 								Threat from another Star
 							</h2>
 							{/* Mobile: image below title, above text */}
 							<img
 								src={backgroundImages.treath}
 								alt=""
-								className="block md:hidden w-full h-auto object-contain opacity-100 pointer-events-none mb-6"
+								className="block md:hidden w-full h-auto object-contain opacity-30 pointer-events-none mb-6"
 							/>
 
 							<div className="flex flex-col gap-4 max-w-full md:max-w-[60%]">
-								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+								<p className="text-white/80 text-base md:text-xl leading-relaxed">
 									Proxima Centauri — the nearest star to our solar
 									system, a dim red dwarf lurking just 4.24 light-years
 									away. For centuries, it was nothing more than a faint
 									point of light in the night sky. But in the 22nd
 									century, everything changed.
 								</p>
-								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+								<p className="text-white/80 text-base md:text-xl leading-relaxed">
 									Deep-space observation arrays detected anomalous
 									signals originating from the Proxima system—signals
 									that were unmistakably artificial. What followed was
 									the arrival of the Centauri, a hostile alien species
 									bent on harvesting Earth's resources.
 								</p>
-								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+								<p className="text-white/80 text-base md:text-xl leading-relaxed">
 									The first wave of asteroid bombardments shattered
 									orbital infrastructure and devastated key cities across
 									the globe. Governments collapsed under the pressure.
@@ -176,7 +176,7 @@ export default function WhatIsEscomPage() {
 					</section>
 
 					{/* Section: ESCOM's defender */}
-					<section id="escom-initiative" className="relative pb-64">
+					<section id="escom-initiative" className="relative pb-12 md:pb-20">
 						{/* Desktop: absolute overlay */}
 						<img
 							src={backgroundImages.escomInitiative}
@@ -184,28 +184,28 @@ export default function WhatIsEscomPage() {
 							className="hidden md:block absolute right-0 top-32 w-225 h-auto object-contain opacity-30 pointer-events-none"
 						/>
 						<div className="relative z-10 p-6 md:p-8">
-							<h2 className="text-orange-400 font-bold text-4xl md:text-6xl mb-6 uppercase tracking-wide border-b border-orange-500/40 pb-3">
+							<h2 className="text-orange-400 font-bold text-2xl md:text-4xl mb-4 uppercase tracking-wide border-b border-orange-500/40 pb-3">
 								ESCOM's defender
 							</h2>
 							{/* Mobile: image below title, above text */}
 							<img
 								src={backgroundImages.escomInitiative}
 								alt=""
-								className="block md:hidden w-full h-auto object-contain opacity-100 pointer-events-none mb-6"
+								className="block md:hidden w-full h-auto object-contain opacity-30 pointer-events-none mb-6"
 							/>
 
 							<div className="flex flex-col gap-4 max-w-full md:max-w-[60%]">
-								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+								<p className="text-white/80 text-base md:text-xl leading-relaxed">
 									Under the leadership of the W.A.R.D. Directorate and a coalition of allied corporations, construction of the ESCOM Assembly Dome is already underway.
 									Within this colossal facility, humanity's greatest defense is taking shape: TITAN-01, a gigantic combat mech built with cutting-edge 22nd-century technology. Designed to stand against the Centauri threat, TITAN-01
 									represents the combined effort of countless Contractors, engineers, and automated production systems.
 								</p>
-								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+								<p className="text-white/80 text-base md:text-xl leading-relaxed">
 									Components manufactured by Contractors are transported to the Dome within
 									seconds via the Hyper Mag-Lev network. Thousands of workers and machines
 									labor around the clock on the mech's immense structure.
 								</p>
-								<div className="text-white/80 text-xl md:text-2xl leading-relaxed">
+								<div className="text-white/80 text-base md:text-xl leading-relaxed">
 									The project is divided into four major departments:
 									<ul className="list-disc pl-5 mt-2 flex flex-col gap-1">
 										<li>Armor Division</li>
@@ -214,7 +214,7 @@ export default function WhatIsEscomPage() {
 										<li>Cyber Core Division</li>
 									</ul>
 								</div>
-								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+								<p className="text-white/80 text-base md:text-xl leading-relaxed">
 									Every Contractor chooses where to invest resources and expertise.
 									<br />
 									Contributions are tracked by the ESCOM database, with more advanced and
@@ -227,7 +227,7 @@ export default function WhatIsEscomPage() {
 					</section>
 
 					{/* Section: Rise Through the DRAFT List */}
-					<section id="draft-list" className="relative pb-64">
+					<section id="draft-list" className="relative pb-12 md:pb-20">
 						{/* Desktop: absolute overlay */}
 						<img
 							src={backgroundImages.draftList}
@@ -235,43 +235,43 @@ export default function WhatIsEscomPage() {
 							className="hidden md:block absolute right-0 top-16 w-187.5 h-auto object-contain opacity-30 pointer-events-none"
 						/>
 						<div className="relative z-10 p-6 md:p-8">
-							<h2 className="text-orange-400 font-bold text-4xl md:text-6xl mb-6 uppercase tracking-wide border-b border-orange-500/40 pb-3">
+							<h2 className="text-orange-400 font-bold text-2xl md:text-4xl mb-4 uppercase tracking-wide border-b border-orange-500/40 pb-3">
 								Rise Through the DRAFT List
 							</h2>
 							{/* Mobile: image below title, above text */}
 							<img
 								src={backgroundImages.draftList}
 								alt=""
-								className="block md:hidden w-full h-auto object-contain opacity-100 pointer-events-none mb-6"
+								className="block md:hidden w-full h-auto object-contain opacity-30 pointer-events-none mb-6"
 							/>
 
 							<div className="flex flex-col gap-4 max-w-full md:max-w-[60%]">
-								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+								<p className="text-white/80 text-base md:text-xl leading-relaxed">
 									As a Contractor, your mission is to manufacture and deliver ESCOM components
 									to the Assembly Dome. Every successful production earns Contribution Points,
 									which determine your position on the DRAFT List (Main Leaderboard).
 								</p>
-								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+								<p className="text-white/80 text-base md:text-xl leading-relaxed">
 									Each shipment is transported via the Mag-Lev Train Network. Every transport
 									request costs 1 ESCoin, the official currency of the ESCOM ecosystem.
 								</p>
-								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+								<p className="text-white/80 text-base md:text-xl leading-relaxed">
 									Contractors choose what they send based on their skill, strategy, and
 									specialization.
 								</p>
-								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+								<p className="text-white/80 text-base md:text-xl leading-relaxed">
 									The DRAFT List is the core of the system—where performance is measured,
 									reputation is built, and status is earned. The higher you climb, the greater
 									your impact within the Initiative.
 								</p>
-								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+								<p className="text-white/80 text-base md:text-xl leading-relaxed">
 									Only the Top 10 Contractors on the DRAFT List will be selected.
 									<br />
 									These ten elite Contractors become the Pilots of TITAN-01, humanity's
 									ultimate defense system. When the final battle begins, only their combined
 									expertise and synchronized decision-making will control the war machine.
 								</p>
-								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+								<p className="text-white/80 text-base md:text-xl leading-relaxed">
 									Produce. Deliver. Climb the DRAFT List.
 									<br />
 									Become one of the Ten.
@@ -281,7 +281,7 @@ export default function WhatIsEscomPage() {
 					</section>
 
 					{/* Section: Develop. Adapt. Defend. */}
-					<section id="develop-adapt-defend" className="relative pb-32">
+					<section id="develop-adapt-defend" className="relative pb-8 md:pb-12">
 						{/* Desktop: absolute overlay */}
 						<img
 							src={backgroundImages.develop}
@@ -289,33 +289,33 @@ export default function WhatIsEscomPage() {
 							className="hidden md:block absolute right-0 top-32 w-187.5 h-auto object-contain opacity-30 pointer-events-none"
 						/>
 						<div className="relative z-10 p-6 md:p-8">
-							<h2 className="text-orange-400 font-bold text-4xl md:text-6xl mb-6 uppercase tracking-wide border-b border-orange-500/40 pb-3">
+							<h2 className="text-orange-400 font-bold text-2xl md:text-4xl mb-4 uppercase tracking-wide border-b border-orange-500/40 pb-3">
 								Develop. Adapt. Defend.
 							</h2>
 							{/* Mobile: image below title, above text */}
 							<img
 								src={backgroundImages.develop}
 								alt=""
-								className="block md:hidden w-full h-auto object-contain opacity-100 pointer-events-none mb-6"
+								className="block md:hidden w-full h-auto object-contain opacity-30 pointer-events-none mb-6"
 							/>
 
 							<div className="flex flex-col gap-4 max-w-full md:max-w-[60%]">
-								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+								<p className="text-white/80 text-base md:text-xl leading-relaxed">
 									Download the game and take part in the growth of a living community-driven world.
 								</p>
-								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+								<p className="text-white/80 text-base md:text-xl leading-relaxed">
 									Play fast, intelligent logic challenges, develop your skills, and contribute to the ongoing evolution of the ESCOM Initiative. Earn rewards, improve your performance, and climb your way to the top of the leaderboard to leave your mark in history as a legendary Contractor.
 								</p>
-								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+								<p className="text-white/80 text-base md:text-xl leading-relaxed">
 									Experience quick, smart entertainment designed for mobile play—focused on skill, progression, and competition.
 								</p>
-								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+								<p className="text-white/80 text-base md:text-xl leading-relaxed">
 									Invite your friends, compete together, and see who can contribute more to the development of TITAN-01. Every challenge you complete brings the community closer to its ultimate goal.
 								</p>
-								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+								<p className="text-white/80 text-base md:text-xl leading-relaxed">
 									No hidden payments. No intrusive ads. Just pure challenge, progression, and competition.
 								</p>
-								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
+								<p className="text-white/80 text-base md:text-xl leading-relaxed">
 									Develop. Adapt. Defend.
 								</p>
 							</div>
