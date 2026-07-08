@@ -12,7 +12,7 @@ export function HologramFrame({ side }: Props) {
   const textPosition = isLeft ? "left-[2.8cqi]" : "right-[2.8cqi]";
 
   return (
-    <div className="relative w-full">
+    <div className="relative max-w-[70%]">
       <img
         data-hologram
         src={isLeft ? HOLDERS.hologramLeft : HOLDERS.hologramRight}
@@ -22,9 +22,9 @@ export function HologramFrame({ side }: Props) {
 
       <div
         data-readmore
-        className={cn("absolute w-[38%] z-20", horizontal)}
+        className={cn("absolute w-[50%] z-20", horizontal)}
       >
-        <div className="cursor-pointer hover:scale-105 transition-transform">
+        <div className="cursor-pointer hover:scale-105 transition-transform  scale-[1.2] translate-x-[6cqi]">
           <img
             src={isLeft ? HOLDERS.readMoreLeft : HOLDERS.readMoreRight}
             alt="Read more"

@@ -16,7 +16,7 @@ export function ThemeFrame({ side, src, alt, x, y = 7 }: Props) {
   const alignment = isLeft ? "ml-auto" : "";
 
   return (
-    <div className="w-full @container">
+    <div className={`w-full @container scale-[0.55] md:scale-[1] translate-y-[-30cqi] md:translate-y-[0cqi] ${isLeft ? 'translate-x-[28cqi]' : 'translate-x-[-28cqi]'} md:translate-x-[0cqi]`}>
       <div
         className="relative z-10"
         style={{ transform: `translate(${x}cqi, ${y}cqi)` }}

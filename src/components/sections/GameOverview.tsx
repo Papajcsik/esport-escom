@@ -278,14 +278,14 @@ export function GameOverview({ section, index }: Props) {
   );
 
   return (
-    <div className="grid grid-cols-[2fr_1fr_2fr] items-center flex-1">
+    <div className="items-center flex-1">
       {/* left cell */}
       <div ref={isLeft ? hologramCellRef : themeCellRef}>
         {isLeft ? (
-          <div className="relative @container">
+          <div className="relative @container translate-y-[5cqi]">
             <HologramFrame side={section.hologram} />
-            <div className="absolute inset-x-0 top-[60%] z-10 flex flex-col items-center -translate-y-1/2 text-center translate-x-[4.1cqi]">
-              <div className="max-w-[70%]">
+            <div className="absolute inset-x-0 top-[60%] z-10 flex flex-col items-center text-center translate-x-[-11.5cqi] translate-y-[-15cqi]">
+              <div className="max-w-[65%]">
                 <TextBlock section={section} />
               </div>
             </div>
