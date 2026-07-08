@@ -93,13 +93,11 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
       onNavigate(pageId);
       setIsMenuOpen(false);
 
-      const underHeroElement = document.querySelector(
-        ".relative.flex-1.overflow-hidden.min-h-screen",
-      );
-      if (underHeroElement) {
-        const headerOffset = 50;
+      const pageContent = document.getElementById("page-content");
+      if (pageContent) {
+        const headerOffset = 20;
         const offsetPosition =
-          underHeroElement.getBoundingClientRect().bottom +
+          pageContent.getBoundingClientRect().top +
           window.scrollY -
           headerOffset;
         window.scrollTo({

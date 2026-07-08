@@ -75,7 +75,7 @@ export default function LandingPage() {
         onEscomTabChange={setEscomTab}
       />
 
-      <div className="relative" style={{ backgroundColor: "#220313" }}>
+      <div id="page-content" className="relative" style={{ backgroundColor: "#220313" }}>
         {ActivePageComponent && (
           <div className="relative z-10">
             {activePage === "faq" ? (
