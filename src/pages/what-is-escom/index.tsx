@@ -28,17 +28,24 @@ export default function WhatIsEscomPage() {
 				<div className="flex flex-col gap-24 animate-[fadeIn_0.4s_ease-out]">
 					{/* Section: Your time, your game */}
 					<section className="relative">
+						{/* Desktop: absolute overlay */}
 						<img
 							src={backgroundImages.mobileGame}
 							alt=""
-							className="absolute right-0 top-16 w-150 md:w-175 h-auto object-contain opacity-30 pointer-events-none"
+							className="hidden md:block absolute right-0 top-16 w-175 h-auto object-contain opacity-30 pointer-events-none"
 						/>
 						<div className="relative z-10 p-6 md:p-8">
 							<h2 className="text-orange-400 font-bold text-4xl md:text-6xl mb-6 uppercase tracking-wide border-b border-orange-500/40 pb-3">
 								Your time, your game
 							</h2>
+							{/* Mobile: image below title, above text */}
+							<img
+								src={backgroundImages.mobileGame}
+								alt=""
+								className="block md:hidden w-full h-auto object-contain opacity-100 pointer-events-none mb-6"
+							/>
 
-							<div className="flex flex-col gap-4 max-w-[60%]">
+							<div className="flex flex-col gap-4 max-w-full md:max-w-[60%]">
 								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
 									ESCOM — is a mobile game packed with fast-paced,
 									challenging logic puzzles. You choose the difficulty of
@@ -75,17 +82,24 @@ export default function WhatIsEscomPage() {
 
 					{/* Section: Contractors */}
 					<section id="contractors" className="relative pb-64">
+						{/* Desktop: absolute overlay */}
 						<img
 							src={backgroundImages.contractors}
 							alt=""
-							className="absolute right-0 top-16 w-150 md:w-187.5 h-auto object-contain opacity-30 pointer-events-none"
+							className="hidden md:block absolute right-0 top-16 w-187.5 h-auto object-contain opacity-30 pointer-events-none"
 						/>
 						<div className="relative z-10 p-6 md:p-8">
 							<h2 className="text-orange-400 font-bold text-4xl md:text-6xl mb-6 uppercase tracking-wide border-b border-orange-500/40 pb-3">
 								Contractors
 							</h2>
+							{/* Mobile: image below title, above text */}
+							<img
+								src={backgroundImages.contractors}
+								alt=""
+								className="block md:hidden w-full h-auto object-contain opacity-100 pointer-events-none mb-6"
+							/>
 
-							<div className="flex flex-col gap-4 max-w-[60%]">
+							<div className="flex flex-col gap-4 max-w-full md:max-w-[60%]">
 								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
 									The players of ESCOM are known as
 									Contractors—22nd-century entrepreneurs who answered the
@@ -116,17 +130,24 @@ export default function WhatIsEscomPage() {
 
 					{/* Section: Threat from another Star */}
 					<section id="asteroid-attack" className="relative pb-64">
+						{/* Desktop: absolute overlay */}
 						<img
 							src={backgroundImages.treath}
 							alt=""
-							className="absolute right-0 top-16 w-137.5 md:w-162.5 h-auto object-contain opacity-30 pointer-events-none"
+							className="hidden md:block absolute right-0 top-16 w-162.5 h-auto object-contain opacity-30 pointer-events-none"
 						/>
 						<div className="relative z-10 p-6 md:p-8">
 							<h2 className="text-orange-400 font-bold text-4xl md:text-6xl mb-6 uppercase tracking-wide border-b border-orange-500/40 pb-3">
 								Threat from another Star
 							</h2>
+							{/* Mobile: image below title, above text */}
+							<img
+								src={backgroundImages.treath}
+								alt=""
+								className="block md:hidden w-full h-auto object-contain opacity-100 pointer-events-none mb-6"
+							/>
 
-							<div className="flex flex-col gap-4 max-w-[60%]">
+							<div className="flex flex-col gap-4 max-w-full md:max-w-[60%]">
 								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
 									Proxima Centauri — the nearest star to our solar
 									system, a dim red dwarf lurking just 4.24 light-years
@@ -156,37 +177,28 @@ export default function WhatIsEscomPage() {
 
 					{/* Section: ESCOM's defender */}
 					<section id="escom-initiative" className="relative pb-64">
+						{/* Desktop: absolute overlay */}
 						<img
 							src={backgroundImages.escomInitiative}
 							alt=""
-							className="absolute right-0 top-32 w-175 md:w-225 h-auto object-contain opacity-30 pointer-events-none"
+							className="hidden md:block absolute right-0 top-32 w-225 h-auto object-contain opacity-30 pointer-events-none"
 						/>
 						<div className="relative z-10 p-6 md:p-8">
 							<h2 className="text-orange-400 font-bold text-4xl md:text-6xl mb-6 uppercase tracking-wide border-b border-orange-500/40 pb-3">
 								ESCOM's defender
 							</h2>
+							{/* Mobile: image below title, above text */}
+							<img
+								src={backgroundImages.escomInitiative}
+								alt=""
+								className="block md:hidden w-full h-auto object-contain opacity-100 pointer-events-none mb-6"
+							/>
 
-							<div className="flex flex-col gap-4 max-w-[60%]">
+							<div className="flex flex-col gap-4 max-w-full md:max-w-[60%]">
 								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
 									Under the leadership of the W.A.R.D. Directorate and a coalition of allied corporations, construction of the ESCOM Assembly Dome is already underway.
-									Within this colossal facility, humanity's greatest defense is taking shape: TITAN-01, a gigantic combat mech built with cutting-edge 22nd-century technology. Designed to stand against the Cen		tauri threat, TITAN-01 represents the combined effort of countless Contractors, engineers, and automated production systems.
-
-									As a Contractor, your mission is to manufacture and deliver ESCOM components to the Assembly Dome. Every successful production earns Contribution Points, which determine your position on the DRAFT List (Main Leaderboard).
-
-									Contractors choose what they send based on their skill, strategy, and specialization.
-
-									The DRAFT List is the core of the system—where performance is measured, reputation is built, and status is earned. The higher you climb, the greater your impact within the Initiative.
-
-									Only the Top 10 Contractors on the DRAFT List will be selected.
-									These ten elite Contractors become the Pilots of TITAN-01, humanity's ultimate defense system. When the final battle begins, only their combined expertise and synchronized decision-making will control the war machine.
-
-									Produce. Deliver. Climb the DRAFT List.
-									Become one of the Ten corporations, construction of the ESCOM Assembly Dome is already underway.
-									Within this colossal facility, humanity's greatest defense is taking shape:
-									TITAN-01, a gigantic combat mech built with cutting-edge 22nd-century
-									technology. Designed to stand against the Centauri threat, TITAN-01
-									represents the combined effort of countless Contractors, engineers, and
-									automated production systems.
+									Within this colossal facility, humanity's greatest defense is taking shape: TITAN-01, a gigantic combat mech built with cutting-edge 22nd-century technology. Designed to stand against the Centauri threat, TITAN-01
+									represents the combined effort of countless Contractors, engineers, and automated production systems.
 								</p>
 								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
 									Components manufactured by Contractors are transported to the Dome within
@@ -216,16 +228,24 @@ export default function WhatIsEscomPage() {
 
 					{/* Section: Rise Through the DRAFT List */}
 					<section id="draft-list" className="relative pb-64">
+						{/* Desktop: absolute overlay */}
 						<img
 							src={backgroundImages.draftList}
-							className="absolute right-0 top-16 w-150 md:w-187.5 h-auto object-contain opacity-30 pointer-events-none"
+							alt=""
+							className="hidden md:block absolute right-0 top-16 w-187.5 h-auto object-contain opacity-30 pointer-events-none"
 						/>
 						<div className="relative z-10 p-6 md:p-8">
 							<h2 className="text-orange-400 font-bold text-4xl md:text-6xl mb-6 uppercase tracking-wide border-b border-orange-500/40 pb-3">
 								Rise Through the DRAFT List
 							</h2>
+							{/* Mobile: image below title, above text */}
+							<img
+								src={backgroundImages.draftList}
+								alt=""
+								className="block md:hidden w-full h-auto object-contain opacity-100 pointer-events-none mb-6"
+							/>
 
-							<div className="flex flex-col gap-4 max-w-[60%]">
+							<div className="flex flex-col gap-4 max-w-full md:max-w-[60%]">
 								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
 									As a Contractor, your mission is to manufacture and deliver ESCOM components
 									to the Assembly Dome. Every successful production earns Contribution Points,
@@ -259,18 +279,27 @@ export default function WhatIsEscomPage() {
 							</div>
 						</div>
 					</section>
+
 					{/* Section: Develop. Adapt. Defend. */}
 					<section id="develop-adapt-defend" className="relative pb-32">
+						{/* Desktop: absolute overlay */}
 						<img
 							src={backgroundImages.develop}
-							className="absolute right-0 top-32 w-150 md:w-187.5 h-auto object-contain opacity-30 pointer-events-none"
+							alt=""
+							className="hidden md:block absolute right-0 top-32 w-187.5 h-auto object-contain opacity-30 pointer-events-none"
 						/>
 						<div className="relative z-10 p-6 md:p-8">
 							<h2 className="text-orange-400 font-bold text-4xl md:text-6xl mb-6 uppercase tracking-wide border-b border-orange-500/40 pb-3">
 								Develop. Adapt. Defend.
 							</h2>
+							{/* Mobile: image below title, above text */}
+							<img
+								src={backgroundImages.develop}
+								alt=""
+								className="block md:hidden w-full h-auto object-contain opacity-100 pointer-events-none mb-6"
+							/>
 
-							<div className="flex flex-col gap-4 max-w-[60%]">
+							<div className="flex flex-col gap-4 max-w-full md:max-w-[60%]">
 								<p className="text-white/80 text-xl md:text-2xl leading-relaxed">
 									Download the game and take part in the growth of a living community-driven world.
 								</p>
