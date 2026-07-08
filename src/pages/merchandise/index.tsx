@@ -15,7 +15,7 @@ export default function MerchandisePage() {
 				</span>
 			</h1>
 
-			<div className="relative w-full max-w-5xl mx-auto mt-16 p-8 md:p-16 flex flex-col items-center justify-center gap-8 lg:gap-12 bg-black/40 backdrop-blur-sm rounded-xl border border-orange-500/20 shadow-2xl">
+			<div className="relative w-full max-w-5xl mx-auto mt-16 px-0 py-8 sm:px-8 md:p-16 flex flex-col items-center justify-center gap-8 lg:gap-12 bg-black/40 backdrop-blur-sm rounded-xl border border-orange-500/20 shadow-2xl">
 				{/* Merch Info */}
 				<div className="relative z-10 flex flex-col items-center text-center max-w-3xl">
 					<h2 className="text-orange-400 font-bold text-4xl md:text-6xl mb-6 uppercase tracking-wide">
@@ -28,7 +28,7 @@ export default function MerchandisePage() {
 				</div>
 
 				{/* Merch Display */}
-				<div className="relative w-full max-w-[500px] md:max-w-[700px] aspect-square flex flex-col items-center justify-center shrink-0 mt-4">
+				<div className="relative w-full md:max-w-[700px] aspect-square flex flex-col items-center justify-center shrink-0 mt-4">
 					<img
 						src="/images/frames/merch_frame.webp"
 						alt=""
@@ -37,19 +37,19 @@ export default function MerchandisePage() {
 					<img
 						src="/images/background/mockup_shirt.webp"
 						alt="ESCOM Merch Shirt"
-						className="relative z-10 w-[65%] h-[65%] object-contain mb-12"
+						className="relative z-10 w-[65%] h-[65%] object-contain mt-8 mb-12"
 					/>
 
 					<a
 						href="#"
-						className="absolute bottom-[0.5%] md:bottom-[1.5%] left-1/2 -translate-x-1/2 group flex items-center justify-center px-4 py-2 w-[40%] sm:w-[35%] h-[9%] shrink-0 transition-transform duration-300 hover:scale-105 z-20"
+						className="absolute bottom-[0.5%] md:bottom-[1.5%] left-1/2 -translate-x-1/2 group flex items-center justify-center px-4 py-2 w-[52%] sm:w-[45%] h-[10%] shrink-0 transition-transform duration-300 hover:scale-105 z-20"
 					>
 						<img
 							src="/images/background/merch_frame_button.webp"
 							alt=""
 							className="absolute inset-0 w-full h-full object-fill pointer-events-none"
 						/>
-						<span className="relative z-10 text-white-400 font-extrabold text-xs sm:text-sm tracking-widest uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+						<span className="relative z-10 text-white-400 font-extrabold text-[9px] sm:text-xs md:text-sm tracking-normal sm:tracking-wider md:tracking-widest uppercase whitespace-nowrap drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
 							Enter the Shop
 						</span>
 					</a>
