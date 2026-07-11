@@ -76,19 +76,19 @@ export function ParallaxSection() {
 					<img
 						src={IMAGES.city}
 						alt="city"
-						className="absolute bottom-0 left-0 h-[clamp(280px,28vw,360px)] w-full object-cover object-bottom"
+						className="absolute bottom-0 left-0 h-[110vh] w-full object-cover object-bottom md:h-[clamp(17.5rem,28vw,22.5rem)]"
 					/>
 
-					<div className="absolute left-1/2 -translate-x-1/2 bottom-[245px]">
-						<div className="relative h-[38rem] w-[46rem]">
+					<div className="absolute bottom-[clamp(10rem,42vw,15.3125rem)] left-1/2 -translate-x-1/2">
+						<div className="relative h-[clamp(18rem,78vw,38rem)] w-[clamp(20rem,92vw,46rem)]">
 							<img
 								ref={robotRef}
 								src={IMAGES.robot}
 								alt="robot"
-								className="abs-center translate-y-[-35%] h-[26rem] opacity-0"
+								className="abs-center h-[clamp(12rem,52vw,26rem)] translate-y-[-35%] opacity-0"
 							/>
 
-							<div className="abs-center h-[28rem] w-[25.5rem] translate-y-[calc(-50%+4rem)]!">
+							<div className="abs-center h-[clamp(13rem,56vw,28rem)] w-[clamp(12rem,51vw,25.5rem)] translate-y-[calc(-50%+clamp(2rem,8vw,4rem))]!">
 								<img
 									ref={doorLeftRef}
 									src={IMAGES.doorLeft}
@@ -106,7 +106,7 @@ export function ParallaxSection() {
 							<img
 								src={IMAGES.arch}
 								alt="arch"
-								className="abs-center h-[40rem] w-[48rem]"
+								className="abs-center h-[clamp(19rem,80vw,40rem)] w-[clamp(22rem,96vw,48rem)]"
 							/>
 						</div>
 					</div>
@@ -116,7 +116,7 @@ export function ParallaxSection() {
 					ref={contractorRef}
 					src={IMAGES.contractor}
 					alt="contractor"
-					className="absolute bottom-0 left-0 w-100"
+					className="absolute bottom-0 left-0 w-[clamp(11rem,36vw,25rem)]"
 				/>
 			</section>
 		</>

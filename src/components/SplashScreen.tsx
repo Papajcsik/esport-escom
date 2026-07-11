@@ -80,24 +80,24 @@ export function SplashScreen({
 			</div>
 
 			{/* Corner brackets */}
-			<div className="absolute top-16 left-16 w-12 h-12 border-t-2 border-l-2 border-yellow/30" />
-			<div className="absolute top-16 right-16 w-12 h-12 border-t-2 border-r-2 border-yellow/30" />
-			<div className="absolute bottom-16 left-16 w-12 h-12 border-b-2 border-l-2 border-yellow/30" />
-			<div className="absolute bottom-16 right-16 w-12 h-12 border-b-2 border-r-2 border-yellow/30" />
+			<div className="absolute left-[clamp(1.5rem,5vw,4rem)] top-[clamp(1.5rem,7vh,4rem)] h-[clamp(2rem,6vw,3rem)] w-[clamp(2rem,6vw,3rem)] border-l-2 border-t-2 border-yellow/30" />
+			<div className="absolute right-[clamp(1.5rem,5vw,4rem)] top-[clamp(1.5rem,7vh,4rem)] h-[clamp(2rem,6vw,3rem)] w-[clamp(2rem,6vw,3rem)] border-r-2 border-t-2 border-yellow/30" />
+			<div className="absolute bottom-[clamp(1.5rem,7vh,4rem)] left-[clamp(1.5rem,5vw,4rem)] h-[clamp(2rem,6vw,3rem)] w-[clamp(2rem,6vw,3rem)] border-b-2 border-l-2 border-yellow/30" />
+			<div className="absolute bottom-[clamp(1.5rem,7vh,4rem)] right-[clamp(1.5rem,5vw,4rem)] h-[clamp(2rem,6vw,3rem)] w-[clamp(2rem,6vw,3rem)] border-b-2 border-r-2 border-yellow/30" />
 
 			<motion.div
 				initial={{ opacity: 0, scale: 0.85 }}
 				animate={{ opacity: 1, scale: 1 }}
 				transition={{ duration: 0.8, ease: [0.215, 0.61, 0.355, 1] }}
-				className="relative z-10 flex flex-col items-center"
+				className="relative z-10 flex w-full max-w-md flex-col items-center px-6"
 			>
 				<motion.div
-					className="mb-8 border border-yellow/40 px-8 py-2"
+					className="mb-[clamp(1rem,4vh,2rem)] border border-yellow/40 px-[clamp(1rem,6vw,2rem)] py-2 text-center"
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					transition={{ delay: 0.3, duration: 0.6 }}
 				>
-					<span className="text-xs tracking-[0.4em] text-yellow/60">
+					<span className="text-[clamp(0.6rem,2.5vw,0.75rem)] tracking-[clamp(0.2em,1vw,0.4em)] text-yellow/60">
 						SECURE CONNECTION
 					</span>
 				</motion.div>
@@ -105,7 +105,7 @@ export function SplashScreen({
 				<motion.img
 					src={IMAGES.escomLogo}
 					alt="ESCOM"
-					className="h-48 w-auto"
+					className="h-auto w-[clamp(10rem,45vw,15rem)]"
 					animate={{ opacity: [0.7, 1, 0.7] }}
 					transition={{
 						duration: 3,
@@ -115,8 +115,8 @@ export function SplashScreen({
 					}}
 				/>
 
-				<div className="mt-16 w-80">
-					<div className="flex justify-between text-sm tracking-[0.3em] text-yellow/60 mb-3">
+				<div className="mt-[clamp(2rem,7vh,4rem)] w-full max-w-80">
+					<div className="mb-3 flex justify-between gap-4 text-[clamp(0.6rem,2.5vw,0.875rem)] tracking-[clamp(0.12em,0.8vw,0.3em)] text-yellow/60">
 						<span>INITIALIZING TITAN DEFENSE</span>
 						<span>{Math.round(progress)}%</span>
 					</div>
@@ -137,13 +137,13 @@ export function SplashScreen({
 						animate={{ opacity: 1, y: 0 }}
 						exit={{ opacity: 0, y: -8 }}
 						transition={{ duration: 0.25 }}
-						className="pt-6 text-sm text-yellow/50 tracking-[0.2em]"
+						className="px-2 pt-[clamp(1rem,3vh,1.5rem)] text-center text-[clamp(0.65rem,2.7vw,0.875rem)] tracking-[clamp(0.08em,0.6vw,0.2em)] text-yellow/50"
 					>
 						{LOADING_MESSAGES[messageIndex]}
 					</motion.p>
 				</AnimatePresence>
 
-				<div className="mt-16 flex gap-1.5">
+				<div className="mt-[clamp(2rem,7vh,4rem)] flex gap-1.5">
 					{[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
 						<motion.div
 							key={i}
@@ -163,7 +163,7 @@ export function SplashScreen({
 				</div>
 			</motion.div>
 
-			<div className="absolute bottom-12 text-sm text-yellow/30 tracking-[0.3em]">
+			<div className="absolute bottom-[clamp(1rem,5vh,3rem)] max-w-[80vw] text-center text-[clamp(0.55rem,2.2vw,0.875rem)] tracking-[clamp(0.1em,0.8vw,0.3em)] text-yellow/30">
 				EARTH SECURITY COMMAND &nbsp;//&nbsp; 22ND CENTURY
 			</div>
 		</div>
