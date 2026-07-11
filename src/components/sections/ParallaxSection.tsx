@@ -76,10 +76,10 @@ export function ParallaxSection() {
 					<img
 						src={IMAGES.city}
 						alt="city"
-						className="absolute bottom-0 left-0 h-[110vh] w-full object-cover object-bottom md:h-[clamp(17.5rem,28vw,22.5rem)]"
+						className="absolute bottom-0 left-0 h-[150vh] w-full object-cover object-bottom md:h-[clamp(17.5rem,28vw,22.5rem)]"
 					/>
 
-					<div className="absolute bottom-[clamp(10rem,42vw,15.3125rem)] left-1/2 -translate-x-1/2">
+					<div className="absolute bottom-[22.5rem] md:bottom-[clamp(12rem,42vw,15.3125rem)] left-1/2 -translate-x-1/2">
 						<div className="relative h-[clamp(18rem,78vw,38rem)] w-[clamp(20rem,92vw,46rem)]">
 							<img
 								ref={robotRef}
