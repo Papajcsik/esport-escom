@@ -57,7 +57,7 @@ export function ParallaxSection() {
 					ref={skyRef}
 					src={IMAGES.sky}
 					alt="sky"
-					className="absolute inset-0 h-full w-full object-cover"
+					className="absolute inset-x-0 top-0 h-[80vh] w-full object-fill md:h-full md:object-cover"
 				/>
 
 				<div
@@ -116,7 +116,7 @@ export function ParallaxSection() {
 					ref={contractorRef}
 					src={IMAGES.contractor}
 					alt="contractor"
-					className="absolute bottom-0 left-0 w-[clamp(11rem,36vw,25rem)]"
+					className="absolute bottom-0 left-0 w-[clamp(20rem,36vw,25rem)]"
 				/>
 			</section>
 		</>
