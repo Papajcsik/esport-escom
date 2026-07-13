@@ -14,9 +14,13 @@ export function ThemeFrame({ side, src, alt, x, y = 7 }: Props) {
   const isLeft = side === "left";
   const horizontal = isLeft ? "translate-x-[-13cqi]" : "translate-x-[13cqi]";
   const alignment = isLeft ? "ml-auto" : "";
+  const containerAlignment = isLeft ? "max-md:ml-auto" : "";
 
   return (
-    <div className={`w-full @container scale-[0.55] md:scale-[1] translate-y-[-30cqi] md:translate-y-[0cqi] ${isLeft ? 'translate-x-[28cqi]' : 'translate-x-[-28cqi]'} md:translate-x-[0cqi]`}>
+    <div className={cn(
+          "w-full max-md:w-[50%] @container",
+          containerAlignment,
+        )}>
       <div
         className="relative z-10"
         style={{ transform: `translate(${x}cqi, ${y}cqi)` }}

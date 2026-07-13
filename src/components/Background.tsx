@@ -28,7 +28,7 @@ export default function Background() {
   );
 
   return (
-    <div className="relative w-full overflow-hidden aspect-1920/5000">
+    <div className="relative w-full overflow-hidden max-md:aspect-1920/10700 aspect-1920/5000">
       <img
         src={backgroundImages.backgroundTitan}
         alt="background titan"
