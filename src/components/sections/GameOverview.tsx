@@ -279,14 +279,14 @@ export function GameOverview({ section, index, onReadMore }: Props) {
   );
 
   return (
-    <div className="grid grid-cols-[2fr_1fr_2fr] items-center flex-1">
+    <div className="grid md:grid-cols-[2fr_1fr_2fr] items-center md:flex-1">
       {/* left cell */}
-      <div ref={isLeft ? hologramCellRef : themeCellRef}>
+      <div ref={isLeft ? hologramCellRef : themeCellRef} className={`order-2 ${isLeft ? "max-md:order-1 max-md:h-[50%]" : "max-md:order-3"}`}>
         {isLeft ? (
           <div className="relative @container">
             <HologramFrame side={section.hologram} onReadMore={onReadMore ? () => onReadMore(section.scrollTo) : undefined} />
-            <div className="absolute inset-x-0 top-[60%] z-10 flex flex-col items-center -translate-y-1/2 text-center translate-x-[4.1cqi]">
-              <div className="max-w-[70%]">
+            <div className="absolute inset-x-0 top-[60%] z-10 flex flex-col items-center -translate-y-1/2 text-center translate-x-[4.1cqi] max-md:translate-x-[-11.5cqi]">
+              <div className="max-w-[70%] max-md:max-w-[58%]">
                 <TextBlock section={section} />
               </div>
             </div>
@@ -301,14 +301,14 @@ export function GameOverview({ section, index, onReadMore }: Props) {
         )}
       </div>
       {/* spacer */}
-      <div />
+      <div className="max-md:hidden md:order-2"/>
       {/* right cell */}
-      <div ref={!isLeft ? hologramCellRef : themeCellRef}>
+      <div ref={!isLeft ? hologramCellRef : themeCellRef} className={`order-2 ${isLeft ? "max-md:order-3" : "max-md:order-1 max-md:h-[50%]"}`}>
         {!isLeft ? (
           <div className="relative @container">
             <HologramFrame side={section.hologram} onReadMore={onReadMore ? () => onReadMore(section.scrollTo) : undefined} />
-            <div className="absolute inset-x-0 top-[60%] z-10 flex flex-col items-center -translate-y-1/2 text-center translate-x-[-4.1cqi]">
-              <div className="max-w-[70%]">
+            <div className="absolute inset-x-0 top-[60%] z-10 flex flex-col items-center -translate-y-1/2 text-center translate-x-[-4.1cqi] max-md:translate-x-[11.5cqi]">
+              <div className="max-w-[70%] max-md:max-w-[58%]">
                 <TextBlock section={section} />
               </div>
             </div>
