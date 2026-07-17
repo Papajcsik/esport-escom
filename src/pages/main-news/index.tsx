@@ -86,7 +86,7 @@ export default function MainNewsPage() {
 
 			<div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full max-w-[1600px] mx-auto mt-12">
 				{newsData.map(news => (
-					<NewsCard key={news.id} title={news.title} text={news.text} bgImage={news.bgImage} />
+					<NewsCard key={news.id} title={news.title} text={news.text} />
 				))}
 			</div>
 		</div>
