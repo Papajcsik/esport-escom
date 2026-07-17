@@ -78,31 +78,37 @@ export const SECTIONS = [
     title: "Escom",
     text: "is a logic and code-breaking mobile game, with community-based role-playing elements.\n\nEXPECT FAST CHALLENGES, NO TIME REQUIRMENT AND NO IN-GAME ADS!",
     hologram: "left",
+    scrollTo: undefined,
   },
   {
     title: "You Play as a Contractor",
     text: "22nd century businessman contracted by the ESCOM Initiative. Your task is to manufacture components for ESCOM's assembly facilities. Alongside countless other contractors, you work toward one shared goal: protecting our Homeworld.",
     hologram: "right",
+    scrollTo: "contractors",
   },
   {
     title: "Incoming Extinction",
     text: "The threat is real. Hollow asteroids from the Centauri system are heading toward Earth… Something alive is hidden inside them. If humanity fails to act now, there may be no future left to save.",
     hologram: "left",
+    scrollTo: "asteroid-attack",
   },
   {
     title: "Escom Initiative",
     text: "The threat is real! ESCOM and its Contractors are building TITAN-01 — humanity's ultimate war machine. Our Homeworld depends on it.",
     hologram: "right",
+    scrollTo: "escom-initiative",
   },
   {
     title: "The Leaderboard",
     text: "The system ranks the top contributing Contractors on a global leaderboard. The best among them will be remembered forever as the saviors of the Homeworld.",
     hologram: "left",
+    scrollTo: "draft-list",
   },
   {
     title: "Develop, Adapt, Defend",
     text: "Download now! Build the TITAN-01 with us, take on real challenges, and enjoy intelligent, purpose-driven gameplay.",
     hologram: "right",
+    scrollTo: "develop-adapt-defend",
   },
 ] as const;
 

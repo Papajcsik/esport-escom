@@ -8,6 +8,7 @@ export interface GameSection {
   title: string;
   text: string;
   hologram: HologramPosition;
+  scrollTo?: string;
 }
 
 export type PageId =
