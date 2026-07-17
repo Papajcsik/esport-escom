@@ -41,7 +41,7 @@ export default function Background() {
         className="absolute inset-0 w-full h-full object-cover z-1 will-change-transform"
       />
 
-      <div className="absolute inset-0 flex flex-col">
+      <div className="absolute inset-0 flex flex-col z-10">
         {SECTIONS.map((section, index: number) => (
           <GameOverview key={section.title} section={section} index={index} />
         ))}
@@ -53,6 +53,7 @@ export default function Background() {
         <Drone triangle={DRONE_1} duration={3} weldDuration={6} />
         <Drone triangle={DRONE_2} duration={4} weldDuration={6} />
       </SVGStage>
+      <div className="absolute top-[96%] h-150 w-[100%] z-1 inset-0 bg-black/30 backdrop-blur-sm"></div>
     </div>
   );
 }
