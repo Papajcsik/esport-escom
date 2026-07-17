@@ -38,6 +38,8 @@ export default function LandingPage() {
   const [activePage, setActivePage] = useState<PageId | null>(null);
   const [faqTab, setFaqTab] = useState<FaqTab>("faq");
   const [escomTab, setEscomTab] = useState<WhatIsEscomTab>("contractors");
+  const [scrollTarget, setScrollTarget] = useState<string | undefined>(undefined);
+  const [readMoreTrigger, setReadMoreTrigger] = useState(0);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -45,6 +47,19 @@ export default function LandingPage() {
     }, siteConfig.splashScreenDurationInSeconds * 1000);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (!activePage) {
+      const el = document.getElementById("page-content");
+      if (el) {
+        el.scrollIntoView({ behavior: "instant", block: "start" });
+      } else {
+        window.scrollTo({ top: 0, behavior: "instant" });
+      }
+      const id = setTimeout(() => ScrollTrigger.refresh(), 150);
+      return () => clearTimeout(id);
+    }
+  }, [activePage]);
 
   function handleNavigate(pageId: PageId | null) {
     if (pageId === null || activePage === pageId) {
@@ -56,6 +71,12 @@ export default function LandingPage() {
       if (pageId !== "what-is-escom") setEscomTab("contractors");
       setActivePage(pageId);
     }
+  }
+
+  function handleReadMore(anchor?: string) {
+    setScrollTarget(anchor);
+    setReadMoreTrigger(t => t + 1);
+    setActivePage("what-is-escom");
   }
 
   const ActivePageComponent = activePage ? pageComponents[activePage] : null;
@@ -73,6 +94,7 @@ export default function LandingPage() {
         onFaqTabChange={setFaqTab}
         escomTab={escomTab}
         onEscomTabChange={setEscomTab}
+        readMoreTrigger={readMoreTrigger}
       />
 
       <div id="page-content" className="relative" style={{ backgroundColor: "#220313" }}>
@@ -81,13 +103,15 @@ export default function LandingPage() {
             {activePage === "faq" ? (
               <FaqPage activeTab={faqTab} />
             ) : activePage === "what-is-escom" ? (
-              <WhatIsEscomPage />
+              <WhatIsEscomPage scrollTo={scrollTarget} />
             ) : (
               <ActivePageComponent />
             )}
           </div>
         )}
-        {!ActivePageComponent && <Background />}
+        <div className={cn(activePage && "hidden")}>
+          <Background onReadMore={handleReadMore} />
+        </div>
       </div>
 
       {!ActivePageComponent && (

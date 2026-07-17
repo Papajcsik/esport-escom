@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { backgroundImages } from "@/lib/imageMap";
+import { useEffect } from "react";
 
 export type WhatIsEscomTab =
 	| "contractors"
@@ -7,7 +8,16 @@ export type WhatIsEscomTab =
 	| "escom-initiative"
 	| "draft-list";
 
-export default function WhatIsEscomPage() {
+export default function WhatIsEscomPage({ scrollTo }: { scrollTo?: string }) {
+	useEffect(() => {
+		if (!scrollTo) return;
+		const id = setTimeout(() => {
+			const el = document.getElementById(scrollTo);
+			if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+		}, 100);
+		return () => clearTimeout(id);
+	}, [scrollTo]);
+
 	return (
 		<div className="min-h-screen px-6 py-8 md:px-12 lg:px-24 pt-16">
 			<div>
