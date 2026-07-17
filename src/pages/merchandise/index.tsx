@@ -35,13 +35,15 @@ export default function MerchandisePage() {
 						className="absolute inset-0 w-full h-full object-contain z-0 pointer-events-none"
 					/>
 					<img
-						src="/images/background/mockup_shirt.webp"
+						src="/images/background/escom-TSHIRT.png"
 						alt="ESCOM Merch Shirt"
 						className="relative z-10 w-[65%] h-[65%] object-contain mt-8 mb-12"
 					/>
 
 					<a
-						href="#"
+						href="https://gamesguru.rs/proizvodi/mercendajz-i-oprema/solje-i-majice/escom-motive-01"
+						target="_blank"
+						rel="noopener noreferrer"
 						className="absolute bottom-[0.5%] md:bottom-[1.5%] left-1/2 -translate-x-1/2 group flex items-center justify-center px-4 py-2 w-[52%] sm:w-[45%] h-[10%] shrink-0 transition-transform duration-300 hover:scale-105 z-20"
 					>
 						<img
