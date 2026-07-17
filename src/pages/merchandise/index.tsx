@@ -35,7 +35,7 @@ export default function MerchandisePage() {
 						className="absolute inset-0 w-full h-full object-contain z-0 pointer-events-none"
 					/>
 					<img
-						src="/images/background/mockup_shirt.webp"
+						src="/images/background/escom-TSHIRT.png"
 						alt="ESCOM Merch Shirt"
 						className="relative z-10 w-[65%] h-[65%] object-contain mt-8 mb-12"
 					/>
