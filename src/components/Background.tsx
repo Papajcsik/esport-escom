@@ -7,7 +7,8 @@ import Mechanic from "./workers/Mechanic";
 import Drone from "./workers/Drone";
 import { MECHANIC_1, MECHANIC_2, DRONE_1, DRONE_2 } from "@/lib/constants";
 
-export default function Background() {
+export default function Background({ onReadMore }: { onReadMore?: (anchor?: string) => void }) {
+
   useGSAP(
     () => {
       const titanTimeline = gsap.timeline({
@@ -43,7 +44,7 @@ export default function Background() {
 
       <div className="absolute inset-0 flex flex-col z-10">
         {SECTIONS.map((section, index: number) => (
-          <GameOverview key={section.title} section={section} index={index} />
+          <GameOverview key={section.title} section={section} index={index} onReadMore={onReadMore} />
         ))}
       </div>
 

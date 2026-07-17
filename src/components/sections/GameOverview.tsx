@@ -11,9 +11,10 @@ import { THEME_IMG } from "@/lib/constants";
 interface Props {
   section: GameSection;
   index: number;
+  onReadMore?: (anchor?: string) => void;
 }
 
-export function GameOverview({ section, index }: Props) {
+export function GameOverview({ section, index, onReadMore }: Props) {
   const isLeft = section.hologram === "left";
   const hologramCellRef = useRef<HTMLDivElement>(null);
   const themeCellRef = useRef<HTMLDivElement>(null);
@@ -283,7 +284,7 @@ export function GameOverview({ section, index }: Props) {
       <div ref={isLeft ? hologramCellRef : themeCellRef} className={`order-2 ${isLeft ? "max-md:order-1 max-md:h-[50%]" : "max-md:order-3"}`}>
         {isLeft ? (
           <div className="relative @container">
-            <HologramFrame side={section.hologram} />
+            <HologramFrame side={section.hologram} onReadMore={onReadMore ? () => onReadMore(section.scrollTo) : undefined} />
             <div className="absolute inset-x-0 top-[60%] z-10 flex flex-col items-center -translate-y-1/2 text-center translate-x-[4.1cqi] max-md:translate-x-[-11.5cqi]">
               <div className="max-w-[70%] max-md:max-w-[58%]">
                 <TextBlock section={section} />
@@ -305,7 +306,7 @@ export function GameOverview({ section, index }: Props) {
       <div ref={!isLeft ? hologramCellRef : themeCellRef} className={`order-2 ${isLeft ? "max-md:order-3" : "max-md:order-1 max-md:h-[50%]"}`}>
         {!isLeft ? (
           <div className="relative @container">
-            <HologramFrame side={section.hologram} />
+            <HologramFrame side={section.hologram} onReadMore={onReadMore ? () => onReadMore(section.scrollTo) : undefined} />
             <div className="absolute inset-x-0 top-[60%] z-10 flex flex-col items-center -translate-y-1/2 text-center translate-x-[-4.1cqi] max-md:translate-x-[11.5cqi]">
               <div className="max-w-[70%] max-md:max-w-[58%]">
                 <TextBlock section={section} />

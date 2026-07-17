@@ -13,9 +13,10 @@ type Props = {
   onFaqTabChange?: (tab: FaqTab) => void;
   escomTab?: WhatIsEscomTab;
   onEscomTabChange?: (tab: WhatIsEscomTab) => void;
+  readMoreTrigger?: number;
 };
 
-export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTab, onEscomTabChange }: Props) {
+export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTab, onEscomTabChange, readMoreTrigger }: Props) {
   const [isHeaderSticky, setIsHeaderSticky] = useState(false);
   const [isHeaderHidden, setIsHeaderHidden] = useState(false);
   const [isTransitionEnabled, setIsTransitionEnabled] = useState(false);
@@ -24,7 +25,19 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
   const scrollLockUntil = useRef<number>(0);
   const hideHeaderTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Prevent animation flashes on initial sticky state
+  useEffect(() => {
+    if (!readMoreTrigger) return;
+    const immediate = setTimeout(() => {
+      setIsHeaderHidden(false);
+      scrollLockUntil.current = Date.now() + 1000;
+      if (hideHeaderTimeoutRef.current) clearTimeout(hideHeaderTimeoutRef.current);
+      hideHeaderTimeoutRef.current = setTimeout(() => {
+        setIsHeaderHidden(true);
+      }, 1000);
+    }, 0);
+    return () => clearTimeout(immediate);
+  }, [readMoreTrigger]);
+
   useEffect(() => {
     if (isHeaderSticky) {
       const timer = setTimeout(() => setIsTransitionEnabled(true), 50);

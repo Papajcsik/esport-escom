@@ -4,9 +4,10 @@ import type { HologramPosition } from "@/types/types";
 
 interface Props {
   side: HologramPosition;
+  onReadMore?: () => void;
 }
 
-export function HologramFrame({ side }: Props) {
+export function HologramFrame({ side, onReadMore }: Props) {
   const isLeft = side === "left";
   const horizontal = isLeft ? "left-[5.5cqi]" : "right-[5.5cqi]";
   const textPosition = isLeft ? "left-[2.8cqi]" : "right-[2.8cqi]";
@@ -28,7 +29,10 @@ export function HologramFrame({ side }: Props) {
         data-readmore
         className={cn("absolute w-[38%] z-20", horizontal)}
       >
-        <div className="cursor-pointer hover:scale-105 transition-transform">
+        <div
+          className="cursor-pointer hover:scale-105 transition-transform"
+          onClick={onReadMore}
+        >
           <img
             src={isLeft ? HOLDERS.readMoreLeft : HOLDERS.readMoreRight}
             alt="Read more"
@@ -36,7 +40,7 @@ export function HologramFrame({ side }: Props) {
           />
           <p
             className={cn(
-              "absolute inset-0 flex items-center justify-center text-orange text-[2.5cqi] max-md:text-[1.95cqi] cursor-pointer hover:scale-105 transition-transform",
+              "absolute inset-0 flex items-center justify-center text-orange text-[2.8cqi] md:text-[2.5cqi] cursor-pointer hover:scale-105 transition-transform",
               textPosition,
             )}
           >
