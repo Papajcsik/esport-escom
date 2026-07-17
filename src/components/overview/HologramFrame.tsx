@@ -11,9 +11,13 @@ export function HologramFrame({ side, onReadMore }: Props) {
   const isLeft = side === "left";
   const horizontal = isLeft ? "left-[5.5cqi]" : "right-[5.5cqi]";
   const textPosition = isLeft ? "left-[2.8cqi]" : "right-[2.8cqi]";
+  const containerAlignment = isLeft ? "" : "max-md:ml-auto";
 
   return (
-    <div className="relative w-full">
+    <div className={cn(
+          "relative w-full max-md:w-[70%]",
+          containerAlignment,
+        )}>
       <img
         data-hologram
         src={isLeft ? HOLDERS.hologramLeft : HOLDERS.hologramRight}
