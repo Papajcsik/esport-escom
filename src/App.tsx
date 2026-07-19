@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Background from "./components/Background";
 import Footer from "./components/navigation/Footer";
 import { Header } from "./components/navigation/Header";
@@ -40,6 +40,7 @@ export default function LandingPage() {
   const [escomTab, setEscomTab] = useState<WhatIsEscomTab>("contractors");
   const [scrollTarget, setScrollTarget] = useState<string | undefined>(undefined);
   const [readMoreTrigger, setReadMoreTrigger] = useState(0);
+  const [firstRender, setfirstRender] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -49,6 +50,12 @@ export default function LandingPage() {
   }, []);
 
   useEffect(() => {
+    // Temporary fix for scrolling after page load
+      if (firstRender) {
+        setfirstRender(false);
+        return;
+    }
+
     if (!activePage) {
       const el = document.getElementById("page-content");
       if (el) {
