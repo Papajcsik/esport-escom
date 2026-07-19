@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import { gsap } from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Background from "./components/Background";
 import Footer from "./components/navigation/Footer";
 import { Header } from "./components/navigation/Header";
