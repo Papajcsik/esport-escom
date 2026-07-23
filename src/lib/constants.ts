@@ -41,7 +41,7 @@ export const backgroundImages = {
   mechanic: "/images/background/mechanic.webp",
   weldingSparks: "/images/background/welding-drone-sparks.webp",
   weldingDrone: "/images/background/welding-drone.webp",
-  reward: "/images/background/reward.png",
+  reward: "/images/background/reward.webp",
 } as const;
 
 export const ICONS = [
