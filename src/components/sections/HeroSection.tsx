@@ -11,6 +11,8 @@ export function HeroSection() {
 		<>
 			<img
 				src={IMAGES.escomHeroBattle}
+				fetchPriority="high"
+				decoding="async"
 				className="absolute inset-0 z-0 min-h-screen object-cover"
 			/>
 			<div className="w-full min-h-screen flex flex-col gap-5 items-center justify-center relative z-10 bg-linear-to-b from-transparent via-transparent to-black">

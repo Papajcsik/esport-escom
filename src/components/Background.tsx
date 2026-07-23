@@ -33,12 +33,16 @@ export default function Background({ onReadMore }: { onReadMore?: (anchor?: stri
       <img
         src={backgroundImages.backgroundTitan}
         alt="background titan"
+        fetchPriority="high"
+        decoding="async"
         className="absolute inset-0 w-full h-full object-cover z-0 will-change-transform"
       />
       <img
         id="background-lights"
         src={backgroundImages.backgroundLights}
         alt="background lights"
+        fetchPriority="high"
+        decoding="async"
         className="absolute inset-0 w-full h-full object-cover z-1 will-change-transform"
       />
 
