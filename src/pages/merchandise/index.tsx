@@ -28,7 +28,7 @@ export default function MerchandisePage() {
 				</div>
 
 				{/* Merch Display */}
-				<div className="relative w-full md:max-w-[700px] aspect-square flex flex-col items-center justify-center shrink-0 mt-4">
+				<div className="relative w-full md:max-w-175 aspect-square flex flex-col items-center justify-center shrink-0 mt-4">
 					<img
 						src="/images/frames/merch_frame.webp"
 						alt=""
