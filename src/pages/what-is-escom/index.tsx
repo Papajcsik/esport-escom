@@ -13,18 +13,15 @@ export default function WhatIsEscomPage({ scrollTo }: { scrollTo?: string }) {
 		if (!scrollTo) return;
 		const id = setTimeout(() => {
 			const el = document.getElementById(scrollTo);
-			const pageContent = document.getElementById("page-content");
-			if (el && pageContent) {
-				const pageContentTop = pageContent.getBoundingClientRect().top + window.scrollY;
-				const targetTop = pageContentTop + el.offsetTop - 100;
+			if (el) {
+				const headerOffset = 70;
+				const targetTop = el.getBoundingClientRect().top + window.scrollY - headerOffset;
 				window.scrollTo({
 					top: Math.max(0, targetTop),
 					behavior: "smooth",
 				});
-			} else if (el) {
-				el.scrollIntoView({ behavior: "smooth", block: "start" });
 			}
-		}, 100);
+		}, 120);
 		return () => clearTimeout(id);
 	}, [scrollTo]);
 
