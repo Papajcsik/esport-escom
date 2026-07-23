@@ -82,7 +82,8 @@ export default function LandingPage() {
   }
 
   function handleReadMore(anchor?: string) {
-    setScrollTarget(anchor);
+    const target = anchor || "your-time-your-game";
+    setScrollTarget(target);
     setReadMoreTrigger(t => t + 1);
     setActivePage("what-is-escom");
   }
@@ -111,7 +112,7 @@ export default function LandingPage() {
             {activePage === "faq" ? (
               <FaqPage activeTab={faqTab} />
             ) : activePage === "what-is-escom" ? (
-              <WhatIsEscomPage scrollTo={scrollTarget} />
+              <WhatIsEscomPage key={`${scrollTarget}-${readMoreTrigger}`} scrollTo={scrollTarget} />
             ) : (
               <ActivePageComponent />
             )}

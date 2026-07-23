@@ -36,11 +36,11 @@ export function HologramFrame({ side, onReadMore }: Props) {
           <img
             src={isLeft ? HOLDERS.readMoreLeft : HOLDERS.readMoreRight}
             alt="Read more"
-            className="w-full"
+            className="w-full pointer-events-none"
           />
           <p
             className={cn(
-              "absolute inset-0 flex items-center justify-center text-orange text-[2.8cqi] md:text-[2.5cqi] cursor-pointer hover:scale-105 transition-transform",
+              "absolute inset-0 flex items-center justify-center text-orange text-[2.8cqi] md:text-[2.5cqi] cursor-pointer hover:scale-105 transition-transform pointer-events-none",
               textPosition,
             )}
           >
