@@ -28,14 +28,14 @@ export default function MerchandisePage() {
 				</div>
 
 				{/* Merch Display */}
-				<div className="relative w-full md:max-w-[700px] aspect-square flex flex-col items-center justify-center shrink-0 mt-4">
+				<div className="relative w-full md:max-w-175 aspect-square flex flex-col items-center justify-center shrink-0 mt-4">
 					<img
 						src="/images/frames/merch_frame.webp"
 						alt=""
 						className="absolute inset-0 w-full h-full object-contain z-0 pointer-events-none"
 					/>
 					<img
-						src="/images/background/escom-TSHIRT.png"
+						src="/images/background/escom-TSHIRT.webp"
 						alt="ESCOM Merch Shirt"
 						className="relative z-10 w-[65%] h-[65%] object-contain mt-8 mb-12"
 					/>

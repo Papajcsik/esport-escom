@@ -33,28 +33,32 @@ export default function Background({ onReadMore }: { onReadMore?: (anchor?: stri
       <img
         src={backgroundImages.backgroundTitan}
         alt="background titan"
+        fetchPriority="high"
+        decoding="async"
         className="absolute inset-0 w-full h-full object-cover z-0 will-change-transform"
       />
       <img
         id="background-lights"
         src={backgroundImages.backgroundLights}
         alt="background lights"
+        fetchPriority="high"
+        decoding="async"
         className="absolute inset-0 w-full h-full object-cover z-1 will-change-transform"
       />
 
-      <div className="absolute inset-0 flex flex-col z-10">
+      <div className="absolute inset-0 flex flex-col z-20 pointer-events-auto">
         {SECTIONS.map((section, index: number) => (
           <GameOverview key={section.title} section={section} index={index} onReadMore={onReadMore} />
         ))}
       </div>
 
-      <SVGStage className="absolute inset-0 w-full h-full z-10">
+      <SVGStage className="absolute inset-0 w-full h-full z-10 pointer-events-none">
         <Mechanic triangle={MECHANIC_1} duration={4} />
         <Mechanic triangle={MECHANIC_2} duration={6} />
         <Drone triangle={DRONE_1} duration={3} weldDuration={6} />
         <Drone triangle={DRONE_2} duration={4} weldDuration={6} />
       </SVGStage>
-      <div className="absolute top-[96%] h-150 w-[100%] z-1 inset-0 bg-black/30 backdrop-blur-sm"></div>
+      <div className="absolute top-[96%] h-150 w-full z-1 inset-0 bg-black/30 backdrop-blur-sm"></div>
     </div>
   );
 }

@@ -41,7 +41,7 @@ export const backgroundImages = {
   mechanic: "/images/background/mechanic.webp",
   weldingSparks: "/images/background/welding-drone-sparks.webp",
   weldingDrone: "/images/background/welding-drone.webp",
-  reward: "/images/background/reward.png",
+  reward: "/images/background/reward.webp",
 } as const;
 
 export const ICONS = [
@@ -78,7 +78,7 @@ export const SECTIONS = [
     title: "Escom",
     text: "is a logic and code-breaking mobile game, with community-based role-playing elements.\n\nEXPECT FAST CHALLENGES, NO TIME REQUIRMENT AND NO IN-GAME ADS!",
     hologram: "left",
-    scrollTo: undefined,
+    scrollTo: "your-time-your-game",
   },
   {
     title: "You Play as a Contractor",

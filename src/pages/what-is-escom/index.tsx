@@ -13,8 +13,15 @@ export default function WhatIsEscomPage({ scrollTo }: { scrollTo?: string }) {
 		if (!scrollTo) return;
 		const id = setTimeout(() => {
 			const el = document.getElementById(scrollTo);
-			if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-		}, 100);
+			if (el) {
+				const headerOffset = 70;
+				const targetTop = el.getBoundingClientRect().top + window.scrollY - headerOffset;
+				window.scrollTo({
+					top: Math.max(0, targetTop),
+					behavior: "smooth",
+				});
+			}
+		}, 120);
 		return () => clearTimeout(id);
 	}, [scrollTo]);
 
@@ -37,7 +44,7 @@ export default function WhatIsEscomPage({ scrollTo }: { scrollTo?: string }) {
 
 				<div className="flex flex-col gap-10 md:gap-14 animate-[fadeIn_0.4s_ease-out]">
 					{/* Section: Your time, your game */}
-					<section className="relative">
+					<section id="your-time-your-game" className="relative">
 						{/* Desktop: absolute overlay */}
 						<img
 							src={backgroundImages.mobileGame}

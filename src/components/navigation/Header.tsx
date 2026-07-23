@@ -126,9 +126,8 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
   const handleEscomTabClick = (tab: WhatIsEscomTab) => {
     const element = document.getElementById(tab);
     if (element) {
-      const headerOffset = 120;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+      const headerOffset = 70;
+      const offsetPosition = element.getBoundingClientRect().top + window.scrollY - headerOffset;
       window.scrollTo({
         top: offsetPosition,
         behavior: "smooth",

@@ -11,6 +11,8 @@ export function HeroSection() {
 		<>
 			<img
 				src={IMAGES.escomHeroBattle}
+				fetchPriority="high"
+				decoding="async"
 				className="absolute inset-0 z-0 min-h-screen object-cover"
 			/>
 			<div className="w-full min-h-screen flex flex-col gap-5 items-center justify-center relative z-10 bg-linear-to-b from-transparent via-transparent to-black">
@@ -76,7 +78,7 @@ export function HeroSection() {
 						/>
 					</div>
 
-					<span className="text-white/90 text-5xl lg:text-7xl font-bold my-4 flex tracking-[0.05em]">
+					<span className="text-white/90 text-5xl lg:text-7xl font-bold my-4 flex tracking-wider">
 						{"INITIALIZE".split("").map((char, i) => (
 							<motion.span
 								key={i}

@@ -1,7 +1,6 @@
-/* eslint-disable react-hooks/set-state-in-effect */
 import { gsap } from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Background from "./components/Background";
 import Footer from "./components/navigation/Footer";
 import { Header } from "./components/navigation/Header";
@@ -41,7 +40,7 @@ export default function LandingPage() {
   const [escomTab, setEscomTab] = useState<WhatIsEscomTab>("contractors");
   const [scrollTarget, setScrollTarget] = useState<string | undefined>(undefined);
   const [readMoreTrigger, setReadMoreTrigger] = useState(0);
-  const [firstRender, setfirstRender] = useState(true);
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -51,10 +50,10 @@ export default function LandingPage() {
   }, []);
 
   useEffect(() => {
-    // Temporary fix for scrolling after page load
-      if (firstRender) {
-        setfirstRender(false);
-        return;
+    // Skip initial page load mount scroll
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
     }
 
     if (!activePage) {
@@ -82,7 +81,8 @@ export default function LandingPage() {
   }
 
   function handleReadMore(anchor?: string) {
-    setScrollTarget(anchor);
+    const target = anchor || "your-time-your-game";
+    setScrollTarget(target);
     setReadMoreTrigger(t => t + 1);
     setActivePage("what-is-escom");
   }
@@ -111,7 +111,7 @@ export default function LandingPage() {
             {activePage === "faq" ? (
               <FaqPage activeTab={faqTab} />
             ) : activePage === "what-is-escom" ? (
-              <WhatIsEscomPage scrollTo={scrollTarget} />
+              <WhatIsEscomPage key={`${scrollTarget}-${readMoreTrigger}`} scrollTo={scrollTarget} />
             ) : (
               <ActivePageComponent />
             )}
