@@ -57,6 +57,7 @@ export function ParallaxSection() {
 					ref={skyRef}
 					src={IMAGES.sky}
 					alt="sky"
+					decoding="async"
 					className="absolute inset-x-0 top-0 h-[80vh] w-full object-fill md:h-full md:object-cover"
 				/>
 
@@ -69,6 +70,7 @@ export function ParallaxSection() {
 					ref={middleLayerRef}
 					src={IMAGES.middleLayer}
 					alt="middle layer"
+					decoding="async"
 					className="absolute inset-0 h-full w-full object-cover"
 				/>
 
@@ -76,6 +78,7 @@ export function ParallaxSection() {
 					<img
 						src={IMAGES.city}
 						alt="city"
+						decoding="async"
 						className="absolute bottom-0 left-0 h-[150vh] w-full object-cover object-bottom md:h-[clamp(17.5rem,28vw,22.5rem)]"
 					/>
 
@@ -85,6 +88,7 @@ export function ParallaxSection() {
 								ref={robotRef}
 								src={IMAGES.robot}
 								alt="robot"
+								decoding="async"
 								className="abs-center h-[clamp(12rem,52vw,26rem)] translate-y-[-35%] opacity-0"
 							/>
 
@@ -93,12 +97,14 @@ export function ParallaxSection() {
 									ref={doorLeftRef}
 									src={IMAGES.doorLeft}
 									alt="arch left"
+									decoding="async"
 									className="absolute left-0 h-full w-1/2 object-contain"
 								/>
 								<img
 									ref={doorRightRef}
 									src={IMAGES.doorRight}
 									alt="arch right"
+									decoding="async"
 									className="absolute right-0 h-full w-1/2 object-contain"
 								/>
 							</div>
@@ -106,6 +112,7 @@ export function ParallaxSection() {
 							<img
 								src={IMAGES.arch}
 								alt="arch"
+								decoding="async"
 								className="abs-center h-[clamp(19rem,80vw,40rem)] w-[clamp(22rem,96vw,48rem)]"
 							/>
 						</div>
@@ -116,6 +123,7 @@ export function ParallaxSection() {
 					ref={contractorRef}
 					src={IMAGES.contractor}
 					alt="contractor"
+					decoding="async"
 					className="absolute bottom-0 left-0 w-[clamp(20rem,36vw,25rem)]"
 				/>
 			</section>

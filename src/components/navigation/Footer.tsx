@@ -1,7 +1,8 @@
 import { ICONS, IMAGES } from "@/lib/constants";
 import type { Icon } from "@/types/types";
+import { memo } from "react";
 
-export default function Footer() {
+const Footer = memo(function Footer() {
   return (
     <div className="overflow-hidden bg-linear-to-b from-[#0F0108] from-58% to-[#650535] mt-[-1vw]">
       <div className="flex w-full items-end">
@@ -9,6 +10,8 @@ export default function Footer() {
           <img
             src={IMAGES.bannerLeft}
             alt="Left Banner"
+            decoding="async"
+            loading="lazy"
             className="w-full h-[50px] sm:h-[clamp(112px,7.51vw,168px)] object-fill"
           />
           <FooterIcons direction="left" />
@@ -17,11 +20,15 @@ export default function Footer() {
           <img
             src={IMAGES.banner}
             alt="Main Banner"
+            decoding="async"
+            loading="lazy"
             className="w-full h-full"
           />
           <img
             src={IMAGES.joinCause}
             alt="Join"
+            decoding="async"
+            loading="lazy"
             className="absolute left-1/2 top-[15%] w-[50%] h-auto -translate-x-1/2"
           />
           <a
@@ -32,6 +39,8 @@ export default function Footer() {
             <img
               src={IMAGES.googlePlayFooter}
               alt="Google Play"
+              decoding="async"
+              loading="lazy"
               className="absolute left-[50%] top-[58%] w-[73%] h-auto -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 hover:scale-105"
             />
           </a>
@@ -40,6 +49,8 @@ export default function Footer() {
           <img
             src={IMAGES.bannerRight}
             alt="Right Banner"
+            decoding="async"
+            loading="lazy"
             className="w-full h-[50px] sm:h-[clamp(112px,7.51vw,168px)] object-fill"
           />
           <FooterIcons direction="right" />
@@ -53,12 +64,16 @@ export default function Footer() {
         <img
           src={IMAGES.lifeIsGame}
           alt="GamesGuru Logo"
+          decoding="async"
+          loading="lazy"
           className="h-16 sm:h-[clamp(128px,8.58vw,192px)] w-auto mb-4 sm:mb-[clamp(24px,1.61vw,36px)]"
         />
       </div>
     </div>
   );
-}
+});
+
+export default Footer;
 
 function FooterIcons({ direction }: { direction: "left" | "right" }) {
   const icons: Icon[] =
@@ -80,6 +95,8 @@ function FooterIcons({ direction }: { direction: "left" | "right" }) {
           <img
             src={icon}
             alt={`${id} Icon`}
+            decoding="async"
+            loading="lazy"
             className="h-[18px] sm:h-[clamp(36px,2.45vw,48px)] w-auto"
           />
         </a>
