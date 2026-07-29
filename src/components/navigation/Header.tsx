@@ -25,6 +25,17 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
   const scrollLockUntil = useRef<number>(0);
   const hideHeaderTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  // Mirror latest state into refs so the scroll listener (subscribed once)
+  // can read current values without needing to re-subscribe on every change.
+  const isMenuOpenRef = useRef(isMenuOpen);
+  const isHeaderStickyRef = useRef(isHeaderSticky);
+  useEffect(() => {
+    isMenuOpenRef.current = isMenuOpen;
+  }, [isMenuOpen]);
+  useEffect(() => {
+    isHeaderStickyRef.current = isHeaderSticky;
+  }, [isHeaderSticky]);
+
   useEffect(() => {
     if (!readMoreTrigger) return;
     const immediate = setTimeout(() => {
@@ -48,29 +59,40 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
     }
   }, [isHeaderSticky]);
 
+  // Single scroll listener, subscribed once. Element is queried once and
+  // cached instead of re-querying by selector on every scroll event; the
+  // per-scroll work is throttled to one calculation per animation frame.
   useEffect(() => {
-    const handleScroll = () => {
+    const underHeroElement = document.querySelector(
+      ".relative.flex-1.overflow-hidden.min-h-screen",
+    );
+
+    let ticking = false;
+
+    const readScroll = () => {
       const currentScrollY = window.scrollY;
-      const underHeroElement = document.querySelector(
-        ".relative.flex-1.overflow-hidden.min-h-screen",
-      );
 
       if (underHeroElement) {
         const underHeroBottom = underHeroElement.getBoundingClientRect().bottom;
         const atTopThreshold = 60;
         const offScreenThreshold = -300;
 
-        let newSticky = isHeaderSticky;
-        if (!isHeaderSticky && underHeroBottom <= offScreenThreshold) {
+        const wasSticky = isHeaderStickyRef.current;
+        let newSticky = wasSticky;
+
+        if (!wasSticky && underHeroBottom <= offScreenThreshold) {
           newSticky = true;
-        } else if (isHeaderSticky && underHeroBottom > atTopThreshold) {
+        } else if (wasSticky && underHeroBottom > atTopThreshold) {
           newSticky = false;
         }
 
-        setIsHeaderSticky(newSticky);
+        if (newSticky !== wasSticky) {
+          setIsHeaderSticky(newSticky);
+          isHeaderStickyRef.current = newSticky; // keep ref in sync within this same frame
+        }
 
-        if (newSticky && !isMenuOpen) {
-          if (!isHeaderSticky) {
+        if (newSticky && !isMenuOpenRef.current) {
+          if (!wasSticky) {
             setIsHeaderHidden(true);
           } else {
             const scrollDelta = currentScrollY - lastScrollY.current;
@@ -90,14 +112,20 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
       }
 
       lastScrollY.current = currentScrollY;
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(readScroll);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isMenuOpen, isHeaderSticky]);
+  }, []);
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
@@ -357,7 +385,6 @@ export function Header({ onNavigate, activePage, faqTab, onFaqTabChange, escomTa
               label="Contractors"
               isActive={escomTab === "contractors"}
               onClick={() => handleEscomTabClick("contractors")}
-
               id="escom-contractors-button"
             />
             <SwitchButton

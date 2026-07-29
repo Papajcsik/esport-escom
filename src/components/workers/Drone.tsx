@@ -11,13 +11,11 @@ interface DroneProps {
   weldDuration: number;
 }
 
-export default function Drone({
-  triangle,
-  duration,
-  weldDuration,
-}: DroneProps) {
+export default function Drone({ triangle, duration, weldDuration }: DroneProps) {
   const groupRef = useRef<SVGGElement>(null);
   const sparksRef = useRef<SVGImageElement>(null);
+  const tlRef = useRef<gsap.core.Timeline | null>(null);
+  const isVisibleRef = useRef(true);
 
   useGSAP(
     () => {
@@ -34,7 +32,7 @@ export default function Drone({
         const nextIndex = Math.floor(Math.random() * triangle.length);
         const nextPoint = triangle[nextIndex];
 
-        gsap
+        const tl = gsap
           .timeline({ onComplete: animate })
           .to(element, {
             x: nextPoint.x,
@@ -53,9 +51,24 @@ export default function Drone({
             ease: "none",
           })
           .to(sparks, { opacity: 0, scale: 1, duration: 0.05 });
+
+        tlRef.current = tl;
+        if (!isVisibleRef.current) tl.pause();
       };
 
       animate();
+
+      const observer = new IntersectionObserver(([entry]) => {
+        isVisibleRef.current = entry.isIntersecting;
+        if (entry.isIntersecting) {
+          tlRef.current?.play();
+        } else {
+          tlRef.current?.pause();
+        }
+      });
+      observer.observe(element);
+
+      return () => observer.disconnect();
     },
     { dependencies: [triangle, duration, weldDuration] },
   );

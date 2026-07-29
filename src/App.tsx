@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import Background from "./components/Background";
 import Footer from "./components/navigation/Footer";
 import { Header } from "./components/navigation/Header";
@@ -8,18 +8,18 @@ import { MusicPlayer } from "./components/MusicPlayer";
 import { HeroSection } from "./components/sections/HeroSection";
 import { ParallaxSection } from "./components/sections/ParallaxSection";
 import { SplashScreen } from "./components/SplashScreen";
-import { siteConfig } from "./lib/config";
 import { cn } from "./lib/utils";
-import ComicBookPage from "./pages/comic-book/index";
-import FaqPage from "./pages/faq/index";
 import type { FaqTab } from "./pages/faq/index";
-import GamingStorePage from "./pages/gaming-store/index";
-import MainNewsPage from "./pages/main-news/index";
-import MerchandisePage from "./pages/merchandise/index";
-import SupportPage from "./pages/support/index";
-import WhatIsEscomPage from "./pages/what-is-escom/index";
 import type { WhatIsEscomTab } from "./pages/what-is-escom/index";
 import type { PageId } from "./types/types";
+
+const ComicBookPage = lazy(()=>import("./pages/comic-book/index"));
+const FaqPage = lazy(()=>import("./pages/faq/index"));
+const GamingStorePage = lazy(()=>import("./pages/gaming-store/index"));
+const MainNewsPage = lazy(()=>import("./pages/main-news/index"));
+const MerchandisePage = lazy(()=>import("./pages/merchandise/index"));
+const SupportPage = lazy(()=>import("./pages/support/index"));
+const WhatIsEscomPage = lazy(()=>import("./pages/what-is-escom/index"));
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -34,25 +34,17 @@ const pageComponents: Record<PageId, React.FC> = {
 };
 
 export default function LandingPage() {
-  const [isFadingOut, setIsFadingOut] = useState(false);
   const [activePage, setActivePage] = useState<PageId | null>(null);
   const [faqTab, setFaqTab] = useState<FaqTab>("faq");
   const [escomTab, setEscomTab] = useState<WhatIsEscomTab>("contractors");
   const [scrollTarget, setScrollTarget] = useState<string | undefined>(undefined);
   const [readMoreTrigger, setReadMoreTrigger] = useState(0);
-  const isFirstRender = useRef(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsFadingOut(true);
-    }, siteConfig.splashScreenDurationInSeconds * 1000);
-    return () => clearTimeout(timer);
-  }, []);
+  const [firstRender, setFirstRender] = useState(true); // useState is a must because there is some strange race condition.
 
   useEffect(() => {
     // Skip initial page load mount scroll
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
+    if (firstRender) {
+      setFirstRender(false);
       return;
     }
 
@@ -113,7 +105,9 @@ export default function LandingPage() {
             ) : activePage === "what-is-escom" ? (
               <WhatIsEscomPage key={`${scrollTarget}-${readMoreTrigger}`} scrollTo={scrollTarget} />
             ) : (
+            <Suspense fallback={null}>
               <ActivePageComponent />
+            </Suspense>
             )}
           </div>
         )}
@@ -121,18 +115,6 @@ export default function LandingPage() {
           <Background onReadMore={handleReadMore} />
         </div>
       </div>
-
-      {!ActivePageComponent && (
-        <div
-          className={cn(
-            "fixed inset-0 z-50 transition-opacity duration-800",
-            isFadingOut && "pointer-events-none",
-          )}
-          style={{ opacity: isFadingOut ? 0 : 1 }}
-        >
-          <SplashScreen />
-        </div>
-      )}
       <Footer />
     </main>
   );

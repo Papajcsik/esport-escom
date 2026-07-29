@@ -68,7 +68,7 @@ export function SplashScreen({
 	return (
 		<div
 			className={cn(
-				"fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0c0006]",
+				"fixed inset-0 z-100 flex flex-col items-center justify-center bg-[#0c0006]",
 				isFadingOut && "pointer-events-none transition-opacity duration-800",
 			)}
 			style={{ opacity: isFadingOut ? 0 : 1 }}
