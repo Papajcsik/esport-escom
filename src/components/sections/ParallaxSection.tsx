@@ -57,8 +57,8 @@ export function ParallaxSection() {
 					ref={skyRef}
 					src={IMAGES.sky}
 					alt="sky"
+					className="absolute inset-x-0 top-0 h-[70vh] w-full object-cover object-[35%_center] md:h-full md:object-cover md:object-center"
 					decoding="async"
-					className="absolute inset-x-0 top-0 h-[80vh] w-full object-fill md:h-full md:object-cover"
 				/>
 
 				<div
@@ -70,8 +70,8 @@ export function ParallaxSection() {
 					ref={middleLayerRef}
 					src={IMAGES.middleLayer}
 					alt="middle layer"
+					className="absolute bottom-0 inset-x-0 h-[95%] w-full object-cover object-bottom md:inset-0 md:h-full md:object-cover"
 					decoding="async"
-					className="absolute inset-0 h-full w-full object-cover"
 				/>
 
 				<div ref={groundRef} className="absolute inset-0">
