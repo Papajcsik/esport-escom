@@ -12,6 +12,8 @@ interface MechanicProps {
 
 export default function Mechanic({ triangle, duration }: MechanicProps) {
   const groupRef = useRef<SVGGElement>(null);
+  const tlRef = useRef<gsap.core.Timeline | null>(null);
+  const isVisibleRef = useRef(true);
 
   useGSAP(
     () => {
@@ -26,15 +28,30 @@ export default function Mechanic({ triangle, duration }: MechanicProps) {
         const nextIndex = Math.floor(Math.random() * triangle.length);
         const nextPoint = triangle[nextIndex];
 
-        gsap.timeline({ onComplete: animate, delay: 20 }).to(element, {
+        const tl = gsap.timeline({ onComplete: animate, delay: 20 }).to(element, {
           x: nextPoint.x,
           y: nextPoint.y,
           duration,
           ease: "power2.inOut",
         });
+
+        tlRef.current = tl;
+        if (!isVisibleRef.current) tl.pause();
       };
 
       animate();
+
+      const observer = new IntersectionObserver(([entry]) => {
+        isVisibleRef.current = entry.isIntersecting;
+        if (entry.isIntersecting) {
+          tlRef.current?.play();
+        } else {
+          tlRef.current?.pause();
+        }
+      });
+      observer.observe(element);
+
+      return () => observer.disconnect();
     },
     { dependencies: [triangle, duration] },
   );

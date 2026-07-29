@@ -1,6 +1,7 @@
 import { backgroundImages, SECTIONS } from "@/lib/constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 import { GameOverview } from "./sections/GameOverview";
 import SVGStage from "./workers/SVGStage";
 import Mechanic from "./workers/Mechanic";
@@ -9,33 +10,37 @@ import { MECHANIC_1, MECHANIC_2, DRONE_1, DRONE_2 } from "@/lib/constants";
 
 export default function Background({ onReadMore }: { onReadMore?: (anchor?: string) => void }) {
 
-  useGSAP(
-    () => {
-      const titanTimeline = gsap.timeline({
-        repeat: -1,
-        repeatDelay: 10,
-        defaults: { ease: "sine.inOut" },
-      });
+  useGSAP(() => {
+  const titanTimeline = gsap.timeline({
+    repeat: -1,
+    repeatDelay: 10,
+    defaults: { ease: "sine.inOut" },
+    paused: true,
+  });
 
-      titanTimeline.fromTo(
-        "#background-lights",
-        { opacity: 0 },
-        { opacity: 1, duration: 3 },
-      );
+  titanTimeline
+    .fromTo("#background-lights", { opacity: 0 }, { opacity: 1, duration: 3 })
+    .to("#background-lights", { opacity: 0, duration: 7 });
 
-      titanTimeline.to("#background-lights", { opacity: 0, duration: 7 });
-    },
-    { dependencies: [] },
-  );
+  ScrollTrigger.create({
+    trigger: "#background-lights",
+    start: "top bottom",
+    end: "bottom top",
+    onEnter: () => titanTimeline.play(),
+    onLeave: () => titanTimeline.pause(),
+    onEnterBack: () => titanTimeline.play(),
+    onLeaveBack: () => titanTimeline.pause(),
+  });
+}, { dependencies: [] });
 
   return (
     <div className="relative w-full overflow-hidden max-md:aspect-1920/10700 aspect-1920/5000">
       <img
         src={backgroundImages.backgroundTitan}
         alt="background titan"
-        fetchPriority="high"
         decoding="async"
-        className="absolute inset-0 w-full h-full object-cover z-0 will-change-transform"
+        loading="lazy"
+        className="absolute inset-0 w-full h-full object-cover z-0"
       />
       <img
         id="background-lights"
