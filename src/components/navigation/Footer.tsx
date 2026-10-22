@@ -58,6 +58,12 @@ const Footer = memo(function Footer() {
       </div>
 
       <div className="flex flex-col items-center justify-center gap-4 sm:gap-[clamp(32px,2.15vw,48px)]">
+        <p className="px-4 pt-4 sm:pt-[clamp(24px,1.61vw,36px)] text-center text-[10px] sm:text-[clamp(12px,0.8vw,16px)] text-white/80">
+          ESCOM is a gaming brand and project operated by GamesGuru DOO, a
+          company registered in the Republic of Serbia. All ESCOM products,
+          applications, and related commercial activities are operated by
+          GamesGuru DOO.
+        </p>
         <p className="text-xs sm:text-[clamp(16px,1.07vw,22px)] font-bold tracking-wide text-white">
           Powered By:
         </p>
